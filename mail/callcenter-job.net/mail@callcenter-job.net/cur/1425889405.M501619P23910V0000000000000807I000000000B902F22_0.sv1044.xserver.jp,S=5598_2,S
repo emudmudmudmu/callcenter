@@ -1,0 +1,148 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: mail@callcenter-job.net
+Received: by sv1044.xserver.jp (Postfix)
+	id 79857240014D; Mon,  9 Mar 2015 17:23:25 +0900 (JST)
+Date: Mon,  9 Mar 2015 17:23:25 +0900 (JST)
+From: MAILER-DAEMON@sv1044.xserver.jp (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: mail@callcenter-job.net
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="75F17240014A.1425889405/sv1044.xserver.jp"
+Message-Id: <20150309082325.79857240014D@sv1044.xserver.jp>
+XSRV-Filter: mail@callcenter-job.net
+
+This is a MIME-encapsulated message.
+
+--75F17240014A.1425889405/sv1044.xserver.jp
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host sv1044.xserver.jp.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<a@a.com>: Host or domain name not found. Name service error for name=a.com
+    type=A: Host not found
+
+--75F17240014A.1425889405/sv1044.xserver.jp
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; sv1044.xserver.jp
+X-Postfix-Queue-ID: 75F17240014A
+X-Postfix-Sender: rfc822; mail@callcenter-job.net
+Arrival-Date: Mon,  9 Mar 2015 17:23:25 +0900 (JST)
+
+Final-Recipient: rfc822; a@a.com
+Original-Recipient: rfc822;a@a.com
+Action: failed
+Status: 5.4.4
+Diagnostic-Code: X-Postfix; Host or domain name not found. Name service error
+    for name=a.com type=A: Host not found
+
+--75F17240014A.1425889405/sv1044.xserver.jp
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 75F17240014A;
+	Mon,  9 Mar 2015 17:23:25 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Mon, 09 Mar 2015 17:23:25 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: by sv1044.xserver.jp (Postfix, from userid 20037)
+	id 755DC240014C; Mon,  9 Mar 2015 17:23:25 +0900 (JST)
+To: a@a.com
+Subject: =?utf-8?Q?=E4=BC=9A=E5=93=A1=E7=99=BB=E9=8C=B2?=
+ =?utf-8?Q?=E5=AE=8C=E4=BA=86=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85?=
+Message-ID: <f06fb35a3471aca0f932cf537e0f2756@callcenter-job.net>
+Date: Mon, 09 Mar 2015 17:23:25 +0900
+From: =?utf-8?Q?=E3=82=B3=E3=83=BC=E3=83=AB=E3=82=BB?=
+ =?utf-8?Q?=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE?=
+ =?utf-8?Q?=E7=AA=93=E5=8F=A3=E4=BA=8B=E5=8B=99=E5=B1=80?=
+ <mail@callcenter-job.net>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"ja-JP">
+<head>
+    <meta charset=3D"utf=
+-8">
+</head>
+<body>
+<div>
+    =E3=81=A6=E3=81=99=E3=81=A8=E6=A7=
+=98<br><br>
+
+    =EF=BC=88=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=81=AF=E8=87=AA=E5=8B=95=E9=80=81=E4=BF=A1=E3=81=AB=E3=81=A6=E3=81=
+=8A=E9=80=81=E3=82=8A=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=84=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=EF=BC=89<br><br>=
+
+
+    =E3=81=93=E3=81=AE=E5=BA=A6=E3=81=AF=E3=80=8E=E3=82=B3=E3=83=
+=BC=E3=83=AB=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE=E7=AA=93=E5=8F=
+=A3=E3=80=8F=E6=96=B0=E8=A6=8F=E4=BC=9A=E5=93=A1=E7=99=BB=E9=8C=B2=E3=81=
+=97=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D<br>
+    =E3=81=BE=
+=E3=81=97=E3=81=A6=E3=80=81=E3=81=BE=E3=81=93=E3=81=A8=E3=81=AB=E3=81=82=
+=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82=E4=BB=8A=E5=BE=8C=E3=81=AF=E4=B8=8B=E8=A8=98=E3=81=AEID=
+=E3=83=BBPASS<br>
+    =E3=81=AB=E3=81=A6=E6=9C=AC=E3=82=B5=E3=82=A4=
+=E3=83=88=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=8C=E5=8F=AF=E8=83=BD=
+=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=81=94=
+=E5=88=A9=E7=94=A8=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<br><br>
+=
+
+    --------------------------------------------------<br>
+    ID:a@a.=
+com<br>
+    PASS:d12345<br>
+    ---------------------------------------=
+-----------<br>
+    =E2=98=85=E3=81=94=E6=B3=A8=E6=84=8F=EF=BC=9A<br>
+ =
+   =E4=B8=8A=E8=A8=98ID=E3=83=BBPASS=E3=81=AF=E7=AC=AC=E4=B8=89=E8=80=85=
+=E3=81=B8=E7=9F=A5=E3=82=89=E3=82=8C=E3=81=AA=E3=81=84=E3=82=88=E3=81=86=
+=E3=81=AB=E4=BF=9D=E7=AE=A1=E9=A1=98=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br=
+>
+    =E3=81=93=E3=81=AEE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=85=8D=
+=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A8=E3=81=AA=E3=81=A3=E3=81=A6=E3=81=8A=
+=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>
+    =E3=81=93=E3=81=AE=E3=83=
+=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=AB=E3=81=
+=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=
+=82=E3=81=94=E8=BF=94=E4=BA=8B=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=
+=9B=E3=82=93=E3=80=82<br>
+    <br>
+------------------------------------=
+--------------<br>
+=E3=82=B3=E3=83=BC=E3=83=AB=E3=82=BB=E3=83=B3=E3=82=
+=BF=E3=83=BC=E3=81=AE=E7=AA=93=E5=8F=A3=E4=BA=8B=E5=8B=99=E5=B1=80<br>
+=
+=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=83=A1=E3=83=BC=
+=E3=83=AB:mail@callcenter-job.net<br>
+=E3=82=B3=E3=83=BC=E3=83=AB=
+=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE=E7=AA=93=E5=8F=A3=EF=BC=9Ahtt=
+p://callcenter-job.net<br>
+----------------------------------------------=
+----</div>
+</body>
+</html>
+
+
+--75F17240014A.1425889405/sv1044.xserver.jp--

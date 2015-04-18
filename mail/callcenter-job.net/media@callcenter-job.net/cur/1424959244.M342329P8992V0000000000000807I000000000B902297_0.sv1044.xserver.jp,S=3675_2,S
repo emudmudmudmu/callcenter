@@ -1,0 +1,75 @@
+Return-Path: <service_return2@ac.rakuten-bank.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 5285D24000A4
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:00:44 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Thu, 26 Feb 2015 23:00:44 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from mail32.rakuten-bank.co.jp (mail32.rakuten-bank.co.jp [211.128.106.80])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 43D9D24000A3
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:00:44 +0900 (JST)
+Received: by mail32.rakuten-bank.co.jp (8.14.4/8.14.4) with ESMTP id t1QE0hLw022102
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:00:43 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ac.rakuten-bank.co.jp; s=fes.20140301; t=1424959243;
+	bh=ror4U5pGpgLpf3sYpxObCROqjfFfAX9zlEpUMSpZNEw=;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=eK8KPgOo5DSXKJM+351lAL514WbcfOkpjqVN3Bbre40naUrvfneKEvBLoqISjHhak
+	 +ZKK5NupgX85at2utpRIwSmZU3IkSvgX2Sjo1ThErJMUXfT/52RMEFIDIYi9XQ3Qz7
+	 Zzp+ksowa8y08zGmK2H3YJgHeIoEy/bvhb9F04kE=
+Date: Thu, 26 Feb 2015 23:00:42 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCM1pFNzZkOVQzdDwwMnE8UhsoQg==?= <pre_reg@ac.rakuten-bank.co.jp>
+Reply-To: media@callcenter-job.net
+To: media@callcenter-job.net
+Message-ID: <12643738.113846.1424959242838.JavaMail.mfsuser@opap201>
+Subject: =?ISO-2022-JP?B?GyRCM1pFNzZkOVQkKyRpJE4kKkNOJGkkOxsoQlsbJEIlYRsoQg==?=
+ =?ISO-2022-JP?B?GyRCITwlayUiJUklbCU5S1xFUE8/JE4kKjRqJCQbKEJd?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-MFSID: 8bpmvs6xysdg13
+XSRV-Filter: media@callcenter-job.net
+
+スターメディア　株式会社様 (media@callcenter-job.net)
+楽天銀行をご利用いただきありがとうございます。
+
+お客さまのメールアドレスの「仮登録」を受け付けました。
+
+「仮登録受付コード」を確認後、下記のリンク先から「登録」のための承認を
+45日以内に行ってください。
+http://merumane.rakuten-bank.co.jp/rb/rbs?RECV=MR&RG_KEY=7pztxms7carvn
+
+
+■「仮登録受付コード」の確認方法
+【個人口座・個人ビジネス口座のお客さま】
+お客さまの口座にログイン後、画面右上の「登録情報の変更」→「メール設
+定」から、お客さまのメールアドレスの横に表示されている「仮登録受付コ
+ード」をご確認ください。
+
+【法人ビジネス口座のお客さま】
+　お客さまの口座にログイン後、「商品・サービス一覧」→「メール設定」
+　よりご確認ください。
+
+※モバイルサイトから確認する場合は、「登録情報」→「メール設定」→「
+　仮登録情報」よりご確認ください。
+
+───────────────────────────────────
+当メールは、「当行口座を開設されているお客さま」により、当行サービスを
+利用するために仮登録された「メールアドレス」あてに配信させていただいて
+おります。お客さま名およびメールアドレスは本文１行目に記載されておりま
+す。お心当たりのない方は、ご面倒でも上記リンクで「拒否する」もしくは「
+禁止」をご選択ください。なお、当メールは再送される可能性がございますの
+で、あらかじめご了承ください。
+───────────────────────────────────
+
+***********************************************************************
+サービス内容に関するご質問は、当行ホームページよりお問い合わせください。
+※本メールへのご返信は対応いたしかねます。ご了承ください。
+
+楽天銀行 http://www.rakuten-bank.co.jp/
+***********************************************************************
+
+(CC043)

@@ -1,0 +1,10 @@
+<?php 
+
+if(!isset($attributes)) {
+	
+	$attributes = [];
+	
+}
+
+?>
+<?php echo Form::file($name, $attributes); ?>

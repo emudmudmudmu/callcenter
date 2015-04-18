@@ -1,0 +1,55 @@
+{
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
+	"license": "MIT",
+	"type": "project",
+	"require": {
+		"laravel/framework": "4.2.*",
+		"sukohi/cahen": "dev-master", 
+		"sukohi/camon": "dev-master",
+		"sukohi/caruta": "dev-master",
+		"sukohi/form-strap": "dev-master",
+		"sukohi/kuku": "dev-master",
+		"sukohi/menco": "dev-master",
+		"cartalyst/sentry": "2.1.*",
+		"intervention/image": "2.*", 
+		"barryvdh/laravel-debugbar": "1.*", 
+		"way/generators": "~2.0", 
+		"sukohi/surpass": "dev-master",
+		"mnshankar/CSV": "dev-master", 
+		"johntaa/captcha": "dev-master",
+		"sukohi/brick": "dev-master",
+		"sukohi/bakery": "dev-master",
+		"sukohi/search-strap": "dev-master",
+		"sukohi/japanese-prefectures": "dev-master", 
+		"sukohi/paver": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
+}

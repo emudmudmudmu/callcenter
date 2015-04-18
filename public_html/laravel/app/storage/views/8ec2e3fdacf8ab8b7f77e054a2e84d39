@@ -1,0 +1,268 @@
+<script type="text/javascript">
+
+    var TU<?php echo $dir_studly; ?> = {
+
+        ids: {
+            input: '<?php echo $input_id; ?>',
+            preview: '<?php echo $preview_id; ?>'
+        },
+        maxFile: 0,
+        formData: {},
+        previewParameters: {},
+        processingFile: 0,
+        loadData: [],
+        overCallback: null,
+        overCallbackFlag: false,
+        progress: '',
+        overwriteFlag: <?php echo ($overwrite) ? 'true' : 'false'; ?>,
+        overwritePreviewBox: null,
+        init: function() {
+
+            if(TU<?php echo $dir_studly; ?>.loadData.length > 0) {
+
+                TU<?php echo $dir_studly; ?>.initialPreview();
+
+            }
+
+            $('#'+ TU<?php echo $dir_studly; ?>.ids['input']).fileupload({
+                dataType: 'json',
+                add: function (e, data) {
+
+                    if(!TU<?php echo $dir_studly; ?>.isFull()) {
+
+                        if(TU<?php echo $dir_studly; ?>.progress != '') {
+
+                            var loadingBox = tmpl('loading_box_<?php echo $dir; ?>', { content: TU<?php echo $dir_studly; ?>.progress });
+                            $('#'+ TU<?php echo $dir_studly; ?>.ids['preview']).append(loadingBox);
+
+                        }
+
+                        TU<?php echo $dir_studly; ?>.processingFile++;
+                        <?php echo (!empty($callbacks['upload'])) ? $callbacks['upload'] : ''; ?>
+
+                        data.submit();
+
+                    } else if(TU<?php echo $dir_studly; ?>.overCallbackFlag && $.isFunction(TU<?php echo $dir_studly; ?>.overCallback)) {
+
+                        TU<?php echo $dir_studly; ?>.overCallback();
+                        TU<?php echo $dir_studly; ?>.overCallbackFlag = false;
+
+                    }
+
+                },
+                change: function (e, data) {
+
+                    TU<?php echo $dir_studly; ?>.overCallbackFlag = true;
+
+                },
+                done: function (e, data) {
+
+                    if(TU<?php echo $dir_studly; ?>.progress != '') {
+
+                        $.each($('#'+ TU<?php echo $dir_studly; ?>.ids['preview']).children(), function(index, child){
+
+                            if($(child).find('.<?php echo $id_hidden_name; ?>').length == 0) {
+
+                                $(child).remove();
+                                return false;
+
+                            }
+
+                        });
+
+                    }
+
+                    var file = data.files[0];
+
+                    if(data['result']['result']) {
+
+                        loadImage(file, function (img) {
+                                    TU<?php echo $dir_studly; ?>.preview(
+                                            img,
+                                            data['result']['insertId'],
+                                            file.name,
+                                            data['result']['saveMode']
+                                    );
+                                    <?php echo (!empty($callbacks['done'])) ? $callbacks['done'] : ''; ?>
+
+                                }, TU<?php echo $dir_studly; ?>.previewParameters
+                        );
+
+                    } else {
+
+                        TU<?php echo $dir_studly; ?>.processingFile--;
+                        <?php echo (!empty($callbacks['failed'])) ? $callbacks['failed'] : ''; ?>
+
+
+                    }
+
+                }
+
+            }).bind('fileuploadsubmit', function (e, data) {
+
+                data.formData = TU<?php echo $dir_studly; ?>.formData;
+
+            });
+
+        },
+        preview: function(img, id, filename, saveMode) {
+
+            var previewBox = tmpl('preview_box_<?php echo $dir; ?>', {});
+            var previewFooter = tmpl('preview_footer_<?php echo $dir; ?>', {surpassId: id, filename: filename});
+            var content = $(previewBox).append(img).append(previewFooter);
+
+            if(saveMode == 'overwrite') {
+
+                var originalObj = TU<?php echo $dir_studly; ?>.overwritePreviewBox;
+                originalObj.after(content);
+                TU<?php echo $dir_studly; ?>.removeBox(originalObj);
+
+            } else {
+
+                $('#'+ TU<?php echo $dir_studly; ?>.ids['preview']).append(content);
+
+            }
+
+            <?php echo (!empty($callbacks['load'])) ? $callbacks['load'] : ''; ?>
+
+
+        },
+        initialPreview: function() {
+
+            TU<?php echo $dir_studly; ?>.processingFile = TU<?php echo $dir_studly; ?>.loadData.length;
+
+            $.each(TU<?php echo $dir_studly; ?>.loadData, function(key, loadValues){
+
+                var id = loadValues['id'];
+                var url = loadValues['url'];
+                var filename = loadValues['filename'];
+                var img = $('<img/>', {
+                    src: url
+                });
+                loadImage(url, function (img) {
+                            TU<?php echo $dir_studly; ?>.preview(img, id, filename)
+                        }, TU<?php echo $dir_studly; ?>.previewParameters
+                );
+
+            });
+
+        },
+        remove: function(self, id) {
+
+            var removeUrl = $('#'+ TU<?php echo $dir_studly; ?>.ids['input']).data('removeUrl');
+            var formData = TU<?php echo $dir_studly; ?>.formData;
+            formData['remove_id'] = id;
+
+            $.post(removeUrl, TU<?php echo $dir_studly; ?>.formData, function(data){
+
+                if(data['result']) {
+
+                    TU<?php echo $dir_studly; ?>.removeBox($(self).parent());
+
+                }
+                <?php echo (!empty($callbacks['remove'])) ? $callbacks['remove'] : ''; ?>
+
+
+            }, 'json');
+
+            return false;
+
+        },
+        removeBox: function(targetObj) {
+
+            targetObj.remove();
+            TU<?php echo $dir_studly; ?>.processingFile--;
+            TU<?php echo $dir_studly; ?>.formData['surpass_overwrite_id'] = -1;
+            TU<?php echo $dir_studly; ?>.overwritePreviewBox = null;
+
+        },
+        overwrite: function(self, targetId) {
+
+            TU<?php echo $dir_studly; ?>.formData['surpass_overwrite_id'] = targetId;
+            TU<?php echo $dir_studly; ?>.overwritePreviewBox = $(self).parent();
+            $('#'+ TU<?php echo $dir_studly; ?>.ids['input']).click();
+            return false;
+
+        },
+        isFull: function() {
+
+            var processingFileCount = TU<?php echo $dir_studly; ?>.processingFile;
+            var maxFileCount = TU<?php echo $dir_studly; ?>.maxFile;
+
+            if(TU<?php echo $dir_studly; ?>.formData['surpass_overwrite_id'] > 0
+                    && processingFileCount <= maxFileCount) {
+
+                return false;
+
+            } else if(processingFileCount < maxFileCount) {
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+    };
+
+</script>
+<script type="text/x-tmpl" id="preview_box_<?php echo $dir; ?>">
+	<div<?php echo $css_div; ?>></div>
+</script>
+<script type="text/x-tmpl" id="loading_box_<?php echo $dir; ?>">
+	<div<?php echo $css_loading; ?>>{%#o.content%}</div>
+</script>
+<script type="text/x-tmpl" id="preview_footer_<?php echo $dir; ?>">
+	<br>
+	{%=o.filename%}
+	<br>
+	<input class="<?php echo $id_hidden_name; ?>" type="hidden" name="<?php echo $id_hidden_name; ?>[]" value="{%=o.surpassId%}">
+	<?php if($overwrite): ?>
+        <button<?php echo $css_button; ?> onclick="return TU<?php echo $dir_studly; ?>.overwrite(this, {%=o.surpassId%});"><?php echo $button_label; ?></button>
+    <?php else: ?>
+        <button<?php echo $css_button; ?> onclick="return TU<?php echo $dir_studly; ?>.remove(this, {%=o.surpassId%});"><?php echo $button_label; ?></button>
+    <?php endif; ?>
+</script>
+<script>
+
+    $(document).ready(function(){
+
+        TU<?php echo $dir_studly; ?>.ids = {
+            input: '<?php echo $input_id; ?>',
+            preview: '<?php echo $preview_id; ?>'
+        };
+        TU<?php echo $dir_studly; ?>.maxFile = <?php echo $max_file; ?>;
+
+        <?php if(!empty($load_data)): ?>
+
+        TU<?php echo $dir_studly; ?>.loadData = <?php echo json_encode($load_data); ?>;
+
+        <?php endif; ?>
+
+        <?php if(!empty($form_data)): ?>
+
+        TU<?php echo $dir_studly; ?>.formData = <?php echo json_encode($form_data); ?>;
+
+        <?php endif; ?>
+
+        <?php if(!empty($preview_params)): ?>
+
+        TU<?php echo $dir_studly; ?>.previewParameters = <?php echo json_encode($preview_params); ?>;
+
+        <?php endif; ?>
+
+        <?php if(!empty($progress)): ?>
+
+        TU<?php echo $dir_studly; ?>.progress = '<?php echo $progress; ?>';
+
+        <?php endif; ?>
+
+        TU<?php echo $dir_studly; ?>.overCallback = function(){
+            alert('<?php echo $alert; ?>');
+        };
+        TU<?php echo $dir_studly; ?>.init();
+
+    });
+
+</script>

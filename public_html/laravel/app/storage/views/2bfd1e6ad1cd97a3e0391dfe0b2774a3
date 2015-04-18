@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2>企業様より退会申請がありました。</h2>
+
+		<div>
+			■企業名<br>
+			<?php echo $user->last_name; ?>
+
+			<br>
+			<br>
+			■アカウントID<br>
+			<?php echo $user->account_id; ?>
+
+			<br>
+			<br>
+			■メールアドレス<br>
+			<?php echo $user->email; ?>
+
+			<br>
+			<br>
+			<?php if(!empty($employer->employer_meta->tel)): ?>
+			■電話番号<br>
+			<?php echo $employer->employer_meta->tel; ?>
+
+			<br>
+			<br>
+			<?php endif; ?>
+			<?php if(!empty($employer->employer_meta->fax)): ?>
+			■電話番号<br>
+			<?php echo $employer->employer_meta->fax; ?>
+
+			<br>
+			<br>
+			<?php endif; ?>
+			■住所<br>
+			〒<?php echo $employer->employer_meta->zip_code_1; ?>-<?php echo $employer->employer_meta->zip_code_2; ?><br>
+			<?php echo $employer->employer_meta->address->prefecture_name; ?><?php echo $employer->employer_meta->address->city_name; ?><?php echo $employer->employer_meta->other_address; ?>
+
+			<br>
+			<br>
+			■担当部署<br>
+			<?php echo $pic_department; ?>
+
+			<br>
+			<br>
+			■担当者名<br>
+			<?php echo $pic_name; ?>
+
+			<br>
+			<br>
+			■解約・退会理由<br>
+			<?php echo nl2br($reason); ?>
+
+			<br>
+			<br>
+			<?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</body>
+</html>

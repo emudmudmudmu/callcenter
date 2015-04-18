@@ -1,0 +1,219 @@
+ 
+
+<?php $__env->startSection('content'); ?>
+ 
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+          	<?php echo Form::open(['route' => 'employer.settings.complete']); ?>
+
+          
+            <div class="col-md-12">
+              <div class="row">
+                <h2 class="page-title"><span class="glyphicon glyphicon-home"></span><img src="./images/h2_company_edit.png" alt="企業情報の変更" /></h2>
+                <table class="company-edit-table">
+                    <tr>
+                        <td colspan="2" class="company-edit-title"><span class="glyphicon glyphicon-file"></span>基本情報</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact1" class="control-label">企業名</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('last_name'); ?>
+
+                            <?php echo Form::hidden('last_name', Input::get('last_name')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">設立年月</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('foundation_year'); ?> 年 <?php echo Input::get('foundation_month'); ?> 月
+                            <?php echo Form::hidden('foundation_year', Input::get('foundation_year')); ?>
+
+                            <?php echo Form::hidden('foundation_month', Input::get('foundation_month')); ?>
+
+                        </td>
+                    </tr>                  
+                    <tr>
+                        <th>
+                            <label for="inputContact3" class="control-label">代表者</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('representative'); ?>
+
+                            <?php echo Form::hidden('representative', Input::get('representative')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact4" class="control-label">資本金</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('capital_stock'); ?> 円
+                            <?php echo Form::hidden('capital_stock', Input::get('capital_stock')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">従業員数</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('employees'); ?> 人
+                            <?php echo Form::hidden('employees', Input::get('employees')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">事業内容</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo nl2br(Input::get('business_content')); ?>
+
+                            <?php echo Form::hidden('business_content', Input::get('business_content')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact6" class="control-label">本社所在地</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            〒 <?php echo Input::get('zip_code_1'); ?> - <?php echo Input::get('zip_code_2'); ?><br />
+                            <p>【都道府県・市区町村】</p>
+                            <?php echo $address->prefecture_name; ?>　<?php echo $address->city_name; ?>
+
+                            <p>【番地】</p>
+                            <?php echo Input::get('other_address'); ?>
+
+                            <p>【マンション・ビル名等】</p>
+                            <?php echo Input::get('building'); ?>
+
+                            <?php echo Form::hidden('zip_code_1', Input::get('zip_code_1')); ?>
+
+                            <?php echo Form::hidden('zip_code_2', Input::get('zip_code_2')); ?>
+
+                            <?php echo Form::hidden('prefecture_id', Input::get('prefecture_id')); ?>
+
+                            <?php echo Form::hidden('city_id', Input::get('city_id')); ?>
+
+                            <?php echo Form::hidden('other_address', Input::get('other_address')); ?>
+
+                            <?php echo Form::hidden('building', Input::get('building')); ?>
+
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table class="company-edit-table">
+                    <tr>
+                        <td colspan="2" class="company-edit-title"><span class="glyphicon glyphicon-user"></span>担当者の設定</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact7" class="control-label">担当部署名</label>
+                        </th>
+                        <td>
+                            <?php echo Input::get('pic_department'); ?>
+
+                            <?php echo Form::hidden('pic_department', Input::get('pic_department')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact8" class="control-label">担当者名</label>
+                        </th>
+                        <td>
+                            <?php echo Input::get('pic_name'); ?>
+
+                            <?php echo Form::hidden('pic_name', Input::get('pic_name')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact9" class="control-label">電話番号</label>
+                        </th>
+                        <td>
+                            <?php echo Input::get('tel'); ?>
+
+                            <?php echo Form::hidden('tel', Input::get('tel')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact10" class="control-label">FAX番号</label>
+                        </th>
+                        <td>
+                            <?php echo Input::get('fax'); ?>
+
+                            <?php echo Form::hidden('fax', Input::get('fax')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact11" class="control-label">メールアドレス</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Input::get('email'); ?>
+
+                            <?php echo Form::hidden('email', Input::get('email')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact12" class="control-label">パスワード</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo str_repeat('*', strlen(Input::get('password'))); ?>
+
+                            <?php echo Form::hidden('password', Input::get('password')); ?>
+
+                            <?php echo Form::hidden('confirm_password', Input::get('confirm_password')); ?>
+
+                        </td>
+                    </tr>
+                </table>                  
+                  
+                  
+                <div class="text-center">
+                    <button name="submit_revert" type="submit" class="btn btn-default send-btn">修正する</button>　
+                    <button name="submit_post" type="submit" class="btn btn-primary send-btn">送信する</button>
+                </div>
+              </div><!--/row-->
+
+ 
+            </div><!--/.col-xs-12.col-sm-9-->
+
+            <?php echo Form::close(); ?>
+
+            
+          </div><!--/row-->
+        </div>
+    </div>
+    <div class="pagetop">
+        <div class="container">
+            <p class="text-right"><a href="#header"><span class="glyphicon glyphicon-chevron-up"></span>ページの先頭へ</a></p>      
+        </div>
+    </div>
+    
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.employer', [
+	'page_title' => '企業情報の変更', 
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => '企業情報の変更'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,130 @@
+<?php $__env->startSection('content'); ?>
+
+    <div class="clearfix">
+        <div class="col-md-6 col-lg-6 no-padding">
+            <?php echo $search_strap->filters([
+                'status' => '状態',
+                'title' => '求人タイトル',
+            ])
+            ->dropdown('status', ApplicationStatus::application_statuses()); ?>
+
+        </div>
+    </div>
+
+    <?php if($applications->count() > 0): ?>
+        <table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:15px;">
+            <thead>
+            <tr class="bg-gray text-white font-size-sm">
+                <th>
+                    <nobr>求人タイトル</nobr>
+                </th>
+                <th data-hide="phone,tablet">
+                    <nobr>企業名</nobr>
+                </th>
+                <th data-hide="phone,tablet">
+                    <nobr>応募日時</nobr>
+                </th>
+                <th data-hide="phone,tablet">
+                    <nobr>状態</nobr>
+                </th>
+                <th>操作</th>
+                <th class="text-center">
+                    <?php echo $__env->make('partials.form.all_checked', ['selector' => '.delete_ids'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($applications as $index => $application): ?>
+                <tr>
+                    <td>
+                        <span><?php echo HTML::linkRoute('home.job_detail', $application->job->title, [$application->job->id], ['target' => '_blank']); ?></span>
+                        <br>（<?php echo AccountId::text('job', $application->job->id); ?>）
+                    </td>
+                    <td data-hide="phone,tablet"><?php echo $application->job->user->last_name; ?></td>
+                    <td data-hide="phone,tablet"><?php echo $application->created_at; ?></td>
+                    <td data-hide="phone,tablet">
+                        <div class="
+                        <?php if($application->status == 0): ?>
+                            text-warning
+                        <?php elseif($application->status == 1): ?>
+                            text-primary
+                        <?php elseif($application->status == 2): ?>
+                            text-success
+                        <?php elseif($application->status == 3): ?>
+                            text-danger
+                        <?php endif; ?>
+                        ">
+                        <?php echo $application->status_text; ?>
+
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <nobr>
+                            <?php echo Menco::get([
+                                'method' => 'DELETE',
+                                '_method' => 'DELETE',
+                                'label' => Camon::GL('remove'),
+                                'url' => route('admin.application.destroy', [$application->id]),
+                                'class' => 'btn btn-default btn-flat btn-sm bubbletip',
+                                'title' => '削除',
+                                'message' => trans('versatile.destroy_confirm')
+                            ]); ?>
+
+                        </nobr>
+                    </td>
+                    <td class="text-center vertical-middle">
+                        <?php echo Form::checkbox('delete_ids[]', $application->id, false, ['class' => 'delete_ids']); ?>
+
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="text-right">
+            <?php echo Form::open(['route' => 'admin.application.multi_delete', 'class' => 'multi_delete', 'data-selector' => '.delete_ids']); ?>
+
+            <?php echo FormStrap::submit('一括削除', ['class' => 'btn btn-danger btn-xs']); ?>
+
+            <?php echo FormStrap::hidden(['joined_delete_ids' => '']); ?>
+
+            <?php echo Form::close(); ?>
+
+        </div>
+        <div class="text-right">
+            <?php echo $applications->appends([
+                'orderby' => Input::get('orderby'),
+                'direction' => Input::get('direction')
+            ])->links(); ?>
+
+        </div>
+    <?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+    <script type="text/javascript">
+        <!--
+
+        $(document).ready(function(e){
+
+            <?php echo $__env->make('js/footable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('js/all_checked', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('js/multi_delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo SearchStrap::js(); ?>
+
+
+        });
+
+        //-->
+    </script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => '応募の一覧',
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'*' => '応募の一覧'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

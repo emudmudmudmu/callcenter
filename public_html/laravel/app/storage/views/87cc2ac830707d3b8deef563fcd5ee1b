@@ -1,0 +1,5 @@
+<?php if(!empty($category_ids)): ?>
+    <?php foreach($category_ids as $category_id): ?>
+        ■ <?php echo JobCategory::job_category_name($category_id); ?>　
+    <?php endforeach; ?>
+<?php endif; ?>

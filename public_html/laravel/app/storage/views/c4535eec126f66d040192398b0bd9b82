@@ -1,0 +1,69 @@
+<form id="search-strap-form">
+	<div class="input-group">
+		<div class="input-group-btn">
+			<button type="button" class="btn btn-<?php echo $color_types['filter']; ?> dropdown-toggle" data-toggle="dropdown">
+				<?php 
+				
+				$filter_title = $filters[$default_filter_key];
+				
+				foreach($filters as $key => $filter) {
+					
+					if(Input::has($key)) {
+						
+						$filter_title = $filter;
+						$default_filter_key = $key;
+						
+					}
+					
+				}
+				
+				$dropdown_value = '';
+				
+				if(isset($dropdown_data[$default_filter_key])) {
+					
+					$keyword = '';
+					$dropdown_value = Input::get($default_filter_key);
+					
+				}
+				
+				?>
+				<span id="search_title"><?php echo $filter_title; ?></span> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<?php foreach($filters as $key => $filter): ?>
+					<li><a href="#<?php echo $key; ?>"><i class="fa fa-angle-double-right"></i> <?php echo $filter; ?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<input type="hidden" name="search_param" value="<?php echo $default_filter_key; ?>" id="search_param" data-dropdowns="<?php echo (isset($dropdown_data)) ? implode(',', array_keys($dropdown_data)) : ''; ?>">		 
+		<span id="search_key_block">
+			<input 
+				type="text" 
+				class="form-control" 
+				placeholder="<?php echo $placeholder; ?>" 
+				id="search_key" 
+				value="<?php echo (isset($keyword) ? $keyword : ''); ?>"
+				style="<?php echo (isset($dropdown_data[$default_filter_key])) ? 'display:none;' : ''; ?>">
+		</span>
+		<?php if(isset($dropdown_data)): ?>
+			<?php foreach($dropdown_data as $key => $dropdown_values): ?>
+				<?php echo FormStrap::select(
+					$key, 
+					$dropdown_values, 
+					($key == $default_filter_key) ? $dropdown_value : '', 
+					[
+						'id' => 'search_key_'. $key, 
+						'style' => ($key == $default_filter_key) ? '' : 'display:none;'
+					]
+				)->css('group', 'search-strap-dropdown'); ?>
+
+			<?php endforeach; ?>
+		<?php endif; ?>
+		<span class="input-group-btn">
+		<?php if(!empty(Request::getQueryString())): ?>
+			<a class="btn btn-default btn-md text-muted" href="<?php echo Request::url(); ?>" title="clear">&thinsp;<i class="fa fa-times"></i>&thinsp;</a>
+		<?php endif; ?>
+			<button class="btn btn-<?php echo $color_types['button']; ?>" type="submit"><?php echo $button_label; ?></button>
+		</span>
+	</div>
+</form>

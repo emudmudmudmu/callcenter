@@ -1,0 +1,24 @@
+{
+  "name": "adminlte",
+  "version": "0.0.0",
+  "authors": [
+    "sukohi <capilano.sukohi@gmail.com>"
+  ],
+  "license": "Capilano",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "matchHeight": "~0.5.2",
+    "jquery-autosize": "~1.18.13",
+    "bootstrap.file-input": "http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js",
+    "bootstrap-tagsinput": "~0.4.2",
+    "blueimp-file-upload": "~9.8.0",
+    "jquery.fontawesome-switch": "*",
+    "footable": "~2.0.3"
+  }
+}

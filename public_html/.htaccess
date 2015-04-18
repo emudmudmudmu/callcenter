@@ -1,0 +1,16 @@
+suPHP_ConfigPath /home/starmedia/callcenter-job.net/xserver_php/
+AddHandler x-httpd-php5.5 .php .phps
+
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www.callcenter-job.net
+RewriteRule ^(.*)$ http://callcenter-job.net/$1 [R=301,L]
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^callcenter-job.net$ [NC,OR]
+RewriteCond %{REQUEST_URI} !laravel/public/
+RewriteRule (.*) /laravel/public/$1 [L]
+
+AddHandler fcgid-script .php .phps
+FCGIWrapper "/home/starmedia/callcenter-job.net/xserver_php/php-cgi -c /home/starmedia/callcenter-job.net/xserver_php/php.ini" .php
+FCGIWrapper "/home/starmedia/callcenter-job.net/xserver_php/php-cgi -c /home/starmedia/callcenter-job.net/xserver_php/php.ini" .phps

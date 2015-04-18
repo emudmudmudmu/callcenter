@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div>
+            <?php echo $name; ?>様<br><br>
+
+            （このメールは自動送信にてお送りさせていただいております）<br><br>
+
+            メールマガジン登録が完了致しました。<br><br>
+
+            メルマガ登録内容<br>
+            --------------------------------------------------<br>
+            氏名：<?php echo $name; ?><br>
+            メールアドレス：<?php echo $email; ?><br>
+            配信希望地域：<?php echo $prefecture_name; ?><br>
+            配信希望職種：<?php echo $job_type; ?><br>
+            --------------------------------------------------<br>
+            今後、リクエストに近い求人情報を送らせていただきます。<br>
+            ★ご注意：<br>
+            このEメールは配信専用となっております。<br>
+            このメールアドレスにご返信いただいてもご返事ができません。<br>
+			<?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</body>
+</html>

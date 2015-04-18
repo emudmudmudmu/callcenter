@@ -1,0 +1,21 @@
+<?php 
+
+	if(!isset($value)) {
+		
+		$value = '';
+		
+	}
+
+	if(Input::old($name)) {
+		
+		$value = Input::old($name);
+		
+	}
+
+?>
+<div class="input-group">
+	<input type="text" name="<?php echo $name; ?>" value="<?php echo (isset($value) ? $value : ''); ?>" class="form-control timepicker"/>
+	<div class="input-group-addon">
+		<i class="fa fa-clock-o"></i>
+	</div>
+</div>

@@ -1,0 +1,102 @@
+Return-Path: <my-reg-err@serr.yahoo.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 5990524000B0
+	for <media@callcenter-job.net>; Tue,  3 Mar 2015 15:51:14 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Tue, 03 Mar 2015 15:51:14 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from n04.bulk.ogk.yahoo.co.jp (n04.bulk.ogk.yahoo.co.jp [124.83.137.138])
+	by sv1044.xserver.jp (Postfix) with SMTP id 55E7124000AD
+	for <media@callcenter-job.net>; Tue,  3 Mar 2015 15:51:14 +0900 (JST)
+Comments: DKIM? See http://antispam.yahoo.co.jp/efforts_dk.html
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.yahoo.co.jp; s=bulk201106; t=1425365474; bh=fUx7elqMfLHOmkftRDf/tvmO8vQQ+p0rFK5v1vhIxms=; h=Received:Received:Date:Message-Id:Received:X-yahoo-newman-expires:From:Errors-To:X-yahoo-return-path:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:X-yahoo-newman-property:X-yahoo-newman-id; b=lR4PbZL4Bpg1lkRrOLxNR0z2qt+IV30WPyCf6oPNbfKzLrtrcZLO91oO2nhBjoqgs4VJD4KKDCOyvgkHeYbSG/sXnlbAwYYBuJjsPw/aa7H974LAp8e1Raf/eqc99e1DH9ZUknXY+5XKKNHyS8BdpruDBnkQDTuUv/WAkaFOdRs=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=bulk201106; d=mail.yahoo.co.jp; 
+	b=By/ZIvso4cFhMG2XxIj1V66Un6rSUfV+WL+Sf9UfQp+EoJRPQjwPWH04smUEC4jNUVjzCdFktWip2mnTAsrOymtdhfrGcs3/5flmlnEbCpCcnFQS92MOsNQXTUlvakdH7tSgV8SUsxhD5OWP8BYoCEE7qXoe/5WNRdrD9uHtdiM=;
+Received: from [124.83.172.205] by n04.bulk.ogk.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:14 -0000
+Received: from [183.79.126.83] by m04.bulk.ogk.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:14 -0000
+Date: 03 Mar 2015 15:51:14 +0900
+Message-Id: <54f559e2-0004265f-c0a4a19a1ce80b8102e69704ed6d84dc-4992@i02.edit.kks.yahoo.co.jp>
+Received: from [127.0.0.1] by i02.edit.kks.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:14 -0000
+X-yahoo-newman-expires: 1425369074
+From: Yahoo! JAPAN Member Service <reg-master@mail.yahoo.co.jp>
+Errors-To: my-reg-err@serr.yahoo.co.jp
+X-yahoo-return-path: my-reg-err@serr.yahoo.co.jp
+To: media@callcenter-job.net
+Subject: Yahoo! JAPAN - =?ISO-2022-JP?B?SUQbJEJFUE8/M05HJxsoQg==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+X-yahoo-newman-property: edit
+X-yahoo-newman-id: edit_1425365474_234046
+XSRV-Filter: media@callcenter-job.net
+
+=======================================================================
+※このメールは、連絡用メールアドレスあてに自動的にお送りしています。
+※登録内容をご確認のうえ、大切に保管してください。返信の必要はありません。
+=======================================================================
+
+Yahoo! JAPAN IDをご登録いただき、誠にありがとうございます。
+ご登録いただいたYahoo! JAPAN IDをご利用いただくために、ぜひご一読ください。
+
+■登録内容の確認
+ご登録いただいた内容は、以下のとおりです。
+
+【Yahoo! JAPAN ID】
+starfactory55
+
+【Yahoo!メールアドレス】
+starfactory55@yahoo.co.jp
+
+【連絡用メールアドレス】
+media@callcenter-job.net
+
+【登録日時】
+2015年03月03日 15時51分11秒
+
+◇登録情報の確認
+こちらで登録内容の詳細確認や変更手続きができます。
+https://account.edit.yahoo.co.jp/eval_profile
+
+◇秘密の質問と答えの設定
+パスワードをお忘れになった場合にご利用いただけます。
+設定されることをお勧めします。
+https://account.edit.yahoo.co.jp/set_sqa?r=4
+
+■メールアドレスログイン設定
+以下のURLのページで手続きができます。
+
+◇メールアドレスログイン設定手続きURL
+http://sh.edit.yahoo.co.jp/s/9a8c123c924b
+※このURLは2015年03月03日21時51分まで有効です。
+
+◇メールアドレスログイン設定手続きURLの有効期限をすぎた場合
+メールアドレス情報より再手続きを行なってください。
+https://account.edit.yahoo.co.jp/manage_mail
+
+◇メールアドレス情報での設定手順
+メールアドレスでログインするには（ヘルプ）
+パソコン
+http://www.yahoo-help.jp/app/answers/detail/p/544/a_id/41939
+
+スマートフォン
+http://m.yahoo-help.jp/app/answers/detail/p/646/a_id/54658
+
+◇Yahoo! JAPAN IDガイド
+http://id.yahoo.co.jp
+
+■Yahoo! JAPAN IDを登録した覚えのないお客様
+お客様以外の方が誤ってお客様のメールアドレスを入力し、メールが誤配信された可能性があります。
+Yahoo! JAPAN ID：starfactory55に、media@callcenter-job.netのメールアドレスを再度登録させたくない場合は下記のURLよりメールアドレスの削除手続きが行えます。
+【注意】
+この操作を行うとYahoo! JAPAN ID：starfactory55に、media@callcenter-job.netのメールアドレスを二度と登録することができなくなりますのでご注意ください。
+http://sh.edit.yahoo.co.jp/s/7799cb0998bb
+
+□発行:ヤフー株式会社
+□発行日:2015年03月03日
+□お問い合わせ
+パソコン：http://www.yahoo-help.jp/app/home/p/544/
+スマートフォン：http://m.yahoo-help.jp/app/home/p/646/
+Copyright (C) 2015 Yahoo Japan Corporation. All Rights Reserved.
+

@@ -1,0 +1,102 @@
+<?php $__env->startSection('meta'); ?>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<section class="top-mainvisual">
+    <div class="mainvisual-box">
+        <div class="slide-area">
+            <div class="slider">
+                <ul class="slide-img">
+                    <li><img src="home/assets/img/top/slider_01.jpg" width="750" height="250" alt=""></li>
+                    <li><img src="home/assets/img/top/slider_02.jpg" width="750" height="250" alt=""></li>
+                    <li><img src="home/assets/img/top/slider_03.jpg" width="750" height="250" alt=""></li>
+                    <li><img src="home/assets/img/top/slider_04.jpg" width="750" height="250" alt=""></li>
+                </ul>
+            </div>
+            <p class="banner"><img src="home/assets/img/top/bnr_sample.png" width="230" height="250" alt=""></p>
+        </div>
+        <div class="ticker">
+            <dl>
+                <dt><?php echo HTML::image('home/assets/img/top/headline_news.png', 'News', ['width' => '99', 'height' => '28']); ?></dt>
+                <dd>
+                    <ul class="news-ticker">
+                        <li>コールセンターの窓口は、コールセンター・コンタクトセンターに特化した求人情報サイトです。</li>
+                        <li>コールセンターの窓口では国内初の面接実施でお祝い金（QUOカード）最大5,000円を全員にプレゼント実施中です。</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div><!-- /.ticker -->
+    </div>
+</section><!-- /.top-mainvisual -->
+<section class="l-contents cf">
+    <section class="l-main">
+
+        <?php echo $__env->make('partials.html.search_box', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?><!-- /.search-box -->
+        <div class="callcenter">
+            <p><?php echo HTML::image('home/assets/img/top/callcenter_main.png', 'はじめてのコールセンター&#10;徹底した研修！やりがいのある仕事内容！充実した職場環境！目指せスキルアップ！', ['width' => '750', 'height' => '196']); ?></p>
+            <ul>
+                <li><a href="<?php echo route('home.first'); ?>#about"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_01.png', '実際の仕事内容は！？', ['width' => '375', 'height' => '69']); ?></a></li>
+                <li><a href="<?php echo route('home.first'); ?>#dress"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_02.png', 'ドレスコードってあるの！？服装や髪形は？', ['width' => '375', 'height' => '69']); ?></a></li>
+                <li><a href="<?php echo route('home.first'); ?>#training"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_03.png', '不安を解消！？しっかり研修！？研修体制は？', ['width' => '375', 'height' => '69']); ?></a></li>
+                <li><a href="<?php echo route('home.first'); ?>#environment"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_04.png', '実際の仕事内容は！？職場環境は？', ['width' => '375', 'height' => '69']); ?></a></li>
+                <li><a href="<?php echo route('home.first'); ?>#payment"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_05.png', '他業種と比べてどうなの！？お給料体系は？', ['width' => '375', 'height' => '69']); ?></a></li>
+                <li><a href="<?php echo route('home.first'); ?>#day"><?php echo HTML::image('home/assets/img/top/callcenter_bnr_06.png', '実際の仕事内容は！？一日の仕事は？', ['width' => '375', 'height' => '69']); ?></a></li>
+            </ul>
+        </div><!-- /.callcenter -->
+        <div class="recommend">
+            <h3><?php echo HTML::image('home/assets/img/top/subhead_recommend.png', 'オススメ求人情報', ['width' => '750', 'height' => '40']); ?></h3>
+            <div class="top-inner-box">
+                <?php if($recommendations->count() > 0): ?>
+                    <?php foreach($recommendations as $recommendation): ?>
+                        <dl>
+                            <dt><?php echo HTML::linkRoute('home.job_detail', $recommendation->title, [$recommendation->id]); ?></dt>
+                            <dd>
+                                <p><a href="<?php echo route('home.job_detail', [$recommendation->id]); ?>"><img src="<?php echo $recommendation->metas[0]->image_file->url; ?>" width="132" height="90" alt="<?php echo $recommendation->title; ?>"></a></p>
+                                <ul class="details">
+                                    <li><img src="home/assets/img/top/recommend_area.png" width="68" height="22" alt="勤務地"><?php echo $recommendation->prefecture->prefecture_name; ?></li>
+                                    <li><img src="home/assets/img/top/recommend_access.png" width="68" height="22" alt="アクセス"><?php echo mb_strimwidth($recommendation->transportation, 0, 15, '..'); ?></li>
+                                    <li><img src="home/assets/img/top/recommend_salary.png" width="68" height="22" alt="給与"><?php echo mb_strimwidth($recommendation->salary, 0, 15, '..'); ?></li>
+                                </ul>
+                                <p class="recommend-txt"><?php echo $recommendation->catch_phrase; ?></p>
+                            </dd>
+                        </dl>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div><!-- /.recommend -->
+        <div class="news">
+            <h3><?php echo HTML::image('home/assets/img/top/subhead_news.png', '最新コールセンター情報', ['width' => '750', 'height' => '40']); ?></h3>
+            <div class="top-inner-box">
+                <dl>
+                    <dt>2014/00/00</dt>
+                    <dd><a href="callcenter_info.html">あああああああああああああああああああああああああああああああああああああああ</a></dd>
+                    <dt>2014/00/00</dt>
+                    <dd><a href="callcenter_info.html">あああああああああああああああああああああああああああああああああああああああ</a></dd>
+                    <dt>2014/00/00</dt>
+                    <dd><a href="callcenter_info.html">あああああああああああああああああああああああああああああああああああああああ</a></dd>
+                    <dt>2014/00/00</dt>
+                    <dd><a href="callcenter_info.html">あああああああああああああああああああああああああああああああああああああああ</a></dd>
+                </dl><!-- /. -->
+            </div>
+        </div><!-- /.news -->
+        <div class="fb">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-like-box" data-href="http://www.facebook.com/platform" data-width="750" data-show-faces="true" data-border_color="" data-stream="true" data-header="true"></div>
+        </div><!-- /.fb -->
+    </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => Config::get('app.site_title')
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

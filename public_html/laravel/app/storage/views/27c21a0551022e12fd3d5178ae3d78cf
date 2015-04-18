@@ -1,0 +1,50 @@
+<?php $__env->startSection('content'); ?>
+
+	<table border="1">
+	<?php foreach($considerations as $consideration): ?>
+		<tr>
+			<td>
+				<?php echo HTML::linkRoute('employer.applicant.show', $consideration->applicant->account_id, [$consideration->applicant->id]); ?>
+
+			</td>
+			<td><?php echo $consideration->applicant->applicant_meta->gender_text; ?></td>
+			<td><?php echo $consideration->applicant->applicant_meta->age_text; ?></td>
+			<td>
+				<?php if($consideration->applicant->applicant_job_categories->count() > 0): ?>
+					<?php foreach($consideration->applicant->applicant_job_categories as $job_category): ?>
+						<?php echo JobCategory::job_category_name($job_category->category_id); ?>
+
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</td>
+			<td>
+				<?php if($consideration->applicant->applicant_job_types->count() > 0): ?>
+					<?php foreach($consideration->applicant->applicant_job_types as $job_type): ?>
+						<?php echo JobType::job_type_name($job_type->type_id); ?>
+
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</td>
+			<td>
+				<?php echo Kuku::linkRoute('employer.applicant.show', Camon::GL('search'), [$consideration->applicant->id], ['class' => 'btn btn-default btn-sm']); ?>
+
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+	<div class="text-right">
+		<?php echo $considerations->appends([
+			'orderby' => Input::get('orderby'), 
+			'direction' => Input::get('direction')
+		])->links(); ?>
+
+	</div>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => '検討中リスト',
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => '検討中リスト'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,225 @@
+@charset "UTF-8";
+* {
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+h1 {
+  font-family: 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
+}
+
+.content {
+  padding: 15px 25px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+}
+
+.input-form input, .input-form select {
+  padding: 2px 4px;
+  height: 28px;
+}
+
+.text-base {
+  color: #9D6A6A;
+}
+
+.skin-blue .navbar {
+  background: #00a0ea;
+}
+
+.skin-blue .logo, .skin-blue .logo:hover {
+  background: #f8f8f8;
+  border-bottom: 1px solid #eef;
+}
+
+.skin-blue .left-side {
+  background: #edf1f4;
+}
+
+.right-side > .content-header > h1 {
+  font-size: 20px;
+}
+
+.skin-blue .right-side > .content-header {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  background: #D9EDF7;
+}
+
+#search-strap-form {
+  margin-top: 10px;
+}
+
+.right-side > .content-header {
+  padding: 11px 10px 11px 10px;
+}
+
+.headline {
+  padding: 5px 7px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  color: #fff;
+  font-family: 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ＭＳ Ｐゴシック',sans-serif;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3c8dbc), color-stop(100%, #2e78a0));
+  background: -webkit-linear-gradient(top, #3c8dbc, #2e78a0);
+  background: -moz-linear-gradient(top, #3c8dbc, #2e78a0);
+  background: -o-linear-gradient(top, #3c8dbc, #2e78a0);
+  background: linear-gradient(top, #3c8dbc, #2e78a0);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bg-gray {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #888888), color-stop(100%, #777777));
+  background: -webkit-linear-gradient(top, #888888, #777777);
+  background: -moz-linear-gradient(top, #888888, #777777);
+  background: -o-linear-gradient(top, #888888, #777777);
+  background: linear-gradient(top, #888888, #777777);
+}
+
+.text-white {
+  color: #fff;
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+.sort_link a {
+  color: #bbb;
+}
+
+.right-side > .content-header > .breadcrumb > li > a {
+  color: #777;
+}
+
+/* For mobile, tablet */
+@media screen and (max-width: 767px) {
+  .right-side > .content-header > .breadcrumb {
+    background: #fff;
+    padding: 5px;
+    margin-top: 7px;
+  }
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+.font-size-xs {
+  font-size: 0.8rem;
+}
+
+.font-size-sm {
+  font-size: 1.2rem;
+}
+
+.font-size-md {
+  font-size: 1.3rem;
+}
+
+.font-size-lg {
+  font-size: 1.5rem;
+}
+
+.font-size-xl {
+  font-size: 2rem;
+}
+
+.hr-xs {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.hr-sm {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.hr-md {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hr-lg {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-xs {
+  padding: 3px 5px;
+}
+
+.padding-sm {
+  padding: 5px 7px;
+}
+
+.padding-md {
+  padding: 7px 10px;
+}
+
+.padding-lg {
+  padding: 10px 13px;
+}
+
+.padding-xl {
+  padding: 15px 20px;
+}
+
+margin-0 {
+  margin: 0;
+}
+
+.margin-xs {
+  margin: 3px 5px;
+}
+
+.margin-sm {
+  margin: 5px 7px;
+}
+
+.margin-md {
+  margin: 7px 10px;
+}
+
+.margin-lg {
+  margin: 10px 13px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.grid_background {
+  background-color: #fcf8e3;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.background {
+  background-color: #acddd4;
+}
+
+.inline {
+  white-space: nowrap;
+}
+
+.bg-white {
+  background: #ffffff !important;
+}

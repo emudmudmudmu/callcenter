@@ -1,0 +1,33 @@
+<?php 
+
+	$size_class = '';
+	
+	if(isset($size)) {
+		
+		switch ($size) {
+
+			case 'sm':
+				$size_class = ' btn-sm';
+				break;
+			case 'md':
+				$size_class = ' btn-md';
+				break;
+			case 'lg':
+				$size_class = ' btn-lg';
+				break;
+			
+			
+		}
+		
+	}
+
+?>
+<?php if(isset($route) && !empty($route)): ?>
+	<?php 
+	
+		if(!isset($params)) $params = [];
+
+	?>
+	<?php echo HTML::linkRoute($route, 'キャンセル', $params, ['class' => 'btn btn-default btn-flat'. $size_class]); ?>&nbsp;
+<?php endif; ?>
+<button class="btn btn-success btn-flat<?php echo $size_class; ?>" type="submit"><?php echo $label; ?> <?php echo Camon::glyphicon('circle-arrow-right', [], false); ?></button>

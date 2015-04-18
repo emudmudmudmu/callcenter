@@ -1,0 +1,54 @@
+<?php $__env->startSection('content'); ?>
+
+	<?php if($applications->count() > 0): ?>
+
+	<table class="table table-hover table-bordered bg-white footable font-size-sm" style="margin-top:15px;">
+		<thead>
+			<tr class="bg-info">
+				<th>
+					<nobr>応募日時</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>求人企業</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>求人情報</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>応募内容</nobr>
+				</th>
+			</tr>
+		</thead>
+		<?php foreach($applications as $application): ?>
+		<tbody>
+			<tr>
+				<td><?php echo $application->created_at; ?></td>
+				<td><?php echo $application->job->user->last_name; ?>（<?php echo AccountId::text('employer', $application->job->user->id); ?>）</td>
+				<td><?php echo $application->job->title; ?>（<?php echo AccountId::text('job', $application->job->id); ?>）</td>
+				<td class="text-right">
+					<nobr>
+					<?php echo Kuku::linkRoute('applicant.application.show', Camon::GL('search'), [$application->id], ['class' => 'btn btn-default btn-sm']); ?>
+
+					</nobr>
+				</td>
+			</tr>
+		</tbody>
+		<?php endforeach; ?>
+	</table>
+	<div class="text-right">
+		<?php echo $applications->appends([
+			'orderby' => Input::get('orderby'), 
+			'direction' => Input::get('direction')
+		])->links(); ?>
+
+	</div>
+	<?php endif; ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => '登録済み求人情報の一覧',
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'*' => '登録済み求人情報の一覧'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

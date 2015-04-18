@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2>お問い合わせがありました。</h2>
+
+		<div>
+			■名前<br>
+			<?php echo $name; ?><br><br>
+			■メールアドレス<br>
+			<?php echo $email; ?><br><br>
+			■お問い合わせの種類<br>
+			<?php echo $subject; ?><br><br>
+			■メッセージ<br>
+			<?php echo nl2br($mail_body); ?><br>
+			<?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</body>
+</html>

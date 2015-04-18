@@ -1,0 +1,82 @@
+<?php $__env->startSection('content'); ?>
+
+	<?php echo Form::open(['route' => ['admin.gift.update', $gift->id], 'method' => 'PUT']); ?>
+
+	<div class="headline" style="margin-top:10px;margin-bottom:15px;">お祝い金申請の詳細</div>
+	<table class="table table-bordered table-striped bg-white footable font-size-sm" style="margin-top:15px;">
+		<tbody>
+			<tr>
+				<td>求人ID</td>
+				<td><?php echo $gift->job_id; ?></td>
+			</tr>
+			<tr>
+				<td>面接日</td>
+				<td><?php echo $gift->interview_date->format('Y-m-d'); ?></td>
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td><?php echo $gift->shipping_name; ?></td>
+			</tr>
+			<tr>
+				<td>住所</td>
+				<td><?php echo $gift->shipping_address; ?></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td><?php echo $gift->email; ?></td>
+			</tr>
+			<tr>
+				<td style="vertical-align:middle;">チェック</td>
+				<td style="padding-top:15px;">
+				<?php echo FormStrap::radio('check_flag', [
+					'0' => '未チェック', 
+					'1' => 'チェック済'
+				], $gift->check_flag, [], '　')->css('group', 'none'); ?>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="clearfix">
+		<div class="col-md-12 col-lg-12 text-right no-padding">
+			<?php echo FormStrap::submit('変更する '. Camon::GL('circle-arrow-right'), ['class' => 'btn btn-success btn-sm'])
+				->cancel(route('admin.gift.index'), 'キャンセル', ['class' => 'btn btn-default btn-sm']); ?>
+
+		</div>
+	</div>
+	<?php echo Form::hidden('redirect_check_flag', (!Input::has('redirect_check_flag')) ? -1 : intval(Input::get('redirect_check_flag'))); ?>
+
+	<?php echo Form::close(); ?>
+
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+<script type="text/javascript">
+<!--
+
+	$(document).ready(function(e){
+
+		<?php echo $__env->make('js/footable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/sortable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/all_checked', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/multi_delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo SearchStrap::js(); ?>
+
+		
+	});
+
+//-->
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => 'お祝い金申請の処理',
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'admin.gift.index' => 'お祝い金の申請一覧', 
+		'*' => 'お祝い金申請の処理'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

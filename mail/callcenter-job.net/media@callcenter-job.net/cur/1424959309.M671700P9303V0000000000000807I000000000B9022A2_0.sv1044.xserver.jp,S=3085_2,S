@@ -1,0 +1,65 @@
+Return-Path: <service_return3@ac.rakuten-bank.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id A10B424000A4
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:49 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Thu, 26 Feb 2015 23:01:49 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from mail24.rakuten-bank.co.jp (mail24.rakuten-bank.co.jp [211.128.106.75])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 9BF2024000A3
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:49 +0900 (JST)
+Received: by mail24.rakuten-bank.co.jp (8.14.4/8.14.4) with ESMTP id t1QE1mL8014557
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:48 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ac.rakuten-bank.co.jp; s=fes.20140301; t=1424959308;
+	bh=M/PywRIVQDWc3Af6s09AfOx2w/ln8kM+nHfHj5NnNz0=;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=jGlIt4yEeQyjGFV35kzSiCcTZ7vYmUl/5SGfdj+Rm0z5rB91DuPICzunMS6GmuZpr
+	 UD86PJHjfc62CvADIRTJZhlaaCYmDo5pUKbM+PcZO99P67TRWZMJv3kTawRGRyy/OT
+	 FEWAbGUsURwoJ5xsF8CR8hkZjYKKTBvVf8nUA3rU=
+Date: Thu, 26 Feb 2015 23:01:48 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCM1pFNzZkOVQzdDwwMnE8UhsoQg==?= <service@ac.rakuten-bank.co.jp>
+Reply-To: media@callcenter-job.net
+To: media@callcenter-job.net
+Message-ID: <18937032.113866.1424959308227.JavaMail.mfsuser@opap201>
+Subject: =?ISO-2022-JP?B?GyRCM1pFNzZkOVQkKyRpJE4kKkNOJGkkOxsoQlsbJEIlYSE8GyhC?=
+ =?ISO-2022-JP?B?GyRCJWslIiVJJWwlOUBfRGo0ME47JE4kKkNOJGkkOxsoQl0=?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-MFSID: 31ruvekzyluz7k
+XSRV-Filter: media@callcenter-job.net
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<meta http-equiv="Content-Language" content="ja">
+<title>楽天銀行からのお知らせ[メールアドレス設定完了のお知らせ]</title>
+</head>
+<body>
+
+<pre>
+スターメディア　株式会社様(media@callcenter-job.net)
+楽天銀行をご利用いただきありがとうございます。
+
+ワンタイム認証に利用するメールアドレスの設定が完了しました。
+
+当メールは、ワンタイム認証に利用するメールアドレスを設定されたお客さま宛に配信しております。
+設定にお心当たりのない方はおそれいりますが、当行カスタマーセンターまでご連絡ください。
+
+***********************************************************************
+サービス内容に関するご質問は、当行ホームページよりお問い合わせください。
+※本メールへのご返信は対応いたしかねます。ご了承ください。
+
+楽天銀行
+<a href="http://www.rakuten-bank.co.jp/" target="_blank">http://www.rakuten-bank.co.jp/</a>
+***********************************************************************
+
+（CC156）
+</pre>
+<img src="http://rakuten.112.2o7.net/b/ss/rakutenbankftrmailprod/1/H.20.2--NS/s920140224000000?[AQB]&pageName=F0156_1&[AQE]" width="1" height="1" alt="">
+</body>
+</html>

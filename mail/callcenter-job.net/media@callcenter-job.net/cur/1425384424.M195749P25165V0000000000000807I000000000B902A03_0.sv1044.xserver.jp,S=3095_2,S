@@ -1,0 +1,79 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: media@callcenter-job.net
+Received: by sv1044.xserver.jp (Postfix)
+	id 2EA6424000B0; Tue,  3 Mar 2015 21:07:04 +0900 (JST)
+Date: Tue,  3 Mar 2015 21:07:04 +0900 (JST)
+From: MAILER-DAEMON@sv1044.xserver.jp (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: media@callcenter-job.net
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="95A0924000A4.1425384424/sv1044.xserver.jp"
+Message-Id: <20150303120704.2EA6424000B0@sv1044.xserver.jp>
+XSRV-Filter: media@callcenter-job.net
+
+This is a MIME-encapsulated message.
+
+--95A0924000A4.1425384424/sv1044.xserver.jp
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host sv1044.xserver.jp.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<taibi@jcom.ne.home.jp>: Host or domain name not found. Name service error for
+    name=jcom.ne.home.jp type=MX: Host not found, try again
+
+--95A0924000A4.1425384424/sv1044.xserver.jp
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; sv1044.xserver.jp
+X-Postfix-Queue-ID: 95A0924000A4
+X-Postfix-Sender: rfc822; media@callcenter-job.net
+Arrival-Date: Fri, 27 Feb 2015 17:19:43 +0900 (JST)
+
+Final-Recipient: rfc822; taibi@jcom.ne.home.jp
+Original-Recipient: rfc822;taibi@jcom.ne.home.jp
+Action: failed
+Status: 4.4.3
+Diagnostic-Code: X-Postfix; Host or domain name not found. Name service error
+    for name=jcom.ne.home.jp type=MX: Host not found, try again
+
+--95A0924000A4.1425384424/sv1044.xserver.jp
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 95A0924000A4
+	for <taibi@jcom.ne.home.jp>; Fri, 27 Feb 2015 17:19:43 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Fri, 27 Feb 2015 17:19:43 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from lenovo25Y (e0109-106-188-154-117.uqwimax.jp [106.188.154.117])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 562EB24000A3
+	for <taibi@jcom.ne.home.jp>; Fri, 27 Feb 2015 17:19:31 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCJWElRyUjJSIbKEI=?= <media@callcenter-job.net>
+To: <taibi@jcom.ne.home.jp>
+Subject: =?iso-2022-jp?B?GyRCMHU6fiVHITwlPyRHJDkbKEI=?=
+Date: Fri, 27 Feb 2015 17:19:28 +0900
+Message-ID: <000301d05266$1bf7f080$53e7d180$@callcenter-job.net>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_0004_01D052B1.8BE45370"
+X-Mailer: Microsoft Outlook 14.0
+Thread-Index: AdBSZghsxCy+xh/5RtKLU9PWSHLfNQ==
+Content-Language: ja
+
+--95A0924000A4.1425384424/sv1044.xserver.jp--

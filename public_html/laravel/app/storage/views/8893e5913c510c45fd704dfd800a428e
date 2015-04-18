@@ -1,0 +1,13 @@
+<?php if(Session::has($level)): ?>
+	<div class="alert alert-<?php echo $level; ?><?php echo ($dismissable) ? ' alert-dismissable' : ''; ?>">
+		<?php if($dismissable): ?>
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		<?php endif; ?>
+		<?php if(isset($icons[$level])): ?>
+			<?php echo $icons[$level]; ?>
+
+		<?php endif; ?>
+		<?php echo Session::get($level); ?>
+
+	</div>
+<?php endif; ?>

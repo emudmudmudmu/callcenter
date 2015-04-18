@@ -1,0 +1,46 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="headline" style="margin-top:15px;">スカウト</div>
+	
+	<?php echo Form::open(['route' => ['employer.applicant.scout.post', $applicant->id]]); ?>
+
+	
+	<table class="table table-hover table-striped bg-white footable font-size-sm" style="margin-top:10px;border:1px solid #ddd;">
+		<tbody>
+			<tr>
+				<th>求職者</th>
+				<td style="width:80%;"><?php echo $applicant->account_id; ?></td>
+			</tr>
+			<tr>
+				<th>求人情報</th>
+				<td>
+					<?php if(count($jobs) == 0): ?>
+						まだ登録されていません。
+					<?php else: ?>
+						<div class="col-md-6">
+							<?php echo FormStrap::select('job_id', $jobs, ''); ?>
+
+						</div>
+					<?php endif; ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<?php echo FormStrap::submit('送信'); ?>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<?php echo Form::close(); ?>
+
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => 'スカウト', 
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => 'スカウト'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

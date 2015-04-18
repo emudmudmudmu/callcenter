@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+
+	<h1>「<?php echo $employer->last_name; ?>」</h1>
+	
+	<?php echo $id = $employer->employer_meta->id; ?><br>
+	<?php echo $user_id = $employer->employer_meta->user_id; ?><br>
+	<?php echo $foundation_date = $employer->employer_meta->foundation_date; ?><br>
+	<?php echo $representative = $employer->employer_meta->representative; ?><br>
+	<?php echo $capital_stock = $employer->employer_meta->capital_stock; ?><br>
+	<?php echo $employees = $employer->employer_meta->employees; ?><br>
+	<?php echo $zip_code_1 = $employer->employer_meta->zip_code_1; ?><br>
+	<?php echo $zip_code_2 = $employer->employer_meta->zip_code_2; ?><br>
+	<?php echo $prefecture_id = $employer->employer_meta->prefecture_id; ?><br>
+	<?php echo $city_id = $employer->employer_meta->city_id; ?><br>
+	<?php echo $other_address = $employer->employer_meta->other_address; ?><br>
+	<?php echo $pic_department = $employer->employer_meta->pic_department; ?><br>
+	<?php echo $pic_name = $employer->employer_meta->pic_name; ?><br>
+	<?php echo $tel = $employer->employer_meta->tel; ?><br>
+	<?php echo $fax = $employer->employer_meta->fax; ?><br>
+	<?php echo $image_file_id = $employer->employer_meta->image_file_id; ?><br>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => $employer->last_name
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,27 @@
+{
+  "name": "jquery.fontawesome-switch",
+  "version": "0.0.1",
+  "authors": [
+    "sukohi <eagle.fly.free0722@gmail.com>"
+  ],
+  "description": "A jQuery package to manage toggle switches of Font-Awesome.",
+  "main": "jquery.fontawesome-switch.js",
+  "keywords": [
+    "jquery",
+    "toggle",
+    "switch",
+    "font-awesome"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.2.0",
+    "jquery": "~2.1.1"
+  }
+}

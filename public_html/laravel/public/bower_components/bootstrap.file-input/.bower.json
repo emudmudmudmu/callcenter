@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap.file-input",
+  "_cacheHeaders": {
+    "ETag": "\"125a-4f554ff22de64\"",
+    "Last-Modified": "Mon, 24 Mar 2014 07:15:13 GMT",
+    "Content-Length": "4698",
+    "Content-Type": "application/javascript"
+  },
+  "_release": "e-tag:125a-4f55",
+  "main": "index.js",
+  "_source": "http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js",
+  "_target": "*",
+  "_originalSource": "http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js"
+}

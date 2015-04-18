@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>
+    <?php echo $name; ?>様<br><br>
+
+    （このメールは自動送信にてお送りさせていただいております）<br><br>
+
+    この度は『コールセンターの窓口』新規会員登録していただき<br>
+    まして、まことにありがとうございます。今後は下記のID・PASS<br>
+    にて本サイトログインが可能となりますのでご利用ください。<br><br>
+
+    --------------------------------------------------<br>
+    ID:<?php echo $email; ?><br>
+    PASS:<?php echo $password; ?><br>
+    --------------------------------------------------<br>
+    ★ご注意：<br>
+    上記ID・PASSは第三者へ知られないように保管願います。<br>
+    このEメールは配信専用となっております。<br>
+    このメールアドレスにご返信いただいてもご返事ができません。<br>
+    <?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+</body>
+</html>

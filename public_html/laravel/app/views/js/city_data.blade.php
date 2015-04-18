@@ -1,0 +1,18 @@
+$('.city_data').on('change', function(e){
+	var prefectureId = $(this).val();
+	var url = '{{ route('home.city_data') }}';
+	var selector = $(this).data('target');
+	
+	$.post(url, {prefecture_id: prefectureId}, function(json){
+
+		$(selector).children().remove();
+
+		$.each(json, function(cityId, cityName){
+
+			$(selector).append($('<option>').attr({ value: cityId }).text(cityName));
+
+		});
+
+	}, 'json');
+
+});

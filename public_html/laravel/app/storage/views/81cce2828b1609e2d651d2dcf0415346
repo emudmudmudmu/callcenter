@@ -1,0 +1,63 @@
+<?php $__env->startSection('content'); ?>
+
+	<?php echo Form::open(['route' => ['admin.'. $announcement_mode .'.announcement.update', $announcement->id], 'method' => 'PUT']); ?>
+
+	
+		<div class="clearfix">
+			<div class="col-md-6 col-lg-6">
+				<?php echo FormStrap::text('title', $announcement->title)
+					->label('タイトル', ['class' => 'text-warning']); ?>
+
+			</div>
+		</div>
+		<div class="clearfix">
+			<div class="col-md-12 col-lg-12">
+				<?php echo FormStrap::textarea('description', $announcement->description, ['cols' => '5'])
+					->label('告知内容', ['class' => 'text-warning']); ?>
+
+			</div>
+		</div>
+		<div class="clearfix">
+			<div class="col-md-12 col-lg-12 text-right">
+				<?php echo FormStrap::submit('変更する '. Camon::GL('circle-arrow-right'), ['class' => 'btn btn-success btn-flat btn-sm'])
+					->cancel(route('admin.'. $announcement_mode .'.announcement.index'), 'キャンセル', ['class' => 'btn btn-default btn-flat btn-sm']); ?>
+
+			</div>
+		</div>
+		
+		<?php echo FormStrap::hidden(['mode' => $announcement_mode]); ?>
+
+		
+		<?php echo FormStrap::attributeNames(); ?>
+
+	<?php echo Form::close(); ?>
+
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			
+			<?php echo $__env->make('js/autosize', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('js/file_input', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('js/datepicker', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('js/timepicker', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('js/tagsinput', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			
+		});
+		
+	</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => trans('versatile.title.create', ['name' => $data_name]), 
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'admin.'. $announcement_mode .'.announcement.index' => trans('versatile.title.index', ['name' => $data_name]), 
+		'*' => trans('versatile.title.create', ['name' => $data_name])
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

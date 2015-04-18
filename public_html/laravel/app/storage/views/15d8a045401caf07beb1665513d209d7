@@ -1,0 +1,134 @@
+<?php $__env->startSection('content'); ?>
+	
+	<div class="clearfix" style="margin-top:10px;margin-bottom:0;color:#999;">
+		<div class="col-md-4 padding-xs">
+			<!-- Primary box -->
+			<div class="box box-solid box-primary match-height" style="margin-bottom:15px;">
+				<div class="box-header">
+					<h3 class="box-title"><?php echo Camon::GL('briefcase'); ?>求人情報</h3>
+				</div>
+				<div class="box-body">
+                    └ <?php echo HTML::linkRoute('admin.job.index', '求人の一覧'); ?><br>
+                    └ <?php echo HTML::linkRoute('admin.recommendation', 'おすすめの設定'); ?><br>
+                    └ <?php echo HTML::linkRoute('admin.application.index', '応募の一覧'); ?>
+
+
+				</div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div><!-- /.col -->
+		<div class="col-md-4 padding-xs">
+			<!-- Primary box -->
+			<div class="box box-solid box-primary match-height" style="margin-bottom:15px;">
+				<div class="box-header">
+					<h3 class="box-title"><?php echo Camon::GL('user'); ?>ユーザー</h3>
+				</div>
+				<div class="box-body">
+					└ <?php echo HTML::linkRoute('admin.employer.index', '企業の一覧'); ?>&nbsp;（<?php echo HTML::linkRoute('admin.employer.create', '追加'); ?>）<br>
+					└ <?php echo HTML::linkRoute('admin.applicant.index', '求職者の一覧'); ?>
+
+				</div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div><!-- /.col -->
+		<div class="col-md-4 padding-xs">
+			<!-- Primary box -->
+			<div class="box box-solid box-primary match-height" style="margin-bottom:15px;">
+				<div class="box-header">
+					<h3 class="box-title"><?php echo Camon::GL('bullhorn'); ?>告知</h3>
+				</div>
+				<div class="box-body">
+					└ <?php echo HTML::linkRoute('admin.all.announcement.index', 'サイト告知の一覧'); ?>&nbsp;（<?php echo HTML::linkRoute('admin.all.announcement.create', '追加'); ?>）<br>
+					└ <?php echo HTML::linkRoute('admin.employer.announcement.index', '企業告知の一覧'); ?>（<?php echo HTML::linkRoute('admin.employer.announcement.create', '追加'); ?>）
+				</div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div><!-- /.col -->
+		<div class="col-md-4 padding-xs">
+			<!-- Primary box -->
+			<div class="box box-solid box-primary match-height" style="margin-bottom:15px;">
+				<div class="box-header">
+					<h3 class="box-title"><?php echo Camon::FA('gift'); ?>お祝い金</h3>
+				</div>
+				<div class="box-body">
+					└ <?php echo HTML::linkRoute('admin.gift.index', '申請の一覧'); ?>（<?php echo HTML::linkRoute('admin.gift.index', '未チェックのみ', ['check_flag' => '0']); ?>）
+				</div><!-- /.box-body -->
+			</div><!-- /.box -->
+		</div><!-- /.col -->
+	</div>
+	<div class="padding-xs">
+		<table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:5px;">
+			<tbody>
+				<tr>
+					<td colspan="2" class="bold bg-gray text-white">ユーザー情報</td>
+				</tr>
+				<tr>
+					<td><nobr>企業ユーザー</nobr></td>
+					<td style="width:73%;"><?php echo HTML::linkRoute('admin.employer.index', (isset($user_counts[2])) ? $user_counts[2] : 0 .'人'); ?></td>
+				</tr>
+				<tr>
+					<td><nobr>求職者ユーザー</nobr></td>
+					<td><?php echo HTML::linkRoute('admin.applicant.index', (isset($user_counts[3]) ? $user_counts[3] : 0) .'人'); ?></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:5px;">
+			<tbody>
+				<tr>
+					<td colspan="2" class="bold bg-gray text-white">求人情報</td>
+				</tr>
+				<tr>
+					<td><nobr>審査待ち</nobr></td>
+					<td style="width:73%;">
+						<?php if(isset($job_counts[0])): ?>
+							<a href="<?php echo route('admin.job.index', ['activated=0']); ?>"><?php echo (isset($job_counts[0]) ? $job_counts[0] : 0); ?>件</a>
+						<?php else: ?>
+							0件
+						<?php endif; ?>
+					</td>
+				</tr>
+				<tr>
+					<td><nobr>公開中</nobr></td>
+					<td>
+						<?php if(isset($job_counts[1])): ?>
+							<a href="<?php echo route('admin.job.index', ['activated=1']); ?>"><?php echo (isset($job_counts[1])) ? $job_counts[1] : 0; ?>件</a>
+						<?php else: ?>
+							0件
+						<?php endif; ?>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:5px;">
+			<tbody>
+				<tr>
+					<td colspan="2" class="bold bg-gray text-white">応募情報</td>
+				</tr>
+				<tr>
+					<td><nobr>応募総数</nobr></td>
+					<td style="width:73%;">
+						<a href="<?php echo route('admin.application.index'); ?>"><?php echo (isset($applications)) ? array_sum($applications) : 0; ?>件</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+		<?php echo $__env->make('js/match_height', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		
+	});
+	</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => '管理者トップ',
+	'bakery_params' => [
+		'*' => 'ホーム'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,52 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="mailmagazine">
+                <h2><?php echo HTML::image('home/assets/img/mailmagazine/h_mailmagazine.png', 'コールセンターの窓口のメールマガジン', ['width' => '750', 'height' => '250']); ?></h2>
+                <div class="arw"><?php echo HTML::image('home/assets/img/mailmagazine/img_arrow_down.png', 'ご希望エリアの最新のコールセンター求人を随時配信！&#10;お気軽にご利用ください。', ['width' => '400', 'height' => '66']); ?></div>
+                <h3><?php echo HTML::image('home/assets/img/mailmagazine/headline_form.png', 'メールマガジン登録フォーム', ['width' => '750', 'height' => '40']); ?></h3>
+                <div class="formbox">
+                    <p class="confirm-txt">内容をご確認の上、ご送信ください。</p>
+                    <?php echo Form::open(['route' => 'home.newsletter_complete']); ?>
+
+                        <table class="apply-table">
+                            <tr>
+                                <th>氏名<span class="required">[必須]</span></th>
+                                <td width="70%"><?php echo Input::get('name'); ?><?php echo Form::hidden('name', Input::get('name')); ?></td>
+                            </tr>
+                            <tr>
+                                <th>メールアドレス<span class="required">[必須]</span></th>
+                                <td><?php echo Input::get('email'); ?><?php echo Form::hidden('email', Input::get('email')); ?></td>
+                            </tr>
+                            <tr>
+                                <th>メールアドレス（確認）<span class="required">[必須]</span></th>
+                                <td><?php echo Input::get('confirm_email'); ?><?php echo Form::hidden('confirm_email', Input::get('confirm_email')); ?></td>
+                            </tr>
+                            <tr>
+                                <th>配信希望地域<span class="required">[必須]</span></th>
+                                <td><?php echo JapanesePrefectures::prefectureName(Input::get('prefecture_id')); ?><?php echo Form::hidden('prefecture_id', Input::get('prefecture_id')); ?></td>
+                            </tr>
+                            <tr>
+                                <th>配信希望職種（複数選択可）<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo implode('、', NewsletterJobType::job_type_names(Input::get('job_types'))); ?>
+
+                                    <?php foreach(Input::get('job_types') as $job_type_id): ?>
+                                        <?php echo Form::hidden('job_types[]', $job_type_id); ?>
+
+                                    <?php endforeach; ?>
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="btn"><input type="image" src="home/assets/img/form/btn_submit.png" alt="送信する"></p>
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => 'メールマガジン'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

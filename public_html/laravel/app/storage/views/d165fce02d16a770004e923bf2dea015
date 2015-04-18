@@ -1,0 +1,45 @@
+<?php
+
+    $current_url = Request::url() .'?';
+
+    if(Input::all()) {
+
+        foreach (Input::all() as $key => $value) {
+
+            if($key != 'page') {
+
+                if(is_array($value)) {
+
+                    foreach ($value as $array_value) {
+
+                        $current_url .= urlencode($key .'[]') .'='. $array_value .'&';
+
+                    }
+
+                } else {
+
+                    $current_url .= $key .'='. $value .'&';
+
+                }
+
+            }
+
+        }
+
+    }
+?>
+<ul>
+    <?php if($jobs->getCurrentPage() > 1): ?>
+        <li><a href="<?php echo $current_url; ?>page=<?php echo ($jobs->getCurrentPage()-1); ?>">前へ</a></li>
+    <?php endif; ?>
+    <?php for($i = 1 ; $i <= $jobs->getLastPage() ; $i++): ?>
+        <?php if($i == $jobs->getCurrentPage()): ?>
+            <li><span class="page-on"><?php echo $i; ?></span></li>
+        <?php else: ?>
+            <li><a href="<?php echo $current_url; ?>page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+        <?php endif; ?>
+    <?php endfor; ?>
+    <?php if($jobs->getCurrentPage() < $jobs->getLastPage()): ?>
+        <li><a href="<?php echo $current_url; ?>page=<?php echo ($jobs->getCurrentPage()+1); ?>">次へ</a></li>
+    <?php endif; ?>
+</ul>

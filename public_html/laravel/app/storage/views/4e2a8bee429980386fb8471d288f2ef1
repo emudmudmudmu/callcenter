@@ -1,0 +1,437 @@
+<?php $__env->startSection('content'); ?>
+
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+          <?php if(Input::exists('id')): ?>
+          	<?php echo Form::open(['route' => ['employer.job.update', Input::get('id')], 'method' => 'PUT']); ?>
+
+          <?php else: ?>
+          	<?php echo Form::open(['route' => 'employer.job.store']); ?>
+
+          <?php endif; ?>
+          
+            <div class="col-md-12">
+              <div class="row">
+                <h2 class="page-title"><span class="glyphicon glyphicon-user"></span><?php echo HTML::image('employer/images/h2_job_entry.png', '求人情報の登録'); ?></h2>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-file"></span>基本情報</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact1" class="control-label">求人情報のタイトル</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Input::get('title'); ?>
+
+                        	<?php echo Form::hidden('title', Input::get('title')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">キャッチコピー</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Input::get('catch_phrase'); ?>
+
+                        	<?php echo Form::hidden('catch_phrase', Input::get('catch_phrase')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">キャッチテキスト</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo nl2br(Input::get('catch_text')); ?>
+
+                            <?php echo Form::hidden('catch_text', Input::get('catch_text')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact3" class="control-label">募集の概要</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('description')); ?>
+
+                        	<?php echo Form::hidden('description', Input::get('description')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">雇用形態(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo implode('、&nbsp;', JobType::job_type_names(Input::get('job_type_ids'))); ?>　
+                            <?php foreach(Input::get('job_type_ids') as $job_type_id): ?>
+                        		<?php echo Form::hidden('job_type_ids[]', $job_type_id); ?>
+
+                        	<?php endforeach; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">該当職種(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo implode('、&nbsp;', JobCategory::job_category_names(Input::get('job_type_ids'))); ?>　
+                        	<?php foreach(Input::get('job_type_ids') as $job_category_id): ?>
+                        		<?php echo Form::hidden('job_category_ids[]', $job_category_id); ?>
+
+                        	<?php endforeach; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">該当条件(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo implode('、&nbsp;', JobCondition::job_conditions(Input::get('job_condition_ids'))); ?>　
+                            <?php foreach(Input::get('job_condition_ids') as $job_condition_id): ?>
+                        		<?php echo Form::hidden('job_condition_ids[]', $job_condition_id); ?>
+
+                        	<?php endforeach; ?>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>
+                            <label for="inputContact4" class="control-label">募集職種</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('job_pattern')); ?>
+
+                        	<?php echo Form::hidden('job_pattern', Input::get('job_pattern')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">応募資格</label>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('capacity')); ?>
+
+                        	<?php echo Form::hidden('capacity', Input::get('capacity')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">勤務地</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo JapanesePrefectures::prefectureName(Input::get('prefecture_id')); ?>
+
+                        	<?php echo Form::hidden('prefecture_id', Input::get('prefecture_id')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact6" class="control-label">勤務地(それ以降の住所)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Input::get('other_address'); ?>
+
+                        	<?php echo Form::hidden('other_address', Input::get('other_address')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact7" class="control-label">アクセス</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('transportation')); ?>
+
+                        	<?php echo Form::hidden('transportation', Input::get('transportation')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact8" class="control-label">勤務時間帯</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('duty_hours')); ?>
+
+                        	<?php echo Form::hidden('duty_hours', Input::get('duty_hours')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact9" class="control-label">給与体系</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('salary')); ?>
+
+                        	<?php echo Form::hidden('salary', Input::get('salary')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact10" class="control-label">休日休暇</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('holiday')); ?>
+
+                        	<?php echo Form::hidden('holiday', Input::get('holiday')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact11" class="control-label">福利厚生</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('benefit')); ?>
+
+                        	<?php echo Form::hidden('benefit', Input::get('benefit')); ?>
+
+                        </td>
+                    </tr>
+                  </table>
+
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-pencil"></span>応募・選考について</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact12" class="control-label">入社までの流れ</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('choice_process')); ?>
+
+                        	<?php echo Form::hidden('choice_process', Input::get('choice_process')); ?>
+
+                        </td>
+                    </tr>
+                      <tr>
+                        <th>
+                            <label for="inputContact13" class="control-label">所在地・面接会場</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('interview_address')); ?>
+
+                        	<?php echo Form::hidden('interview_address', Input::get('interview_address')); ?>
+
+                        </td>
+                    </tr>                  
+                </table>                  
+
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-picture"></span>画像登録</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">メイン画像</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                           <?php if($images['main_company']): ?>
+	                           <?php foreach($images['main_company'] as $image): ?>
+	                           	 <?php echo HTML::image(Config::get('app.pathes.upload') .'/'. $image->dir .'/'. $image->filename, '', ['style' => 'max-width:200px;']); ?>
+
+	                           <?php endforeach; ?>
+	                           <?php foreach(Input::get('surpass_ids_main_companies') as $image_file_id): ?>
+	                             <?php echo Form::hidden('surpass_ids_main_companies[]', $image_file_id); ?>
+
+	                           <?php endforeach; ?>
+                           <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">サブ画像(2枚)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                           <?php if($images['sub_company']): ?>
+	                           <?php foreach($images['sub_company'] as $image): ?>
+	                           	 <?php echo HTML::image(Config::get('app.pathes.upload') .'/'. $image->dir .'/'. $image->filename, '', ['style' => 'max-width:200px;']); ?>
+
+	                           <?php endforeach; ?>
+	                           <?php foreach(Input::get('surpass_ids_sub_companies') as $image_file_id): ?>
+	                             <?php echo Form::hidden('surpass_ids_sub_companies[]', $image_file_id); ?>
+
+	                           <?php endforeach; ?>
+                           <?php endif; ?>
+                        </td>
+                    </tr>
+                     <tr>
+                        <th>
+                            <label class="control-label">企業/担当者紹介画像</label>
+                        </th>
+                        <td>
+                           <?php if($images['pic']): ?>
+	                           <?php foreach($images['pic'] as $image): ?>
+	                           	 <?php echo HTML::image(Config::get('app.pathes.upload') .'/'. $image->dir .'/'. $image->filename, '', ['style' => 'max-width:200px;']); ?>
+
+	                           <?php endforeach; ?>
+	                           <?php foreach(Input::get('surpass_ids_pics') as $image_file_id): ?>
+	                             <?php echo Form::hidden('surpass_ids_pics[]', $image_file_id); ?>
+
+	                           <?php endforeach; ?>
+                           <?php endif; ?>
+                        </td>
+                    </tr>                   
+                    <tr>
+                        <th>
+                            <label for="inputContact14" class="control-label">採用担当者部署名</label>
+                        </th>
+                        <td>
+                        	<?php echo Input::get('pic_department'); ?>
+
+                        	<?php echo Form::hidden('pic_department', Input::get('pic_department')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact15" class="control-label">採用担当者名</label>
+                        </th>
+                        <td>
+                        	<?php echo Input::get('pic_name'); ?>
+
+                        	<?php echo Form::hidden('pic_name', Input::get('pic_name')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact16" class="control-label">採用担当者コメント欄</label>
+                        </th>
+                        <td>
+                        	<?php echo nl2br(Input::get('pic_comment')); ?>
+
+                        	<?php echo Form::hidden('pic_comment', Input::get('pic_comment')); ?>
+
+                        </td>
+                    </tr> 
+                </table>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-envelope"></span>応募通知</td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label for="inputContact17" class="control-label">応募通知設定</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<p>
+                        	<?php if(Input::get('notification_type') == 2): ?>
+	                        	<?php echo Input::get('notification_email'); ?>
+
+                        	<?php else: ?>
+                        		<?php echo $user->email; ?>
+
+                        	<?php endif; ?>
+                        	</p>
+                        	<?php echo Form::hidden('notification_email', Input::get('notification_email')); ?>
+
+                        	<?php echo Form::hidden('notification_type', Input::get('notification_type')); ?>
+
+                        </td>
+                    </tr>
+                </table>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-ok"></span>応募通知</td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">求人公開</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                           <?php if(Input::get('displayed') == 1): ?>
+                           	掲載
+                           <?php else: ?>
+                           	非掲載
+                           <?php endif; ?>
+                           <?php echo Form::hidden('displayed', Input::get('displayed')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">応募上限</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                           <?php if(Input::get('application_ceiling_type_id') == 1): ?>
+                           	<p>制限有り</p>
+                          	<p><?php echo Input::get('application_amount'); ?>人まで</p>
+                           <?php else: ?>
+                           	<p>制限なし</p>
+                           <?php endif; ?>
+                           <?php echo Form::hidden('application_ceiling_type_id', Input::get('application_ceiling_type_id')); ?>
+
+                           <?php echo Form::hidden('application_amount', Input::get('application_amount')); ?>
+
+                        </td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">掲載期限</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                           <?php if(Input::get('release_type_id') == 1): ?>
+                           	<p>制限有り</p>
+                          	<p><?php echo Input::get('release_year'); ?>年 <?php echo Input::get('release_month'); ?>月 <?php echo Input::get('release_day'); ?>日</p>
+                           <?php else: ?>
+                           	<p>制限なし</p>
+                           <?php endif; ?>
+                           <?php echo Form::hidden('release_type_id', Input::get('release_type_id')); ?>
+
+                           <?php echo Form::hidden('release_year', Input::get('release_year')); ?>
+
+                           <?php echo Form::hidden('release_month', Input::get('release_month')); ?>
+
+                           <?php echo Form::hidden('release_day', Input::get('release_day')); ?>
+
+                        </td>
+                    </tr>                  
+                </table>
+                  
+                <div class="text-center">
+                    <button name="submit_revert" type="submit" class="btn btn-default send-btn">修正する</button>　
+                    <button name="submit_post" type="submit" class="btn btn-primary send-btn">送信する</button>
+                </div>
+              </div><!--/row-->
+
+ 
+            </div><!--/.col-xs-12.col-sm-9-->
+
+          <?php if(Input::exists('id')): ?>
+          	<?php echo Form::hidden('id', Input::get('id')); ?>
+
+          <?php endif; ?>
+          <?php echo Form::close(); ?>
+
+            
+          </div><!--/row-->
+        </div>
+    </div>
+    <div class="pagetop">
+        <div class="container">
+            <p class="text-right"><a href="#header"><span class="glyphicon glyphicon-chevron-up"></span>ページの先頭へ</a></p>      
+        </div>
+    </div>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.employer', [
+	'page_title' => '求人情報の登録', 
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'employer.job.index' => '登録済み求人情報の一覧', 
+		'*' => '求人情報の登録'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

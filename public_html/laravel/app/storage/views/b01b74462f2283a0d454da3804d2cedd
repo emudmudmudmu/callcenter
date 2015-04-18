@@ -1,0 +1,99 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <?php echo $__env->make('partials.html.search_box', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?><!-- /.search-box -->
+
+            <?php if(!empty($jobs)): ?>
+                <?php foreach($jobs as $index => $job): ?>
+                    <div class="keeplist">
+                        <div class="listbox">
+                            <h3 class="txt-small">
+                                <?php if(Job::isNew($job->created_at)): ?>
+                                    <img src="<?php echo url('home/assets/img/search/ic_new.png'); ?>" width="60" height="24" alt="NEW" class="new-ic">
+                                <?php endif; ?><?php echo $job->title; ?>
+
+                            </h3>
+                            <div class="company-name">
+                                <table class="work-num">
+                                    <tr>
+                                        <th><?php echo HTML::image('home/assets/img/search/ic_apply_company.png', '応募先', ['width' => '72', 'height' => '24']); ?></th>
+                                        <td class="companyname"><?php echo $job->user->last_name; ?></td>
+                                        <th><?php echo HTML::image('home/assets/img/search/ic_number.png', '仕事番号', ['width' => '72', 'height' => '24']); ?></th>
+                                        <td class="number"><?php echo AccountId::text('job', $job->id); ?></td>
+                                    </tr>
+                                </table>
+                                <?php echo $__env->make('partials/html/job_types', [
+                                    'type_ids' => $job->meta_values['type_ids']
+                                ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                <p class="quo-bnr"><a href="<?php echo route('home.quo'); ?>"><?php echo HTML::image('home/assets/img/search/bnr_quocard.png', '面接で全員QUOカード', ['width' => '165', 'height' => '35']); ?></a></p>
+                            </div><!-- /.company-name -->
+                            <?php echo $__env->make('partials/html/job_conditions', [
+                                'condition_ids' => $job->meta_values['condition_ids']
+                            ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                            <dl class="intro">
+                                <dt><?php echo $job->catch_phrase; ?></dt>
+                                <dd><?php echo $job->catch_text; ?></dd>
+                            </dl>
+                            <div class="details">
+                                <p class="photo">
+                                    <?php if(!empty($job->meta_values['main_company_image_file_ids'])): ?>
+                                        <?php echo HTML::image($image_urls['main_companies'][$job->meta_values['main_company_image_file_ids'][0]], $job->title, ['style' => 'width:278px;height:185px;']); ?>
+
+                                    <?php endif; ?>
+                                </p>
+                                <table class="data-table">
+                                    <tr>
+                                        <th>募集職種</th>
+                                        <td>
+                                            <?php echo $__env->make('partials/html/job_categories', [
+                                                'category_ids' => $job->meta_values['category_ids']
+                                            ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>仕事内容</th>
+                                        <td><?php echo $job->description; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>給与</th>
+                                        <td><?php echo $job->salary; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>勤務地</th>
+                                        <td><?php echo JapanesePrefectures::prefectureName($job->prefecture_id); ?><?php echo $job->other_address; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>アクセス</th>
+                                        <td><?php echo $job->transportation; ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <ul class="btns">
+                                <li class="detail"><a href="<?php echo route('home.job_detail', [$job->id]); ?>"><?php echo HTML::image('home/assets/img/search/btn_more.png', '求人詳細を見る', ['width' => '224', 'height' => '60']); ?></a></li>
+                                <li class="apply"><a href="<?php echo route('home.application', [$job->id]); ?>"><?php echo HTML::image('home/assets/img/search/btn_apply.png', '今すぐ応募する', ['width' => '224', 'height' => '60']); ?></a></li>
+                                <li class="add">
+                                    <?php echo Menco::get([
+                                        'method' => 'POST',
+                                        'label' => '<img src="'. url('home/assets/img/search/btn_addlist.png') .'" width="153" height="40">',
+                                        'url' => route('applicant.consideration.post'),
+                                        'class' => '',
+                                        'message' => 'リストに追加しますか？'
+                                    ], [
+                                        'job_id' => $job->id,
+                                        'flag' => 1
+                                    ]); ?>
+
+                                </li>
+                            </ul>
+
+                        </div><!-- /.listbox -->
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => 'お仕事を探す'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

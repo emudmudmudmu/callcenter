@@ -1,0 +1,74 @@
+Return-Path: <my-reg-err@serr.yahoo.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id CB017240010F
+	for <media@callcenter-job.net>; Tue, 10 Mar 2015 20:13:12 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Tue, 10 Mar 2015 20:13:12 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from n04.bulk.ogk.yahoo.co.jp (n04.bulk.ogk.yahoo.co.jp [124.83.137.138])
+	by sv1044.xserver.jp (Postfix) with SMTP id C757324000FE
+	for <media@callcenter-job.net>; Tue, 10 Mar 2015 20:13:12 +0900 (JST)
+Comments: DKIM? See http://antispam.yahoo.co.jp/efforts_dk.html
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.yahoo.co.jp; s=bulk201106; t=1425985992; bh=4WWSPLdQSEunWOX0LPBmJx0kLUSTCfWqcD9LAsUK7Jw=; h=Received:Message-Id:Received:Date:Received:X-yahoo-newman-expires:From:Errors-To:X-yahoo-return-path:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:X-yahoo-newman-property:X-yahoo-newman-id; b=nKK1sWMGg/u0MnmZUexZm7GAPz2OwoidvF5328M4GDYLUPgCaUqlXNbTUmDy9O0for+IGuvC1NOTeO1HkLKzT/NimUT6FPFby4CJOJthrK6PtErNImMfXhun2f3X/+E3Yd2U79ETLwCbublW4Tp/QniDeELlbhRzozDDD6JZ7EI=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=bulk201106; d=mail.yahoo.co.jp; 
+	b=gQboCQBlf3FQUl2lagL6Wy1k/Tjp4JSG4RN9KMX41Y11aLPk/DIS9QhxX5PoOsrQ++9tX/Q8rSXo0I9etnsJjsXBnQyIJpENaqf/Pj87DZfNz7/f7UhDU6/HUGP5WYGOsTekglji5m4OE3JQZq/IBmGBhwabNI8WvXoR+L0YgLQ=;
+Received: from [124.83.172.206] by n04.bulk.ogk.yahoo.co.jp with NNFMP; 10 Mar 2015 11:13:12 -0000
+Message-Id: <54fed1c8-000958b4-cbdcc02b36871f0df545009eb57a0427-13610@m05.bulk.ogk.yahoo.co.jp>
+Received: from [100.64.135.170] by m05.bulk.ogk.yahoo.co.jp with NNFMP; 10 Mar 2015 11:13:12 -0000
+Date: 10 Mar 2015 20:13:12 +0900
+Received: from [127.0.0.1] by tool01.edit.ssk.ynwp.yahoo.co.jp with NNFMP; 10 Mar 2015 11:13:12 -0000
+X-yahoo-newman-expires: 1425989592
+From: Yahoo! JAPAN Member Service <reg-master@mail.yahoo.co.jp>
+Errors-To: my-reg-err@serr.yahoo.co.jp
+X-yahoo-return-path: my-reg-err@serr.yahoo.co.jp
+To: media@callcenter-job.net
+Subject: Yahoo! JAPAN - =?ISO-2022-JP?B?GyRCRVBPPz5wSnMkNDNORyckTiQqNGokJBsoQg==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-yahoo-newman-property: edit
+X-yahoo-newman-id: edit_1425985992_587604
+XSRV-Filter: media@callcenter-job.net
+
+2015/03/03 にYahoo! JAPAN IDを登録いただきありがとうございます。
+
+Yahoo! JAPAN ID: starfactory55 さんの登録情報をご確認ください。
+
+登録情報に氏名や住所情報、メールアドレス、Yahoo!ウォレットを登録しておけば、ショッピングやヤフオク!などを簡単に利用することができます。
+
+◆登録情報を確認してください。
+http://yahoo.jp/zOeC8Q
+
+============================
+ショッピング＆ヤフオク!のお買い物がさらに快適に！
+============================
+
+◆Yahoo!ウォレット
+登録しておくとYahoo! JAPAN IDだけでお買い物ができます！この機会に登録してみませんか？
+http://yahoo.jp/_VGdl0
+
+============================
+Yahoo! JAPANをもっと安心・安全に利用しよう！
+============================
+お客様にYahoo! JAPANをより安心・安全にご利用いただけるよう、様々なセキュリティ機能を提供しています。無料で利用できるのでご活用ください！！
+
+
+◆ワンタイムパスワード  ★☆ New ☆★
+
+「Yahoo! JAPAN IDとパスワード」のログイン後に「ワンタイムパスワード」の認証も加わります。次回以降の省略もできる便利な機能です。
+http://yahoo.jp/dHgSaJ
+
+
+◆シークレットID
+
+ログインでしか使わないひみつのログイン専用IDです。他人にIDを知られる危険を回避しましょう。
+http://yahoo.jp/SOkzRc
+
+◆ログイン履歴
+
+あなたのログインを試みた日時やサービスを確認できます。身に覚えのない履歴がありませんか？
+http://yahoo.jp/79r4Ak
+
+Copyright (C) Yahoo Japan Corporation. All Rights Reserved.

@@ -1,0 +1,115 @@
+<?php $__env->startSection('content'); ?>
+
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+          
+            <div class="col-md-12">
+              <?php echo Form::open(['route' => 'employer.billing', 'method' => 'GET']); ?>
+
+              <div class="row">
+                    <h2 class="page-title"><span class="glyphicon glyphicon-yen"></span><img src="./images/h2_billing.png" alt="課金情報の一覧" /></h2>
+                    <table class="search-table">
+                        <tr>
+                            <th>課金集計月</th>
+                            <td>
+                            	<?php echo Form::select('billing_year', $applied_years, Input::get('billing_year'), ['class' => 'form-control form-year']); ?> 年
+                                <?php echo Form::select('billing_month', Month::month_numeric_data(), Input::get('billing_month'), ['class' => 'form-control form-month']); ?> 月
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>期間課金集計</th>
+                            <td >
+                                <?php echo Form::select('billing_start_year', $applied_years, Input::get('billing_start_year'), ['class' => 'form-control form-year']); ?> 年
+                                <?php echo Form::select('billing_start_month', Month::month_numeric_data(), Input::get('billing_start_month'), ['class' => 'form-control form-month']); ?> 月　〜　
+                                <?php echo Form::select('billing_end_year', $applied_years, Input::get('billing_end_year'), ['class' => 'form-control form-year']); ?> 年
+                                <?php echo Form::select('billing_end_month', Month::month_numeric_data(), Input::get('billing_end_month'), ['class' => 'form-control form-month']); ?> 月
+                            </td>
+                        </tr>
+                    </table>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block search-btn"><span class="glyphicon glyphicon-search"></span><img src="./images/btn_search.png" alt="この条件で検索する" /></button>
+              </div><!--/row-->
+              
+              <?php echo Form::close(); ?>
+
+
+            <div class="row search-nav">
+                <div class="col-md-12">
+                    <p class="text-center"><?php echo $applications->getTotal(); ?>件中 <?php echo $applications->getFrom(); ?>-<?php echo $applications->getTo(); ?>件</p>
+                    <nav class="text-center">
+							<?php echo $applications->appends([
+								'billing_year' => Input::get('billing_year'), 
+                      			'billing_month' => Input::get('billing_month'), 
+                      			'billing_start_year' => Input::get('billing_start_year'), 
+                      			'billing_start_month' => Input::get('billing_start_month'), 
+                      			'billing_end_year' => Input::get('billing_end_year'), 
+                      			'billing_end_month' => Input::get('billing_end_month')
+                      		])
+                      		->links(); ?>
+
+                    </nav>
+
+                </div>
+            </div>
+            <div class="row search-result">
+                <div class="col-md-12">
+                    
+					<?php if($applications->count() > 0): ?>
+						<?php foreach($applications as $application): ?>
+		                    <table class="search-result-table billing-table">
+		                        <tr>
+		                            <th>応募課金</th>
+		                            <th>対象年月</th>
+		                            <th>応募件数</th>
+		                            <th>課金合計金額(税別)</th>
+		                        </tr>
+		                        <tr>
+		                            <td>応募課金</td>
+		                            <td><?php echo $application->applied_year; ?>/<?php echo $application->applied_month; ?>月</td>
+		                            <td><?php echo $application->COUNT; ?>件</td>
+		                            <td><?php echo number_format($application->fee); ?>円</td>
+		                        </tr>
+		                    </table>
+                    	<?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="row search-nav">
+                <div class="col-md-12">
+                    <p class="text-center"><?php echo $applications->getTotal(); ?>件中 <?php echo $applications->getFrom(); ?>-<?php echo $applications->getTo(); ?>件</p>
+                    <nav class="text-center">
+							<?php echo $applications->appends([
+								'billing_year' => Input::get('billing_year'), 
+                      			'billing_month' => Input::get('billing_month'), 
+                      			'billing_start_year' => Input::get('billing_start_year'), 
+                      			'billing_start_month' => Input::get('billing_start_month'), 
+                      			'billing_end_year' => Input::get('billing_end_year'), 
+                      			'billing_end_month' => Input::get('billing_end_month')
+                      		])
+                      		->links(); ?>
+
+                    </nav>
+
+                </div>
+            </div>
+
+
+            </div><!--/.col-xs-12.col-sm-9-->
+            
+          </div><!--/row-->
+        </div>
+    </div>
+    <div class="pagetop">
+        <div class="container">
+            <p class="text-right"><a href="#header"><span class="glyphicon glyphicon-chevron-up"></span>ページの先頭へ</a></p>      
+        </div>
+    </div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.employer', [
+	'page_title' => '課金情報の一覧'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

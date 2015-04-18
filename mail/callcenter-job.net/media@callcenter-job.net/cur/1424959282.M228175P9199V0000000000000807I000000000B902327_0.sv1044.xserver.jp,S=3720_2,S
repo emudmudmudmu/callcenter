@@ -1,0 +1,75 @@
+Return-Path: <service_return3@ac.rakuten-bank.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 36BB624000A4
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:22 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Thu, 26 Feb 2015 23:01:22 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from mail33.rakuten-bank.co.jp (mail33.rakuten-bank.co.jp [211.128.106.81])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 2806024000A3
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:22 +0900 (JST)
+Received: by mail33.rakuten-bank.co.jp (8.14.4/8.14.4) with ESMTP id t1QE1Lht023008
+	for <media@callcenter-job.net>; Thu, 26 Feb 2015 23:01:21 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ac.rakuten-bank.co.jp; s=fes.20140301; t=1424959281;
+	bh=HY4wF5o3jHzBVqkFVaLFqGweh5ipArwjaf6kOI7nXkA=;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=qQ2YubZsQp+mnGxyTS/glBtOfH5678eZfmbsXz5CjPid72gAh62WSEenzAO1VO7dh
+	 cFWM7n+AIf6ErHqkNpOgj2e+NfoyrmNgYAGsBGmf6crT9VGlrfKZT2kB0KwtvI7zRN
+	 aJVPcGCEcY1bLmAoVvFlz3gNTh9kpqUSDANZB09M=
+Date: Thu, 26 Feb 2015 23:01:20 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCM1pFNzZkOVQzdDwwMnE8UhsoQg==?= <service@ac.rakuten-bank.co.jp>
+Reply-To: media@callcenter-job.net
+To: media@callcenter-job.net
+Message-ID: <4866493.117916.1424959280607.JavaMail.mfsuser@opap202>
+Subject: =?ISO-2022-JP?B?GyRCM1pFNzZkOVQkKyRpJE4kKkNOGyhC?=
+ =?ISO-2022-JP?B?GyRCJGkkOxsoQlsbJEIlYSE8JWslIiVJJWwlORsoQg==?=
+ =?ISO-2022-JP?B?GyRCJE5AX0RqSlE5OU1RJW8lcyU/GyhC?=
+ =?ISO-2022-JP?B?GyRCJSQlYCUtITwkTiQqQ04kaSQ7GyhCXQ==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-MFSID: 6kedjnnmmq7hau
+XSRV-Filter: media@callcenter-job.net
+
+スターメディア　株式会社様 (media@callcenter-job.net)
+楽天銀行をご利用いただきありがとうございます。
+
+ワンタイム認証に利用するメールアドレスの設定を変更するための
+ワンタイムキーを発行しました。
+
+ワンタイムキー　：　5f71　(半角英数字)
+対象口座　：　252-7339254　(支店番号-口座番号)
+
+このワンタイムキーを利用して、ワンタイム認証に利用するメールアドレスの
+設定変更をおこなってください。
+
+変更にお心当たりのない方はおそれいりますが、当行カスタマーセンターまで
+ご連絡ください。
+
+※本メール記載のワンタイムキーの有効期間は発行から60分間です。
+　必ず有効期間内にお手続きください。
+
+■□━━━━━━━━━━━━━━━━━━━━━━━━━━━━━■□■□
+◆携帯電話・スマートフォンのメールアドレスの設定をお願いします。
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+　お取引をより安全に安心してご利用いただくため、
+　このメール（ワンタイムキー）は、携帯電話またはスマートフォンの
+　メールアドレスで受け取るよう設定してください。
+　▼ワンタイム認証に利用するメールアドレスの設定方法
+　http://www.rakuten-bank.co.jp/rd/fes/mail/ad/s01.html
+　※ワンタイム認証に利用するメールアドレスにメルマガ等が送られることは
+　　ありません。
+　※法人のお客さまにつきましては、貴社内の方針をご確認ください。
+■□━━━━━━━━━━━━━━━━━━━━━━━━━━━━━■□■□
+
+**********************************************************************
+このメールは送信専用です。
+ご不明点等は、当行WEBサイトよりお問い合わせください。
+楽天銀行 http://www.rakuten-bank.co.jp/
+**********************************************************************
+
+（CC620）

@@ -1,0 +1,76 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <?php if(!Input::has('done')): ?>
+            <div class="contact">
+                <?php if(FormStrap::hasAlert(['danger'])): ?>
+                    ここに問い合わせエラー画像
+                <?php endif; ?>
+                <h2 class="h"><img src="<?php echo url('/home/assets/img/contact/h_contact.png'); ?>" width="750" height="95" alt="お問い合わせ"></h2>
+                <div class="formbox">
+                    <?php echo Form::open(['route' => 'home.contact_confirm']); ?>
+
+                        <table class="apply-table">
+                            <tr>
+                                <th>お問合わせ内容<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Form::select('subject', ['' => '選択してください'] + ContactSubject::subjects()); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('subject'); ?></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>会社名</th>
+                                <td>
+                                    <?php echo Form::text('company'); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('company'); ?></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>お名前<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Form::text('name'); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('name'); ?></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>メールアドレス<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Form::text('email'); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('email'); ?></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>確認のためもう一度<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Form::text('confirm_email'); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('confirm_email'); ?></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ご用件<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Form::textarea('comment', '', ['cols' => '70', 'rows' => '6']); ?>
+
+                                    <div class="text-danger"><?php echo $errors->first('comment'); ?></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="btn"><input type="image" src="<?php echo url('/home/assets/img/contact/btn_confirm.png'); ?>" alt="確認画面へ"></p>
+                    </form>
+                </div>
+            </div>
+            <?php else: ?>
+                ここに問い合わせ完了の画像
+            <?php endif; ?>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => 'お問い合わせ'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

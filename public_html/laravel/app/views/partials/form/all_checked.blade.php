@@ -1,0 +1,1 @@
+<input type="checkbox" class="all_checked" data-target="{{ $selector }}">

@@ -1,0 +1,285 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="company-details">
+                <!--
+                <p class="pankuz">TOP&nbsp;&gt;&nbsp;<a href="#">○○○</a>&nbsp;&gt;&nbsp;<a href="#">○○○</a>&nbsp;&gt;&nbsp;<a href="#">○○○</a></p>
+                -->
+                <div class="listbox">
+                    <?php if($job->displayed == 0 && !isset($preview_flag)): ?>
+                        <div class="text-danger" style="padding: 0 15px;">この求人は非掲載に設定されています。</div>
+                    <?php elseif($job->application_ceiling > 0 && $job->application_ceiling <= $job->application_count && !isset($preview_flag)): ?>
+                        <div class="text-danger" style="padding: 0 15px;">この求人は応募上限に達しています。</div>
+                    <?php elseif($job->activated == 0 && !isset($preview_flag)): ?>
+                        <div class="text-danger" style="padding: 0 15px;">この求人は審査待ちです。</div>
+                    <?php elseif(!empty($job->released) && $job->released->isPast() && !isset($preview_flag)): ?>
+                        <div class="text-danger" style="padding: 0 15px;">この求人は有効期限が切れています。</div>
+                    <?php else: ?>
+                        <div class="namearea">
+                            <h2><?php echo $job->title; ?></h2>
+                            <div class="company-name">
+                                <table class="work-num">
+                                    <tr>
+                                        <th>
+                                            <?php echo HTML::image('home/assets/img/search/ic_apply_company.png', '応募先', ['width' => '72', 'height' => '24']); ?>
+
+                                        </th>
+                                        <td class="companyname"><?php echo $job->user->last_name; ?></td>
+                                        <th><?php echo HTML::image('home/assets/img/search/ic_number.png', '仕事番号', ['width' => '72', 'height' => '24']); ?></th>
+                                        <td class="number"><?php echo AccountId::text('job', $job->id); ?></td>
+                                    </tr>
+                                </table>
+                                <?php echo $__env->make('partials/html/job_types', [
+                                    'type_ids' => $job->meta_values['type_ids']
+                                ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                <p class="quo-bnr"><a href="<?php echo route('home.quo'); ?>"><?php echo HTML::image('home/assets/img/search/bnr_quocard.png', '面接で全員QUOカード', ['width' => '165', 'height' => '35']); ?></a></p>
+                            </div><!-- /.company-name -->
+                        </div>
+                        <?php echo $__env->make('partials/html/job_conditions', [
+                            'condition_ids' => $job->meta_values['condition_ids']
+                        ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <div class="details">
+                            <div class="details-head">
+                                <div class="photos">
+                                    <div id="photo" class="photo"><img src="<?php echo $image_urls['main_companies'][$job->meta_values['main_company_image_file_ids'][0]]; ?>" alt="<?php echo $job->title; ?>" style="width:341px;height:226px;"></div>
+                                    <div id="thum-navi">
+                                        <ul>
+                                            <li><a href="<?php echo $image_urls['main_companies'][$job->meta_values['main_company_image_file_ids'][0]]; ?>"><img src="<?php echo $image_urls['main_companies'][$job->meta_values['main_company_image_file_ids'][0]]; ?>" style="width:98px;height:65px;" alt=""></a></li>
+                                            <?php foreach($image_urls['sub_companies'] as $image_url): ?>
+                                                <li><a href="<?php echo $image_url; ?>"><img src="<?php echo $image_url; ?>" style="width:98px;height:65px;" alt=""></a></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.photos -->
+                                <dl class="intro">
+                                    <dt><?php echo $job->catch_phrase; ?></dt>
+                                    <dd><?php echo nl2br($job->catch_text); ?></dd>
+                                </dl>
+                            </div><!-- /.details-head -->
+                            <div class="details-inner">
+                                <h4><?php echo HTML::image('home/assets/img/search/subhead_requirements.png', '募集要項', ['width' => '101', 'height' => '19']); ?></h4>
+                                <table class="data-table">
+                                    <tr>
+                                        <th>募集職種</th>
+                                        <td>
+                                            <?php echo $__env->make('partials/html/job_categories', [
+                                                'category_ids' => $job->meta_values['category_ids']
+                                            ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>仕事内容</th>
+                                        <td><?php echo nl2br($job->description); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>応募資格</th>
+                                        <td><?php echo nl2br($job->capacity); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>雇用形態</th>
+                                        <td><?php echo $job->job_pattern; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>勤務地・交通</th>
+                                        <td><?php echo nl2br($job->transportation); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>勤務時間帯</th>
+                                        <td><?php echo nl2br($job->duty_hours); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>給与</th>
+                                        <td><?php echo nl2br($job->salary); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>休日休暇</th>
+                                        <td><?php echo nl2br($job->holiday); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>福利厚生</th>
+                                        <td><?php echo nl2br($job->benefit); ?></td>
+                                    </tr>
+                                </table>
+                                <div class="applybox">
+                                    <h5><?php echo HTML::image('home/assets/img/search/subhead_apply.png', '応募はこちらへ', ['width' => '690', 'height' => '60']); ?></h5>
+                                    <div class="clm-l">
+                                        <table>
+                                            <tr>
+                                                <th><?php echo HTML::image('home/assets/img/search/ic_apply_company.png', '応募先', ['width' => '72', 'height' => '24']); ?></th>
+                                                <td class="companyname"><?php echo $job->user->last_name; ?></td>
+                                                <th><?php echo HTML::image('home/assets/img/search/ic_number.png', '仕事番号', ['width' => '72', 'height' => '24']); ?></th>
+                                                <td class="number"><?php echo AccountId::text('job', $job->id); ?></td>
+                                            </tr>
+                                        </table>
+                                        <p><?php echo HTML::image('home/assets/img/search/bnr_apply_tel.png', '応募ダイヤル　050-2222-3333', ['width' => '399', 'height' => '59']); ?></p>
+                                        <p class="note">※土日祝はTEL応募を受付しておりません。<br>「コールセンターの窓口を見た」とお伝えください。</p>
+                                    </div>
+                                    <div class="clm-r">
+                                        <p>
+                                            <?php if(!isset($preview_flag)): ?>
+                                            <a href="<?php echo route('home.application', [$job->id]); ?>">
+                                            <?php endif; ?>
+                                                <?php echo HTML::image('home/assets/img/search/btn_apply2.png', '今すぐ応募する', ['width' => '224', 'height' => '60']); ?>
+
+                                            <?php if(!isset($preview_flag)): ?>
+                                            </a>
+                                            <?php endif; ?>
+                                        </p>
+                                        <p>
+                                            <?php if(!isset($preview_flag)): ?>
+                                            <?php echo Menco::get([
+                                                'method' => 'POST',
+                                                'label' => '<img src="'. url('home/assets/img/search/btn_addlist_s.png') .'" width="130" height="34">',
+                                                'url' => route('applicant.consideration.post'),
+                                                'class' => '',
+                                                'message' => 'リストに追加しますか？'
+                                            ], [
+                                                'job_id' => $job->id,
+                                                'flag' => 1
+                                            ]); ?>
+
+                                            <?php else: ?>
+                                                <?php echo HTML::image('home/assets/img/search/btn_addlist_s.png'); ?>
+
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
+                                </div><!-- /.applybox -->
+                                <?php if(!empty($job->pic_comment)): ?>
+                                <!-- 採用担当者のコメント -->
+                                <h4><?php echo HTML::image('home/assets/img/search/subhead_comment.png', '採用担当者のコメント', ['width' => '200', 'height' => '18']); ?></h4>
+                                <div class="comment">
+                                    <p class="person">
+                                        <?php if(isset($image_urls['pics'][$job->meta_values['pic_image_file_ids'][0]])): ?>
+                                        <?php echo HTML::image($image_urls['pics'][$job->meta_values['pic_image_file_ids'][0]], '担当者写真', ['width' => '186', 'height' => '118']); ?>
+
+                                        <?php else: ?>
+                                            <?php echo HTML::image('img/No_image_available.png', '担当者写真', ['width' => '186', 'height' => '118']); ?>
+
+                                        <?php endif; ?>
+                                        <br>
+                                        <?php echo $job->pic_department; ?><br><?php echo $job->pic_name; ?>
+
+                                    </p>
+                                    <div class="commentbox">
+                                        <p><?php echo nl2br($job->pic_comment); ?></p>
+                                    </div>
+                                </div><!-- /.comment -->
+                                <?php endif; ?>
+                                <!-- 会社概要 -->
+                                <h4><?php echo HTML::image('home/assets/img/search/subhead_company_profile.png', '会社概要', ['width' => '103', 'height' => '18']); ?></h4>
+                                <table class="data-table">
+                                    <tr>
+                                        <th>企業名</th>
+                                        <td><?php echo $job->user->last_name; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>代表者</th>
+                                        <td><?php echo $job->user->employer_meta->representative; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>資本金</th>
+                                        <td><?php echo $job->user->employer_meta->capital_stock; ?>円</td>
+                                    </tr>
+                                    <tr>
+                                        <th>従業員数</th>
+                                        <td><?php echo $job->user->employer_meta->employees; ?>人</td>
+                                    </tr>
+                                    <tr>
+                                        <th>事業内容</th>
+                                        <td><?php echo nl2br($job->user->employer_meta->business_content); ?></td>
+                                    </tr>
+                                </table>
+                                <!-- 応募・選考について -->
+                                <h4><?php echo HTML::image('home/assets/img/search/subhead_about_selection.png', '応募・選考について', ['width' => '181', 'height' => '18']); ?></h4>
+                                <table class="data-table">
+                                    <tr>
+                                        <th>入社までの流れ</th>
+                                        <td><?php echo nl2br($job->choice_process); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>所在地・面接会場</th>
+                                        <td><?php echo nl2br($job->interview_address); ?></td>
+                                    </tr>
+                                </table>
+                                <div class="applybox">
+                                    <h5><?php echo HTML::image('home/assets/img/search/subhead_apply.png', '応募はこちらへ', ['width' => '690', 'height' => '60']); ?></h5>
+                                    <div class="clm-l">
+                                        <table>
+                                            <tr>
+                                                <th><?php echo HTML::image('home/assets/img/search/ic_apply_company.png', '応募先', ['width' => '72', 'height' => '24']); ?></th>
+                                                <td class="companyname"><?php echo $job->user->last_name; ?></td>
+                                                <th><?php echo HTML::image('home/assets/img/search/ic_number.png', '仕事番号', ['width' => '72', 'height' => '24']); ?></th>
+                                                <td class="number"><?php echo AccountId::text('job', $job->id); ?></td>
+                                            </tr>
+                                        </table>
+                                        <p><?php echo HTML::image('home/assets/img/search/bnr_apply_tel.png', '応募ダイヤル　050-2222-3333', ['width' => '399', 'height' => '59']); ?></p>
+                                        <p class="note">※土日祝はTEL応募を受付しておりません。<br>「コールセンターの窓口を見た」とお伝えください。</p>
+                                    </div>
+                                    <div class="clm-r">
+                                        <p>
+                                            <?php if(!isset($preview_flag)): ?>
+                                            <a href="<?php echo route('home.application', [$job->id]); ?>">
+                                            <?php endif; ?>
+                                                <?php echo HTML::image('home/assets/img/search/btn_apply2.png', '今すぐ応募する', ['width' => '224', 'height' => '60']); ?>
+
+                                            <?php if(!isset($preview_flag)): ?>
+                                            </a>
+                                            <?php endif; ?>
+                                        </p>
+                                        <p>
+                                            <?php if(!isset($preview_flag)): ?>
+                                            <?php echo Menco::get([
+                                                'method' => 'POST',
+                                                'label' => '<img src="'. url('home/assets/img/search/btn_addlist_s.png') .'" width="130" height="34">',
+                                                'url' => route('applicant.consideration.post'),
+                                                'class' => '',
+                                                'message' => 'リストに追加しますか？'
+                                            ], [
+                                                'job_id' => $job->id,
+                                                'flag' => 1
+                                            ]); ?>
+
+                                            <?php else: ?>
+                                                <?php echo HTML::image('home/assets/img/search/btn_addlist_s.png'); ?>
+
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
+                                </div><!-- /.applybox -->
+                            </div>
+                            <!-- /.details-inner -->
+
+                        </div>
+                        <ul class="btns">
+                            <li class="apply"><a href="<?php echo route('home.application', [$job->id]); ?>"><?php echo HTML::image('home/assets/img/search/btn_apply2.png', '今すぐ応募する', ['width' => '224', 'height' => '60']); ?></a></li>
+                            <li class="add">
+                                <?php echo Menco::get([
+                                    'method' => 'POST',
+                                    'label' => '<img src="'. url('home/assets/img/search/btn_addlist_s.png') .'" width="130" height="34">',
+                                    'url' => route('applicant.consideration.post'),
+                                    'class' => '',
+                                    'message' => 'リストに追加しますか？'
+                                ], [
+                                    'job_id' => $job->id,
+                                    'flag' => 1
+                                ]); ?>
+
+                            </li>
+                        </ul>
+                    <?php endif; ?>
+                </div><!-- /.listbox -->
+            </div>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+    <script src="/home/assets/js/company_gallery.js">
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => $job->title
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

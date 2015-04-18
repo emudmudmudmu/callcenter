@@ -1,0 +1,217 @@
+@extends('layouts.employer', [
+	'page_title' => '企業情報の変更', 
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => '企業情報の変更'
+	]
+])
+
+@section('content')
+
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+          	{{ Form::open(['route' => 'employer.settings.confirm']) }}
+          
+            <div class="col-md-12">
+              <div class="row">
+                <h2 class="page-title"><span class="glyphicon glyphicon-home"></span><img src="./images/h2_company_edit.png" alt="企業情報の変更" /></h2>
+                <table class="company-edit-table">
+                    <tr>
+                        <td colspan="2" class="company-edit-title"><span class="glyphicon glyphicon-file"></span>基本情報</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact1" class="control-label">企業名</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	{{ Form::text('last_name', $employer->last_name, ['class' => 'form-control input-text-l']) }}
+                        	<div class="text-danger">{{ $errors->first('last_name') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">設立年月</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	{{ Form::text('foundation_year', $employer->employer_meta->foundation_date->format('Y'), ['class' => 'form-control input-text-s']) }}年
+                        	{{ Form::select('foundation_month', Month::month_numeric_data(), $employer->employer_meta->foundation_date->format('n'), ['class' => 'form-control form-month']) }} 月
+                        	<div class="text-danger">{{ $errors->first('foundation_year') }}</div>
+                            <div class="text-danger">{{ $errors->first('foundation_month') }}</div>
+                        </td>
+                    </tr>                  
+                    <tr>
+                        <th>
+                            <label for="inputContact3" class="control-label">代表者</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	{{ Form::text('representative', $employer->employer_meta->representative, ['class' => 'form-control input-text-m']) }}
+                            <div class="text-danger">{{ $errors->first('representative') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact4" class="control-label">資本金</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	{{ Form::text('capital_stock', number_format($employer->employer_meta->capital_stock), ['class' => 'form-control input-text-m text-right']) }}円
+                            <div class="text-danger">{{ $errors->first('capital_stock') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">従業員数</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	{{ Form::text('employees', number_format($employer->employer_meta->employees), ['class' => 'form-control input-text-m text-right']) }}人
+                        	<div class="text-danger">{{ $errors->first('employees') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">事業内容</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            {{ Form::textarea('business_content', $employer->employer_meta->business_content, ['class' => 'form-control input-text-l', 'rows' => '3']) }}
+                            <div class="text-danger">{{ $errors->first('business_content') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact6" class="control-label">本社所在地</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            〒 {{ Form::text('zip_code_1', $employer->employer_meta->zip_code_1, ['class' => 'form-control input-text-s']) }}-{{ Form::text('zip_code_2', $employer->employer_meta->zip_code_2, ['class' => 'form-control input-text-s']) }}
+                            <div class="text-danger">{{ $errors->first('zip_code_1') }}</div>
+                            <div class="text-danger">{{ $errors->first('zip_code_2') }}</div>
+                            <p>【都道府県・市区町村】</p>
+                            	{{ Form::select('prefecture_id', 
+                            			$prefectures, 
+                            			$employer->employer_meta->prefecture_id, 
+                            			[
+                            				'class' => 'form-control input-select-s city_data', 
+                            				'data-target' => '#city_id'
+                            			]) 
+                            	}}
+								<div class="text-danger">{{ $errors->first('prefecture_id') }}</div>
+                            	{{ Form::select('city_id', 
+                            			$cities, 
+                            			$employer->employer_meta->city_id, 
+                            			[
+                            				'class' => 'form-control input-select-m', 
+                            				'id' => 'city_id'
+                            			]) 
+                            	}}
+                                <div class="text-danger">{{ $errors->first('city_id') }}</div>
+                            <p>【番地】</p>
+                            {{ Form::text('other_address', $employer->employer_meta->other_address, ['class' => 'form-control input-text-l']) }}
+                            <div class="text-danger">{{ $errors->first('other_address') }}</div>
+                            <p>【マンション・ビル名等】</p>
+                            {{ Form::text('building', $employer->employer_meta->building, ['class' => 'form-control input-text-l']) }}
+                            
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table class="company-edit-table">
+                    <tr>
+                        <td colspan="2" class="company-edit-title"><span class="glyphicon glyphicon-user"></span>担当者の設定</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact7" class="control-label">担当部署名</label>
+                        </th>
+                        <td>
+                            {{ Form::text('pic_department', $employer->employer_meta->pic_department, ['class' => 'form-control input-text-m']) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact8" class="control-label">担当者名</label>
+                        </th>
+                        <td>
+                            {{ Form::text('pic_name', $employer->employer_meta->pic_name, ['class' => 'form-control input-text-m']) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact9" class="control-label">電話番号</label>
+                        </th>
+                        <td>
+                            {{ Form::text('tel', $employer->employer_meta->tel, ['class' => 'form-control input-text-m']) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact10" class="control-label">FAX番号</label>
+                        </th>
+                        <td>
+                            {{ Form::text('fax', $employer->employer_meta->fax, ['class' => 'form-control input-text-m']) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact11" class="control-label">メールアドレス</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            {{ Form::text('email', $employer->email, ['class' => 'form-control input-text-m']) }}
+                            <div class="text-danger">{{ $errors->first('email') }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact12" class="control-label">パスワード</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            {{ Form::text('password', '', ['class' => 'form-control input-text-m']) }}
+                            <div class="text-danger">{{ $errors->first('password') }}</div>
+                            <span class="description">ご希望の半角英数字6文字以上</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact13" class="control-label">パスワード(確認用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            {{ Form::text('confirm_password', '', ['class' => 'form-control input-text-m']) }}
+                            <div class="text-danger">{{ $errors->first('confirm_password') }}</div>
+                            <span class="description">上記と同じものを確認のために入力してください。</span>
+                        </td>
+                    </tr>
+                </table>                  
+                  
+                  
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary send-btn">確認する</button>
+                </div>
+              </div><!--/row-->
+
+ 
+            </div><!--/.col-xs-12.col-sm-9-->
+            
+			{{ Form::close() }}
+
+          </div><!--/row-->
+        </div>
+    </div>
+    <div class="pagetop">
+        <div class="container">
+            <p class="text-right"><a href="#header"><span class="glyphicon glyphicon-chevron-up"></span>ページの先頭へ</a></p>      
+        </div>
+    </div>
+	
+@stop
+
+@section('script')
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		@include('js/city_data')
+		
+	});
+	</script>
+
+@stop

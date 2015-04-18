@@ -1,0 +1,92 @@
+<?php if($submit_flag): ?>
+	<?php if($cancel_position == 'left'): ?>
+		<?php echo HTML::link($url, $text, $cancel_options); ?>
+
+	<?php endif; ?>
+		<?php echo Form::button($value, $options); ?>
+
+	<?php if($cancel_position == 'right'): ?>
+		<?php echo HTML::link($url, $text, $cancel_options); ?>
+
+	<?php endif; ?>
+<?php else: ?>
+<div class="<?php echo (!empty($group_class)) ? $group_class : 'form-group'; ?><?php echo $errors->has($name) ? ' has-error': ''; ?>">
+	<?php if(!empty($label)): ?>
+		<?php if(isset($icons['left']) || isset($icons['right'])): ?>
+		<?php 
+			$replacement = '__LABEL_REPLACEMENT__';
+			$label_with_icons = '';
+			$label_with_icons .= (isset($icons['left'])) ? $icons['left'] : '';
+			$label_with_icons .= $label;
+			$label_with_icons .= (isset($icons['right'])) ? $icons['right'] : '';
+			$label_tag = (string) Form::label($name, $replacement, $label_options);
+			echo str_replace($replacement, $label_with_icons, $label_tag);
+		?>
+		<?php else: ?>
+			<?php echo Form::label($name, $label, $label_options); ?>
+
+		<?php endif; ?>
+	<?php endif; ?>
+	<div>
+	<?php if(!empty($view)): ?>
+		<?php echo $__env->make($view, $options, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php else: ?>
+		<?php if($type == 'text'): ?>
+			<?php echo Form::text($name, $value, $options); ?>
+
+		<?php elseif($type == 'password'): ?>
+			<?php echo Form::password($name, $options); ?>
+
+		<?php elseif($type == 'textarea'): ?>
+			<?php echo Form::textarea($name, $value, $options); ?>
+
+		<?php elseif($type == 'radio'): ?>
+			<?php 
+				$index = 0;
+				$rendors = array();
+				foreach($values as $value => $label) {
+				
+					$options['id'] = $name .'_'. $index;
+					$rendors[] = Form::radio($name, $value, ($value == $checked_values[0]), $options)
+					. Form::label($options['id'], $label, $options);
+					$index++;
+				
+				}
+			?>
+			<?php echo implode($separator, $rendors); ?>
+
+		<?php elseif($type == 'checkbox'): ?>
+			<?php 
+				$index = 0;
+				$rendors = array();
+				$checkbox_name = (count($values) == 1) ? $name : $name .'[]';
+				foreach($values as $value => $label) {
+				
+					$options['id'] = $name .'_'. $index;
+					$rendors[] = Form::checkbox($checkbox_name, $value, (in_array($value, $checked_values)), $options)
+									. Form::label($options['id'], $label, $options);
+					$index++;
+				
+				}
+			?>
+			<?php echo implode($separator, $rendors); ?>
+
+		<?php elseif($type == 'select'): ?>
+			<?php echo Form::select($name, $values, $checked_values[0], $options); ?>
+
+		<?php elseif($type == 'file'): ?>
+			<?php echo Form::file($name, $options); ?>
+
+		<?php elseif($type == 'hidden'): ?>
+			<?php foreach($values as $value => $name): ?>
+				<?php echo Form::hidden($value, $name); ?>
+
+			<?php endforeach; ?>
+		<?php endif; ?>
+	<?php endif; ?>
+	</div>
+	<?php if($errors->has($name)): ?>
+		<div class="text-danger"><?php echo $errors->first($name); ?></div>
+	<?php endif; ?>
+</div>
+<?php endif; ?>

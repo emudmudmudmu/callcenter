@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $page_title; ?></title>
+    <?php if(Config::get('app.opened') == 0): ?>
+    <meta name="robots" content="noindex,nofollow"><!-- 公開時に必ず外す -->
+    <?php endif; ?>
+    <?php echo $__env->yieldContent('meta'); ?>
+    <?php echo HTML::style('home/style.css?'. Config::get('app.last_upgraded')); ?>
+
+    <?php echo HTML::style('home/assets/css/jquery.bxslider.css?'. Config::get('app.last_upgraded')); ?>
+
+    <?php echo HTML::style('home/assets/css/jquery-ui.css?'. Config::get('app.last_upgraded')); ?>
+
+    <?php echo HTML::style('home/assets/css/custom.css?'. Config::get('app.last_upgraded')); ?>
+
+    <?php echo $__env->yieldContent('style'); ?>
+</head>
+<header class="cf" id="header">
+    <section class="l-titlebar cf">
+        <h1>コールセンター・コンタクトセンターの求人情報検索サイトは「コールセンターの窓口」</h1>
+        <ul class="sub-navi">
+            <li><a href="<?php echo route('home.quo'); ?>"><?php echo HTML::image('home/assets/img/layout/header/btn_cash.png', '祝い金について', ['width' => '112', 'height' => '20']); ?></a></li>
+            <li><a href="<?php echo route('home.for_offer'); ?>"><?php echo HTML::image('home/assets/img/layout/header/btn_about_period.png', '求人広告掲載について', ['width' => '150', 'height' => '20']); ?></a></li>
+            <?php if(!empty($user) && $user->hasPermission('applicant')): ?>
+                <li><a href="<?php echo route('auth.logout'); ?>"><?php echo HTML::image('home/assets/img/layout/header/btn_logout.png', 'ログアウト', ['width' => '76', 'height' => '20']); ?></a></li>
+            <?php else: ?>
+                <li><a href="<?php echo route('home.login'); ?>"><?php echo HTML::image('home/assets/img/layout/header/btn_login.png', 'ログイン', ['width' => '76', 'height' => '20']); ?></a></li>
+            <?php endif; ?>
+        </ul>
+    </section>
+    <section class="l-header cf">
+        <h2 class="logo"><?php echo HTML::image('home/assets/img/layout/header/logo.png', 'コールセンターの窓口', ['width' => '270', 'height' => '75']); ?></h2>
+        <p class="tel"><?php echo HTML::image('home/assets/img/layout/header/header_tel.png', '電話でのお問い合わせ　03-5543-1771　受付時間9：30～18：00', ['width' => '218', 'height' => '56']); ?></p>
+    </section>
+</header>
+<?php echo $__env->make('partials.html.header_links', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo $__env->yieldContent('content'); ?>
+<?php echo $__env->make('partials.html.right_side', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<footer>
+    <section class="l-pagetop">
+        <p><a href="#" class="to_top"><?php echo HTML::image('home/assets/img/layout/btn_pagetop.png', '▲ページTOPへ', ['width' => '123', 'height' => '34']); ?></a></p>
+    </section>
+    <section class="l-footer-top">
+        <ul>
+            <li><a href="<?php echo route('home.about_us'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_01.png', '会社概要', ['width' => '52', 'height' => '16']); ?></a></li>
+            <li><a href="<?php echo route('home.privacy_policy'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_02.png', '個人情報について', ['width' => '125', 'height' => '16']); ?></a></li>
+            <li><a href="<?php echo route('home.rules'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_03.png', '利用規約', ['width' => '52', 'height' => '16']); ?></a></li>
+            <li><a href="<?php echo route('home.for_offer'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_04.png', '掲載企業様', ['width' => '88', 'height' => '16']); ?></a></li>
+            <li><a href="<?php echo route('home.newsletter'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_05.png', 'メールマガジン登録', ['width' => '113', 'height' => '16']); ?></a></li>
+            <li><a href="<?php echo route('home.contact'); ?>"><?php echo HTML::image('home/assets/img/layout/footer/fnav_06.png', 'お問い合わせ', ['width' => '75', 'height' => '16']); ?></a></li>
+        </ul>
+    </section>
+    <section class="l-footer-bottom cf">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <p class="foot-logo"><?php echo HTML::image('home/assets/img/layout/footer/logo.png', 'コールセンターの窓口', ['width' => '215', 'height' => '59']); ?></p>
+        <p class="foot-txt">コールセンターの窓口は、国内初コールセンター専門の総合情報求人サイトです。あなたに最適な職場探しをサポートします。なお、業界初の試みとして応募者全員に「お祝い金」を贈呈しております。</p>
+        <div class="fnav-box">
+            <ul>
+                <li class="bnr"><?php echo HTML::image('home/assets/img/layout/footer/fbtn_01.png', '求人情報検索', ['width' => '160', 'height' => '30']); ?></li>
+                <li><?php echo HTML::linkRoute('home.new_job', '新着求人情報'); ?></li>
+                <li><?php echo HTML::linkRoute('home.job', '詳細条件から探す'); ?></li>
+                <li><?php echo HTML::linkRoute('applicant.consideration', '検討中リスト'); ?></li>
+            </ul>
+            <ul>
+                <li class="bnr"><?php echo HTML::image('home/assets/img/layout/footer/fbtn_02.png', '会員登録', ['width' => '160', 'height' => '30']); ?></li>
+                <li><?php echo HTML::linkRoute('auth.signup', '新規会員登録'); ?></li>
+                <li><?php echo HTML::linkRoute('home.login', '会員ログイン'); ?></li>
+            </ul>
+            <ul class="clm-r">
+                <li class="bnr"><?php echo HTML::image('home/assets/img/layout/footer/fbtn_03.png', '採用サポート', ['width' => '160', 'height' => '30']); ?></li>
+                <li><?php echo HTML::linkRoute('home.first', 'はじめてのコールセンター'); ?></li>
+                <li><?php echo HTML::linkRoute('home.quo', 'お祝い金ページ'); ?></li>
+                <li><?php echo HTML::linkRoute('home.gift', 'お祝い金申請ページ'); ?></li>
+                <li><?php echo HTML::linkRoute('home.newsletter', 'メールマガジン登録'); ?></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<?php echo HTML::script('home/assets/js/common.js?'. Config::get('app.last_upgraded')); ?>
+
+<?php echo HTML::script('home/assets/js/jquery.easing.1.3.js?'. Config::get('app.last_upgraded')); ?>
+
+<?php echo HTML::script('home/assets/js/jquery.bxslider.js?'. Config::get('app.last_upgraded')); ?>
+
+<?php echo HTML::script('home/assets/js/jquery-ui.js?'. Config::get('app.last_upgraded')); ?>
+
+
+<?php echo $__env->yieldContent('script'); ?>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.slide-img').bxSlider({
+            auto: true,
+            pause:	7000,
+            speed: 2000,
+            mode: 'horizontal',
+            pager:true
+        });
+
+        $('ul.news-ticker').bxSlider({
+            easing:'linear',
+            controls:false,
+            auto: true,
+            pager: false,
+            speed: 7000,
+            pause: 7000
+        });
+    });
+
+    <!-- tab -->
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+
+</script>
+
+<?php if(App::isLocal()): ?>
+    <?php echo HTML::linkRoute('auth.login', '管理者ログイン'); ?>
+
+    <script src="http://<?php echo Config::get('app.domains.main'); ?>:35729/livereload.js"></script>
+    <?php echo Brick::render(); ?>
+
+<?php endif; ?>
+
+</body>
+</html>

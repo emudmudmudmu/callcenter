@@ -1,0 +1,37 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="company">
+                <h2 class="h"><?php echo HTML::image('home/assets/img/company/h_company.png', '会社概要', ['width' => '750', 'height' => '95']); ?></h2>
+                <div class="companybox">
+                    <h3><?php echo HTML::image('home/assets/img/company/headline_company.png', '会社概要', ['width' => '730', 'height' => '29']); ?></h3>
+                    <table>
+                        <tr>
+                            <th>社名</th>
+                            <td>スターメディア株式会社</td>
+                        </tr>
+                        <tr>
+                            <th>英文社名</th><td>STARMEDIA Inc.</td>
+                        </tr>
+                        <tr>
+                            <th>代表者</th><td>代表取締役社長　大庭　洋理</td>
+                        </tr>
+                        <tr>
+                            <th>設立</th><td>2015年1月20日</td>
+                        </tr>
+                        <tr>
+                            <th>資本金</th><td>3,000,000円</td>
+                        </tr>
+                        <tr>
+                            <th>事業内容</th><td>メディアコンテンツ事業<br>映像メディア事業</td>
+                        </tr>
+                    </table>
+                </div><!-- /.companybox -->
+            </div><!-- /.company -->
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => '会社概要'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

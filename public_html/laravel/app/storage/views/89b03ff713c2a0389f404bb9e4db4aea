@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2>企業様よりお問い合わせがありました。</h2>
+
+		<div>
+			■担当部署<br>
+			<?php echo $pic_department; ?>
+
+			<br>
+			<br>
+			■担当者名<br>
+			<?php echo $pic_name; ?>
+
+			<br>
+			<br>
+			■担当者メールアドレス<br>
+			<?php echo $pic_email; ?>
+
+			<br>
+			<br>
+			■お問い合わせ内容<br>
+			<?php echo nl2br($comment); ?>
+
+			<br>
+			<br>
+			<?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</body>
+</html>

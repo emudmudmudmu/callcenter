@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<h2>パスワード再発行URL</h2>
+
+		<div>
+			以下のURLからパスワードの再発行をすることができます。<br><br>
+			<?php echo HTML::link($url, $url); ?><br>
+			<?php echo $__env->make('emails.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<?php $__env->startSection('content'); ?>
+
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12">
+                    <h2 class="page-title"><span class="glyphicon glyphicon-bullhorn"></span><img src="./images/h2_news.png" alt="お知らせ" /></h2>
+
+                    <ul class="news-list list-unstyled">
+                    	<?php if($announcements->count() > 0): ?>
+                    		<?php foreach($announcements as $index => $announcement): ?>
+	                        <li><span class="glyphicon glyphicon-play-circle"></span><span class="news-date"><?php echo $announcement->created_at->format('Y/m/d'); ?></span> <?php echo HTML::linkRoute('employer.announcement.detail', $announcement->title, [$announcement->id]); ?></li>
+	                       <?php endforeach; ?>
+                    	<?php endif; ?>
+                    </ul>
+
+                  </div>
+              </div><!--/row-->
+
+
+            </div><!--/.col-xs-12.col-sm-9-->
+
+          </div><!--/row-->
+          <div class="text-right">
+              <?php echo $announcements->links(); ?>
+
+          </div>
+        </div>
+    </div>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.employer', [
+	'page_title' => trans('versatile.title.index', ['name' => $data_name]),
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => trans('versatile.title.index', ['name' => $data_name])
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

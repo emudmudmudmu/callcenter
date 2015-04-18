@@ -1,0 +1,96 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="clearfix">
+		<div class="col-md-6 col-lg-6 no-padding">
+		<?php echo $search_strap->filters([
+			'shipping_name' => '名前', 
+			'shipping_address' => '住所', 
+			'check_flag' => 'チェック'
+		])
+		->dropdown('check_flag', ['0' => '未チェック', '1' => 'チェック済']); ?>
+
+		</div>
+	</div>
+		
+	<?php if($gifts->count() > 0): ?>
+	<table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:15px;">
+		<thead>
+			<tr class="bg-gray text-white font-size-sm">
+				<th>
+					<nobr>名前</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>住所</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>求人ID</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>申請日時</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>チェック</nobr>
+				</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($gifts as $index => $gift): ?>
+			<tr>
+				<td><?php echo $gift->shipping_name; ?></td>
+				<td><?php echo $gift->shipping_address; ?></td>
+				<td><?php echo $gift->job_id; ?></td>
+				<td><?php echo $gift->created_at; ?></td>
+				<td class="text-center<?php echo (!$gift->check_flag) ? ' text-danger bold': ''; ?>"><?php echo $gift->check_flag_text; ?></td>
+				<td class="text-right">
+					<nobr>
+					<?php echo Kuku::linkRoute('admin.gift.edit', Camon::FA('pencil'), [$gift->id, 'redirect_check_flag='. Input::get('check_flag')], [
+						'class' => 'btn btn-default btn-flat btn-sm bubbletip', 
+						'title' => '編集'
+					]); ?>
+
+					</nobr>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+	<div class="text-right">
+		<?php echo $gifts->appends([
+			'orderby' => Input::get('orderby'), 
+			'direction' => Input::get('direction')
+		])->links(); ?>
+
+	</div>
+	<?php endif; ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+<script type="text/javascript">
+<!--
+
+	$(document).ready(function(e){
+
+		<?php echo $__env->make('js/footable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/sortable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/all_checked', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/multi_delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo SearchStrap::js(); ?>
+
+		
+	});
+
+//-->
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => 'お祝い金の申請一覧',
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'*' => 'お祝い金の申請一覧'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

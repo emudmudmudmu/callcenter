@@ -1,0 +1,1 @@
+<div style="font-size:14px;margin:7px 5px 0 5px;padding:7px;text-align:center;color:crimson;color: #A94442;background-color: #F2DEDE;border-color:#EBCCD1;border: 1px solid transparent;border-radius: 4px;"><?php echo Session::get('danger'); ?></div>

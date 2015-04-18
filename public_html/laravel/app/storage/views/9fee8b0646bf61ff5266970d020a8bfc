@@ -1,0 +1,32 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <?php if(FormStrap::hasAlert(['success'])): ?>
+                ここに会員登録完了の画像
+            <?php elseif(FormStrap::hasAlert(['danger'])): ?>
+                ここにログイン時エラー画像
+            <?php endif; ?>
+            <div class="login">
+                <h2 class="h"><?php echo HTML::image('home/assets/img/form/h_login.png', 'ログイン', ['width' => '750', 'height' => '95']); ?></h2>
+                <div class="formbox">
+                    <h3>ログインフォーム</h3>
+                    <?php echo Form::open(['route' => 'auth.login']); ?>
+
+                        <dl>
+                            <dt>メールアドレス　<span class="required">[必須]</span></dt>
+                            <dd><?php echo Form::text('email'); ?></dd>
+                            <dt>パスワード　<span class="required">[必須]</span></dt>
+                            <dd><?php echo Form::password('password'); ?>&nbsp;&nbsp;<?php echo HTML::linkRoute('home.reminder', 'ログインパスワードの再発行'); ?></dd>
+                        </dl>
+                        <p class="btn"><input type="image" src="home/assets/img/form/btn_login.png" alt="ログイン"></p>
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div><!-- /.login -->
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => 'ログイン'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

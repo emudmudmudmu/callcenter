@@ -1,0 +1,456 @@
+<?php $__env->startSection('content'); ?>
+
+    <div id="main">
+        <div class="container">
+          <div class="row row-offcanvas row-offcanvas-right">
+
+          <?php echo Form::open(['route' => 'employer.job.confirm']); ?>
+
+          
+            <div class="col-md-12">
+              <div class="row">
+                <h2 class="page-title"><span class="glyphicon glyphicon-user"></span><?php echo HTML::image('employer/images/h2_job_entry.png', '求人情報の登録'); ?></h2>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-file"></span>基本情報</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact1" class="control-label">求人情報のタイトル</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('title', $job->title, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('title'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">キャッチコピー</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('catch_phrase', $job->catch_phrase, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('catch_phrase'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact2" class="control-label">キャッチテキスト</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <?php echo Form::textarea('catch_text', $job->catch_text, ['class' => 'form-control', 'rows' => '5']); ?>
+
+                            <div class="text-danger"><?php echo $errors->first('catch_text'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact3" class="control-label">募集の概要</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('description', $job->description, ['class' => 'form-control', 'rows' => '5']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('description'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">雇用形態(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php foreach(JobType::job_types() as $type_id => $type_name): ?>
+	                            <label class="checkbox-inline">
+	                              <?php echo Form::checkbox('job_type_ids[]', $type_id, (!empty($job_metas['type_ids']) && in_array($type_id, $job_metas['type_ids']))); ?> <?php echo $type_name; ?>
+
+	                            </label>
+                        	<?php endforeach; ?>
+                        	<div class="text-danger"><?php echo $errors->first('job_type_ids'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">該当職種(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php foreach(JobCategory::job_categories() as $category_id => $category_name): ?>
+	                            <label class="checkbox-inline">
+	                              <?php echo Form::checkbox('job_category_ids[]', $category_id, (!empty($job_metas['category_ids']) && in_array($category_id, $job_metas['category_ids']))); ?> <?php echo $category_name; ?>
+
+	                            </label>
+                        	<?php endforeach; ?>
+                        	<div class="text-danger"><?php echo $errors->first('job_category_ids'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">該当条件(検索用)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php foreach(JobCondition::job_conditions() as $condition_id => $condition_name): ?>
+	                            <label class="checkbox-inline">
+	                              <?php echo Form::checkbox('job_condition_ids[]', $condition_id, (!empty($job_metas['condition_ids']) && in_array($condition_id, $job_metas['condition_ids']))); ?> <?php echo $condition_name; ?>
+
+	                            </label>
+                        	<?php endforeach; ?>
+                        	<div class="text-danger"><?php echo $errors->first('job_condition_ids'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact4" class="control-label">募集職種</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('job_pattern', $job->job_pattern, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('job_pattern'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact5" class="control-label">応募資格</label>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('capacity', $job->capacity, ['class' => 'form-control', 'rows' => '5']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('capacity'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">勤務地</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+							<?php echo Form::select('prefecture_id', $prefectures, $job->prefecture_id, ['class' => 'form-control input-select-m']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('prefecture_id'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact6" class="control-label">勤務地(それ以降の住所)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('other_address', $job->other_address, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('other_address'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact7" class="control-label">アクセス</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('transportation', $job->transportation, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('transportation'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact8" class="control-label">勤務時間帯</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('duty_hours', $job->duty_hours, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('duty_hours'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact9" class="control-label">給与体系</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('salary', $job->salary, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('salary'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact10" class="control-label">休日休暇</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('holiday', $job->holiday, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('holiday'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact11" class="control-label">福利厚生</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('benefit', $job->benefit, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('benefit'); ?></div>
+                        </td>
+                    </tr>
+                  </table>
+
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-pencil"></span>応募・選考について</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact12" class="control-label">入社までの流れ</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('choice_process', $job->choice_process, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('choice_process'); ?></div>
+                        </td>
+                    </tr>
+                      <tr>
+                        <th>
+                            <label for="inputContact13" class="control-label">所在地・面接会場</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('interview_address', $job->interview_address, ['class' => 'form-control', 'rows' => '3']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('interview_address'); ?></div>
+                        </td>
+                    </tr>                  
+                </table>                  
+
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-picture"></span>画像登録</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">メイン画像</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+							<?php echo FormStrap::view('image_upload', 'partials.form.file', [
+									'name' => 'image_upload_main_company',
+									'attributes' => [
+										'title' => '画像を選択（1枚）..',
+										'class' => 'btn-flat',
+										'data-url' => route('employer.image.upload'),
+										'data-remove-url' => route('employer.image.remove'), 
+										'accept' => 'image/*',
+										'multiple' => false,
+										'id' => 'image_upload_main_company' 
+									]
+								]); ?>
+
+							<?php echo $surpasses['main_company']->html('preview'); ?>
+
+							<div class="text-danger"><?php echo $errors->first('surpass_ids_main_companies'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label class="control-label">サブ画像(2枚)</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+							<?php echo FormStrap::view('image_upload', 'partials.form.file', [
+									'name' => 'image_upload_sub_company',
+									'attributes' => [
+										'title' => '画像を選択（2枚）..',
+										'class' => 'btn-flat',
+										'data-url' => route('employer.image.upload'),
+										'data-remove-url' => route('employer.image.remove'), 
+										'accept' => 'image/*',
+										'multiple' => true,
+										'id' => 'image_upload_sub_company' 
+									]
+								]); ?>
+
+							<div id="div_sub_images"><?php echo $surpasses['sub_company']->html('preview'); ?></div>
+							<div class="text-danger"><?php echo $errors->first('surpass_ids_sub_companies'); ?></div>
+                        </td>
+                    </tr>
+                     <tr>
+                        <th>
+                            <label class="control-label">企業/担当者紹介画像</label>
+                        </th>
+                        <td>
+							<?php echo FormStrap::view('image_upload', 'partials.form.file', [
+									'name' => 'image_upload_pic',
+									'attributes' => [
+										'title' => '画像を選択（1枚）..',
+										'class' => 'btn-flat',
+										'data-url' => route('employer.image.upload'),
+										'data-remove-url' => route('employer.image.remove'), 
+										'accept' => 'image/*',
+										'multiple' => false,
+										'id' => 'image_upload_pic'
+									]
+								]); ?>
+
+							<?php echo $surpasses['pic']->html('preview'); ?>
+
+                        </td>
+                    </tr>                   
+                    <tr>
+                        <th>
+                            <label for="inputContact14" class="control-label">採用担当者部署名</label>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('pic_department', $job->pic_department, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('pic_department'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact15" class="control-label">採用担当者名</label>
+                        </th>
+                        <td>
+                        	<?php echo Form::text('pic_name', $job->pic_name, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('pic_name'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="inputContact16" class="control-label">採用担当者コメント欄</label>
+                        </th>
+                        <td>
+                        	<?php echo Form::textarea('pic_comment', $job->pic_comment, ['class' => 'form-control', 'rows' => '5']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('pic_comment'); ?></div>
+                        </td>
+                    </tr> 
+                </table>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-envelope"></span>応募通知</td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label for="inputContact17" class="control-label">応募通知設定</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('notification_type', '1', ($job->notification_type == 1)); ?> 企業情報で登録したメールアドレスに通知
+                            </label>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('notification_type', '2', ($job->notification_type == 2)); ?> 下記に入力したメールアドレスに通知
+                            </label><br />
+                        	<?php echo Form::text('notification_email', $job->notification_email, ['class' => 'form-control input-text-l']); ?>
+
+                        	<div class="text-danger"><?php echo $errors->first('notification_email'); ?></div>
+                            <p class="description">求職者が応募した旨、また下記「応募上限」にて「制限あり」とした場合上限人数に達した旨が通知されます。</p>
+                        	
+                        </td>
+                    </tr>
+                </table>
+                <table class="job-entry-table">
+                    <tr>
+                        <td colspan="2" class="job-entry-title"><span class="glyphicon glyphicon-ok"></span>応募通知</td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">求人公開</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('displayed', '1', ($job->displayed == 1)); ?> 掲載
+                            </label>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('displayed', '0', ($job->displayed == 0)); ?> 非掲載
+                            </label>
+                            <p class="description">掲載としていても管理者が承認するまでは掲載されません。</p>
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">応募上限</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('application_ceiling_type_id', '0', ($job->application_ceiling == 0)); ?> 制限なし
+                            </label>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('application_ceiling_type_id', '1', ($job->application_ceiling > 0)); ?> 制限有り
+                            </label>
+                            
+                            <?php echo Form::select('application_amount', ApplicationCeiling::application_amounts(), $job->application_ceiling, ['class' => 'form-control input-select-s']); ?> 人まで
+                        	<div class="text-danger"><?php echo $errors->first('application_amount'); ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                          <th>
+                            <label class="control-label">掲載期限</label><span class="required">[必須]</span>
+                        </th>
+                        <td>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('release_type_id', '0', ($job->released == null)); ?> 制限なし
+                            </label>
+                            <label class="radio-inline">
+                              <?php echo Form::radio('release_type_id', '1', ($job->released != null)); ?> 制限有り
+                            </label>
+                                <?php echo Form::select('release_year', 
+                                	Year::release_year_numeric_data(), 
+                                	($job->released != null) ? $job->released->format('Y') : '', 
+                                	['class' => 'form-control form-year']); ?> 年
+                                <?php echo Form::select('release_month', 
+                                	Month::month_numeric_data(), 
+                                	($job->released != null) ? $job->released->format('m') : '', 
+                                	['class' => 'form-control form-month']); ?> 月
+                                <?php echo Form::select('release_day', 
+                                	Day::day_numeric_data(), 
+                                	($job->released != null) ? $job->released->format('d') : '', 
+                                	['class' => 'form-control form-day']); ?> 日
+                        	<div class="text-danger"><?php echo $errors->first('released_past'); ?></div>
+                        </td>
+                    </tr>                  
+                </table>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary send-btn">確認する</button>
+                </div>
+              </div><!--/row-->
+ 
+            </div><!--/.col-xs-12.col-sm-9-->
+
+            <?php echo Form::hidden('id', $job->id); ?>
+
+            <?php echo Form::close(); ?>
+
+            
+          </div><!--/row-->
+        </div>
+    </div>
+    <div class="pagetop">
+        <div class="container">
+            <p class="text-right"><a href="#header"><span class="glyphicon glyphicon-chevron-up"></span>ページの先頭へ</a></p>      
+        </div>
+    </div>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+	<?php echo $surpasses['main_company']->html('js'); ?>
+
+	<?php echo $surpasses['sub_company']->html('js'); ?>
+
+	<?php echo $surpasses['pic']->html('js'); ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('style'); ?>
+    <style>
+
+        #div_sub_images img {
+
+            margin-right: 20px;
+
+        }
+
+    </style>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.employer', [
+	'page_title' => '求人情報の登録', 
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'employer.job.index' => '登録済み求人情報の一覧', 
+		'*' => '求人情報の登録'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

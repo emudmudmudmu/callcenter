@@ -1,0 +1,170 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: media@callcenter-job.net
+Received: by sv1044.xserver.jp (Postfix)
+	id B9DD324000A3; Sat,  7 Mar 2015 17:06:59 +0900 (JST)
+Date: Sat,  7 Mar 2015 17:06:59 +0900 (JST)
+From: MAILER-DAEMON@sv1044.xserver.jp (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: media@callcenter-job.net
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="28AED24000B9.1425715619/sv1044.xserver.jp"
+Message-Id: <20150307080659.B9DD324000A3@sv1044.xserver.jp>
+XSRV-Filter: media@callcenter-job.net
+
+This is a MIME-encapsulated message.
+
+--28AED24000B9.1425715619/sv1044.xserver.jp
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host sv1044.xserver.jp.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<taiby@jcom.ne.home.jp>: Host or domain name not found. Name service error for
+    name=jcom.ne.home.jp type=MX: Host not found, try again
+
+--28AED24000B9.1425715619/sv1044.xserver.jp
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; sv1044.xserver.jp
+X-Postfix-Queue-ID: 28AED24000B9
+X-Postfix-Sender: rfc822; media@callcenter-job.net
+Arrival-Date: Tue,  3 Mar 2015 13:16:02 +0900 (JST)
+
+Final-Recipient: rfc822; taiby@jcom.ne.home.jp
+Original-Recipient: rfc822;taiby@jcom.ne.home.jp
+Action: failed
+Status: 4.4.3
+Diagnostic-Code: X-Postfix; Host or domain name not found. Name service error
+    for name=jcom.ne.home.jp type=MX: Host not found, try again
+
+--28AED24000B9.1425715619/sv1044.xserver.jp
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 28AED24000B9
+	for <taiby@jcom.ne.home.jp>; Tue,  3 Mar 2015 13:16:02 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Tue, 03 Mar 2015 13:16:02 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from lenovo25Y (e0109-106-188-149-151.uqwimax.jp [106.188.149.151])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 9E5B524000B3
+	for <taiby@jcom.ne.home.jp>; Tue,  3 Mar 2015 13:16:01 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCJWElRyUjJSIbKEI=?= <media@callcenter-job.net>
+To: <taiby@jcom.ne.home.jp>
+Subject: =?iso-2022-jp?B?GyRCQHVMbiRHJDkhIxsoQg==?=
+Date: Tue, 3 Mar 2015 13:15:59 +0900
+Message-ID: <000601d05568$c1873dd0$4495b970$@callcenter-job.net>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0007_01D055B4.31799430"
+X-Mailer: Microsoft Outlook 14.0
+Thread-Index: AdBVaLh6thQ4pp7aTG6ZLG5BxXtLkg==
+Content-Language: ja
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0007_01D055B4.31799430
+Content-Type: text/plain;
+	charset="iso-2022-jp"
+Content-Transfer-Encoding: 7bit
+
+メールテストです。
+
+ 
+
+ 
+
+浅野
+
+
+------=_NextPart_000_0007_01D055B4.31799430
+Content-Type: text/html;
+	charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-2022-jp"><meta name=3DGenerator content=3D"Microsoft Word =
+14 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:"=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:"\@=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0mm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Arial","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+span.17
+	{mso-style-type:personal-compose;
+	font-family:"Arial","sans-serif";
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Arial","sans-serif";}
+/* Page Definitions */
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026">
+<v:textbox inset=3D"5.85pt,.7pt,5.85pt,.7pt" />
+</o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DJA link=3Dblue =
+vlink=3Dpurple style=3D'text-justify-trim:punctuation'><div =
+class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:10.0pt;font-family:"=1B$B#M#S=1B(B =
+=1B$B%4%7%C%/=1B(B"'>=1B$B%a!<%k%F%9%H$G$9!#=1B(B</span><span =
+lang=3DEN-US style=3D'font-size:10.0pt'><o:p></o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US =
+style=3D'font-size:10.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span lang=3DEN-US =
+style=3D'font-size:10.0pt'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:10.0pt;font-family:"=1B$B#M#S=1B(B =
+=1B$B%4%7%C%/=1B(B"'>=1B$B@uLn=1B(B</span><span lang=3DEN-US =
+style=3D'font-size:10.0pt'><o:p></o:p></span></p></div></body></html>
+------=_NextPart_000_0007_01D055B4.31799430--
+
+
+--28AED24000B9.1425715619/sv1044.xserver.jp--

@@ -1,0 +1,94 @@
+Return-Path: <points-master-error@err.yahoo.co.jp>
+Delivered-To: media@callcenter-job.net
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 82DCD24000B0
+	for <media@callcenter-job.net>; Tue,  3 Mar 2015 15:51:27 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Tue, 03 Mar 2015 15:51:27 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: from n17.bulk.ogk.yahoo.co.jp (n17.bulk.ogk.yahoo.co.jp [124.83.146.243])
+	by sv1044.xserver.jp (Postfix) with SMTP id 7F40224000AD
+	for <media@callcenter-job.net>; Tue,  3 Mar 2015 15:51:27 +0900 (JST)
+Comments: DKIM? See http://antispam.yahoo.co.jp/efforts_dk.html
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.yahoo.co.jp; s=bulk201106; t=1425365487; bh=xL5QJLZDg3caTXXTBeswndurSAQMCpaMbASnqC9Fr3E=; h=Received:X-yahoo-newman-property:X-yahoo-newman-id:Received:Date:Message-Id:X-yahoo-newman-property:X-yahoo-newman-id:Received:X-yahoo-newman-expires:Subject:From:To:Reply-To:Errors-To:Content-Type; b=heqnvqc+hgKHhshp4n1hM/0QyfSRg4FN2M1eVNLSByqf9OvI9EqRoBMINVsNLFFR+mSGIEVc/t2ZrJxJmvNmBSKSwXWsNnRUWKbbOm5zm4AgbNRNfS32aTvJ5gg5FT9vlEOwtgQ8W6QfoZiRvAvzFTcXi7GWh2I3zBGKCWKH7iM=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=bulk201106; d=mail.yahoo.co.jp; 
+	b=S12B7avkxp8h5HHpwbSg+yg75267cGH5jpbFBQ/JdCm9mUE0g4QpoqUSyhqVT+xPwPTsQDy+irNebIgbOpVM5tW73EAKo/Tx7ECB/XvQyGHlAyK2D4hFydeuIcPdjtuM3umb/ZYcXU5u399hdnW666sfGdnmuDn8naBI+p3A850=;
+Received: from [124.83.172.209] by n17.bulk.ogk.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:27 -0000
+X-yahoo-newman-property: point
+X-yahoo-newman-id: 
+Received: from [183.79.69.120] by m08.bulk.ogk.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:27 -0000
+Date: 03 Mar 2015 15:51:27 +0900
+Message-Id: <54f559ef-00043d3a-4b3565441d6a1e037b083e091538a880-8554@cons103.point.kks.yahoo.co.jp>
+X-yahoo-newman-property: 
+X-yahoo-newman-id: 
+Received: from [127.0.0.1] by cons103.point.kks.yahoo.co.jp with NNFMP; 03 Mar 2015 06:51:27 -0000
+X-yahoo-newman-expires: 1425538287
+Subject: =?ISO-2022-JP?B?GyRCIVojVCVdJSQlcyVIIVtBYUIuI1QlXSUkJXMlSCRyTXhNUSQ3GyhC?=
+ =?ISO-2022-JP?B?GyRCJEYkXyRoJCYhKhsoQg==?=
+From:=?ISO-2022-JP?B?GyRCI1QlXSUkJXMlSCEhGyhCcG93ZXJlZA==?= by Yahoo! JAPAN
+ <points-master@mail.yahoo.co.jp>
+To: media@callcenter-job.net
+Reply-To: points-master@mail.yahoo.co.jp
+Errors-To: points-master-error@err.yahoo.co.jp
+Content-Type: text/plain; charset="iso-2022-jp"
+XSRV-Filter: media@callcenter-job.net
+
+*******
+このメールは、Ｔ会員規約の同意をされたお客様に自動でお送りしております。
+*******
+
+starfactory55様
+
+Yahoo! JAPANをご利用いただき、誠にありがとうございます。
+
+Yahoo! JAPAN IDにＴカード番号を登録すると、
+お持ちのＴカードのＴポイントと、Yahoo! JAPANのポイントを合算できます。
+
+Ｔカードは、ファミリーマートやTSUTAYAなどのお店で「すぐに」もらえます！(無料)
+http://tsite.jp/tcardy　(外部サイト)
+※一部Ｔカードの取り扱いがない店舗もございます。
+
+Ｔカードの入会が完了したら、Ｔカード番号を登録しましょう！
+http://yahoo.jp/upkscQ
+
+▼Ｔポイントが貯まる使えるYahoo! JAPANサービス
+
+▽Yahoo!ショッピング  http://yahoo.jp/w2XNF1
+幅広い品ぞろえと、最新のお買い得ネット通販情報が満載！！
+http://yahoo.jp/iglQRR
+年代別、性別、カテゴリー別にランキングが確認できる！
+今の売れ筋商品はこれ！
+　　
+▽Yahoo!トラベル  http://yahoo.jp/OyKDLj
+国内・海外旅行の総合情報サイト
+国内宿泊予約でＴポイントがざくざく貯まる！
+http://yahoo.jp/LJCjBB
+ポイントキャンペーンも随時実施中
+		
+▽LOHACO  http://yahoo.jp/taXewJ
+アスクルがヤフーの協力を得て運営する日用品のネット通販
+飲料や食品をはじめ、毎日使うものをお安く最短当日お届け！
+http://yahoo.jp/i2ZF5t
+さらにおトクなお試し価格の商品は毎日正午に更新中！
+
+
+▽Ｔカードを登録すると引けるくじも実施中
+http://yahoo.jp/ibxkYi
+
+▽ポイント残高やその他のキャンペーンはこちら
+http://yahoo.jp/pignLR
+
+────────────
+□発行：ヤフー株式会社
+http://www.yahoo.co.jp
+□住所：東京都港区赤坂9丁目7番1号
+□編集：Ｔポイント　Powered by Yahoo! JAPAN
+http://points.yahoo.co.jp/
+□発行日：2015年03月03日
+□ヘルプ・お問い合わせ
+http://yahoo.jp/Q3d9FE
+□Yahoo! JAPAN「プライバシーポリシー」
+http://docs.yahoo.co.jp/docs/info/terms/chapter1.html#cf2nd
+────────────
+Copyright (C)2015 Yahoo Japan Corporation. All Rights Reserved.

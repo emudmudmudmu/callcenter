@@ -1,0 +1,106 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="clearfix">
+		<div class="col-md-offset-6 col-lg-offset-6 col-md-6 col-lg-6 no-padding">
+		<?php echo $search_strap->filters([
+			'account_id' => 'アカウントID', 
+			'name' => '名前', 
+			'prefecture_id' => '都道府県', 
+		])
+		->dropdown('prefecture_id', JapanesePrefectures::prefectures()); ?>
+
+		</div>
+		（※検索はHTML適用時に作成）
+	</div>
+		
+	<?php if($applicants->count() > 0): ?>
+	<table class="table table-hover table-bordered bg-white footable font-size-sm" style="margin-top:15px;">
+		<thead>
+			<tr class="bg-info">
+				<th>
+					<nobr>アカウントID&nbsp;<?php echo $__env->make('partials.html.sort_link', ['name' => 'id'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>性別</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>年齢</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>現住所</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>希望職種</nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>希望雇用形態</nobr>
+				</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<?php foreach($applicants as $index => $applicant): ?>
+		<tbody>
+			<tr>
+				<td><?php echo $applicant->account_id; ?></td>
+				<td data-hide="phone,tablet"><?php echo $applicant->applicant_meta->gender_text; ?></td>
+				<td data-hide="phone,tablet"><?php echo $applicant->applicant_meta->age_text; ?></td>
+				<td data-hide="phone,tablet"><?php echo $applicant->applicant_meta->address->prefecture_name; ?></td>
+				<td data-hide="phone,tablet">
+					<?php echo (isset($applicant_job_categories[$applicant->id])) ? implode('、', $applicant_job_categories[$applicant->id]['category_names']) : ''; ?>
+
+				</td>
+				<td data-hide="phone,tablet">
+					<?php echo (isset($applicant_job_types[$applicant->id])) ? implode('、', $applicant_job_types[$applicant->id]['type_names']) : ''; ?>
+
+				</td>
+				<td class="text-right">
+					<nobr>
+					<?php echo Kuku::linkRoute('employer.applicant.scout', Camon::FA('envelope-o'), [$applicant->id], ['class' => 'btn btn-default btn-sm']); ?>
+
+					<?php echo Kuku::linkRoute('employer.applicant.show', Camon::GL('search'), [$applicant->id], ['class' => 'btn btn-default btn-sm']); ?>
+
+					</nobr>
+				</td>
+			</tr>
+		</tbody>
+		<?php endforeach; ?>
+	</table>
+	<div class="text-right">
+		<?php echo $applicants->appends([
+			'orderby' => Input::get('orderby'), 
+			'direction' => Input::get('direction')
+		])->links(); ?>
+
+	</div>
+	<?php endif; ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+<script type="text/javascript">
+<!--
+
+	$(document).ready(function(e){
+
+		<?php echo $__env->make('js/footable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/sortable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/all_checked', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/multi_delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo SearchStrap::js(); ?>
+
+		
+	});
+
+//-->
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => trans('versatile.title.index', ['name' => $data_name]),
+	'bakery_params' => [
+		'employer.dashboard' => 'ホーム', 
+		'*' => trans('versatile.title.index', ['name' => $data_name])
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

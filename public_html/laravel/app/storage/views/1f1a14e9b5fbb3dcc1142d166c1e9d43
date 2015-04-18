@@ -1,0 +1,31 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="login">
+                <?php if(FormStrap::hasAlert(['danger'])): ?>
+                    ここにメールアドレスが存在しない場合のエラー
+                <?php elseif(FormStrap::hasAlert(['success'])): ?>
+                    ここに完了表示
+                <?php endif; ?>
+                <h2 class="h"><?php echo HTML::image('home/assets/img/form/h_login.png', 'ログイン', ['width' => '750', 'height' => '95']); ?></h2>
+                <div class="formbox">
+                    <h3>パスワードの再発行フォーム</h3>
+                    <?php echo Form::open(['route' => 'home.reminder_confirm']); ?>
+
+                        <dl>
+                            <dt>メールアドレス　<span class="required">[必須]</span></dt>
+                            <dd><?php echo Form::text('email'); ?><br>
+                                ご登録時のメールアドレスを入力して下さい。</dd>
+                        </dl>
+                        <p class="btn"><input type="image" src="<?php echo url('home/assets/img/form/btn_confirm_l.png'); ?>" alt="個人情報の取り扱いに同意し、内容を確認する"></p>
+                    <?php echo Form::close(); ?>
+
+                </div>
+            </div><!-- /.login -->
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => 'パスワードの再発行'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

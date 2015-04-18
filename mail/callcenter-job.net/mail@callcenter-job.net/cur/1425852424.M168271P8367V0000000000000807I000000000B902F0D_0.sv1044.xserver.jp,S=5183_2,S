@@ -1,0 +1,155 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: mail@callcenter-job.net
+Received: by sv1044.xserver.jp (Postfix)
+	id 271A9240010F; Mon,  9 Mar 2015 07:07:04 +0900 (JST)
+Date: Mon,  9 Mar 2015 07:07:04 +0900 (JST)
+From: MAILER-DAEMON@sv1044.xserver.jp (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: mail@callcenter-job.net
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="4DB4424000B0.1425852424/sv1044.xserver.jp"
+Message-Id: <20150308220704.271A9240010F@sv1044.xserver.jp>
+XSRV-Filter: mail@callcenter-job.net
+
+This is a MIME-encapsulated message.
+
+--4DB4424000B0.1425852424/sv1044.xserver.jp
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host sv1044.xserver.jp.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to <postmaster>
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<test@example.com>: connect to example.com[93.184.216.34]: Connection timed out
+
+--4DB4424000B0.1425852424/sv1044.xserver.jp
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; sv1044.xserver.jp
+X-Postfix-Queue-ID: 4DB4424000B0
+X-Postfix-Sender: rfc822; mail@callcenter-job.net
+Arrival-Date: Thu,  5 Mar 2015 04:38:37 +0900 (JST)
+
+Final-Recipient: rfc822; test@example.com
+Original-Recipient: rfc822;test@example.com
+Action: failed
+Status: 4.4.1
+Diagnostic-Code: X-Postfix; connect to example.com[93.184.216.34]: Connection
+    timed out
+
+--4DB4424000B0.1425852424/sv1044.xserver.jp
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Received: from sv1044.xserver.jp (sv64-server [127.0.0.1])
+	by sv1044.xserver.jp (Postfix) with ESMTP id 4DB4424000B0
+	for <test@example.com>; Thu,  5 Mar 2015 04:38:37 +0900 (JST)
+Received: from sv64-server (127.0.0.1)
+ by sv1044.xserver.jp (F-Secure/virusgw_smtp/400/sv1044.xserver.jp);
+ Thu, 05 Mar 2015 04:38:37 +0900 (JST)
+X-Virus-Status: clean(F-Secure/virusgw_smtp/400/sv1044.xserver.jp)
+Received: by sv1044.xserver.jp (Postfix, from userid 20037)
+	id 4A86824000B3; Thu,  5 Mar 2015 04:38:37 +0900 (JST)
+To: test@example.com
+Subject: =?utf-8?Q?=E6=B1=82=E4=BA=BA=E5=BF=9C=E5=8B=9F?=
+ =?utf-8?Q?=E5=AE=8C=E4=BA=86=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85?=
+Message-ID: <3e278b7503847e574905108f9afbef81@callcenter-job.net>
+Date: Thu, 05 Mar 2015 04:38:37 +0900
+From: =?utf-8?Q?=E3=82=B3=E3=83=BC=E3=83=AB=E3=82=BB?=
+ =?utf-8?Q?=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE=E7=AA=93=E5=8F=A3?=
+ <mail@callcenter-job.net>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"ja-JP">
+=09<head>
+=09=09<meta charset=
+=3D"utf-8">
+=09</head>
+=09<body>
+=09=09<h2>=E4=BB=A5=E4=B8=8B=
+=E3=81=AE=E6=B1=82=E4=BA=BA=E3=81=B8=E5=BF=9C=E5=8B=9F=E3=81=8C=E3=81=82=
+=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82</h2>
+=09=09=09=E2=96=A0=
+=E6=B1=82=E4=BA=BA=E3=81=AE=E3=82=BF=E3=82=A4=E3=83=88=E3=83=AB13=EF=BC=
+=88J0000013=EF=BC=89<br>
+=09=09<br>
+=09=09-----------------------------=
+--------------
+=09=09<br><br>
+=09=09<div>
+=09=09=09=E2=96=A0=E5=90=
+=8D=E5=89=8D<br>
+=09=09=09=E4=B9=9D=E4=BF=9D=E3=81=99=E3=81=93=E3=81=
+=B2<br><br>
+=09=09=09=E2=96=A0=E3=81=B5=E3=82=8A=E3=81=8C=E3=81=AA<br>
+=
+=09=09=09=E3=81=8F=E3=81=BB=E3=81=86=E3=81=99=E3=81=93=E3=81=B2<br><br>
+=
+=09=09=09=E2=96=A0=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=
+=E3=82=B9<br>
+=09=09=09kuppokeniits1977@yahoo.co.jp<br><br>
+=09=09=09=
+=E2=96=A0=E4=BD=8F=E6=89=80<br>
+=09=09=090123-456<br>
+=09=09=09=
+=E5=B2=A9=E6=89=8B=E7=9C=8C=E5=8D=83=E4=BB=A3=E7=94=B0=E5=8C=BA=E7=99=BE=
+=E9=81=93=E6=B5=9C=EF=BC=92=E2=88=92=EF=BC=93=E2=88=92=EF=BC=92=EF=BC=96
+=
+=09=09=09<br><br>
+=09=09=09=E2=96=A0=E7=94=9F=E5=B9=B4=E6=9C=88=E6=97=
+=A5<br>
+=09=09=091985=E5=B9=B410=E6=9C=8823=E6=97=A5<br><br>
+=09=09=09=
+=E2=96=A0=E6=80=A7=E5=88=A5<br>
+=09=09=09=E7=94=B7=E6=80=A7<br><br>
+=09=
+=09=09=E2=96=A0=E9=9B=BB=E8=A9=B1=E7=95=AA=E5=8F=B7<br>
+=09=09=0901234567=
+8<br><br>
+=09=09=09=E2=96=A0=E7=8F=BE=E5=9C=A8=E3=81=AE=E8=81=B7=E6=A5=
+=AD<br>
+=09=09=09<br><br>
+=09=09=09=E2=96=A0=E6=9C=80=E7=B5=82=E5=AD=
+=A6=E6=AD=B4<br>
+=09=09=09<br><br>
+=09=09=09=E2=96=A0=E4=BF=9D=E6=9C=
+=89=E8=B3=87=E6=A0=BC<br>
+=09=09=09<br><br>
+=09=09=09=E2=96=A0=E8=81=
+=B7=E5=8B=99=E7=B5=8C=E6=AD=B4<br>
+=09=09=09<br><br>
+=09=09=09=E2=96=
+=A0=E8=87=AA=E5=B7=B1PR<br>
+=09=09=09<br>
+=09=09=09<br>
+-------------=
+-------------------------------------<br>
+=E3=82=B3=E3=83=BC=E3=83=AB=
+=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE=E7=AA=93=E5=8F=A3=E4=BA=8B=
+=E5=8B=99=E5=B1=80<br>
+=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=
+=E3=81=9B=E3=83=A1=E3=83=BC=E3=83=AB:mail@callcenter-job.net<br>
+=
+=E3=82=B3=E3=83=BC=E3=83=AB=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=81=AE=
+=E7=AA=93=E5=8F=A3=EF=BC=9Ahttp://callcenter-job.net<br>
+----------------=
+----------------------------------=09=09</div>
+=09</body>
+</html>
+
+--4DB4424000B0.1425852424/sv1044.xserver.jp--

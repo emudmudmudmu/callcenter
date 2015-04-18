@@ -1,0 +1,145 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="gift-request">
+                <h2 class="h"><?php echo HTML::image('home/assets/img/form/h_apply.png', '求人応募', ['width' => '750', 'height' => '95']); ?></h2>
+                <div class="formbox">
+                    <?php echo Form::open(['route' => 'home.application_complete']); ?>
+
+                        <p class="confirm-txt">内容をご確認の上、ご送信ください。</p>
+                        <h3><?php echo $job->title; ?>への応募</h3>
+                        <table class="apply-table">
+                            <tr>
+                                <th>名前　<span class="required">[必須]</span></th>
+                                <td><?php echo Input::get('name'); ?><?php echo Form::hidden('name', Input::get('name')); ?></td>
+                            </tr>
+                            <tr>
+                                <th>ふりがな　<span class="required">[必須]</span></th>
+                                <td><?php echo Input::get('kana'); ?><?php echo Form::hidden('kana', Input::get('kana')); ?></td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">住所　<span class="required">[必須]</span></th>
+                                <td>〒<?php echo Input::get('zip_code'); ?><?php echo Form::hidden('zip_code', Input::get('zip_code')); ?><br>
+                                    <?php echo JapanesePrefectures::prefectureName(Input::get('prefecture_id')); ?><?php echo Input::get('city'); ?><?php echo Input::get('other_address_1'); ?><?php echo Input::get('other_address_2'); ?>
+
+                                    <?php echo Form::hidden('prefecture_id', Input::get('prefecture_id')); ?>
+
+                                    <?php echo Form::hidden('city', Input::get('city')); ?>
+
+                                    <?php echo Form::hidden('other_address_1', Input::get('other_address_1')); ?>
+
+                                    <?php echo Form::hidden('other_address_2', Input::get('other_address_2')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>生年月日　<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Input::get('birth_year'); ?>年<?php echo Input::get('birth_month'); ?>月<?php echo Input::get('birth_day'); ?>日
+                                    <?php echo Form::hidden('birth_year', Input::get('birth_year')); ?>
+
+                                    <?php echo Form::hidden('birth_month', Input::get('birth_month')); ?>
+
+                                    <?php echo Form::hidden('birth_day', Input::get('birth_day')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>性別　<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Gender::gender_name(Input::get('gender')); ?>
+
+                                    <?php echo Form::hidden('gender', Input::get('gender')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>電話番号　<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Input::get('tel'); ?>
+
+                                    <?php echo Form::hidden('tel', Input::get('tel')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>メールアドレス　<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo Input::get('email'); ?>
+
+                                    <?php echo Form::hidden('email', Input::get('email')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>現在の職業</th>
+                                <td>
+                                    <?php echo Input::get('current_job'); ?>
+
+                                    <?php echo Form::hidden('current_job', Input::get('current_job')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>最終学歴</th>
+                                <td>
+                                    <?php echo Input::get('education'); ?>
+
+                                    <?php echo Form::hidden('education', Input::get('education')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">保有資格</th>
+                                <td>
+                                    <?php echo nl2br(Input::get('qualification')); ?>
+
+                                    <?php echo Form::hidden('qualification', Input::get('qualification')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">職務経歴</th>
+                                <td>
+                                    <?php echo nl2br(Input::get('career')); ?>
+
+                                    <?php echo Form::hidden('career', Input::get('career')); ?>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">自己PR</th>
+                                <td>
+                                    <?php echo nl2br(Input::get('introduction')); ?>
+
+                                    <?php echo Form::hidden('introduction', Input::get('introduction')); ?>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <h3>応募情報の確認</h3>
+                        <table class="mb0">
+                            <tr>
+                                <th>応募雇用形態　<span class="required">[必須]</span></th>
+                                <td>
+                                    <?php echo JobType::job_type_name(Input::get('job_type_id')); ?>
+
+                                    <?php echo Form::hidden('job_type_id', Input::get('job_type_id')); ?>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="btn"><input type="image" src="home/assets/img/form/btn_submit.png" alt="送信する"></p>
+                        <?php echo Form::hidden('job_id', Input::get('job_id')); ?>
+
+                    <?php echo Form::close(); ?>
+
+                </div><!-- /.formbox -->
+            </div>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => '求人応募'
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

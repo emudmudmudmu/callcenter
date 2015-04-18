@@ -1,0 +1,19 @@
+<?php $__env->startSection('content'); ?>
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="info">
+                <h2 class="h"><?php echo HTML::image('home/assets/img/info/info_h.png', 'お知らせ', ['width' => '750', 'height' => '95']); ?></h2>
+                <article>
+                    <dl>
+                        <dt><?php echo $announcement->created_at->format('Y.m.d'); ?></dt>
+                        <dd><?php echo nl2br($announcement->description); ?></dd>
+                    </dl>
+                </article>
+            </div>
+        </section><!-- /.l-main -->
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.home', [
+	'page_title' => $announcement->title
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

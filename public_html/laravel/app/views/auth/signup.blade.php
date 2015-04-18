@@ -1,0 +1,269 @@
+@extends('layouts.home', [
+	'page_title' => '新規会員登録'
+])
+
+@section('content')
+
+    <section class="l-contents cf">
+        <section class="l-main">
+            <div class="registration">
+                <h2 class="h"><img src="{{ url('/home/assets/img/form/h_registration.png') }}" width="750" height="95" alt="新規会員登録"></h2>
+                <div class="formbox">
+                    {{ Form::open(['route' => 'auth.signup_confirm']) }}
+                        <h3>基本情報</h3>
+                        <table class="apply-table">
+                            <tr>
+                                <th>名前　<span class="required">[必須]</span></th>
+                                <td>
+                                    {{ Form::text('name') }}
+                                    <div class="text-danger">{{ $errors->first('name') }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ふりがな　<span class="required">[必須]</span></th>
+                                <td>
+                                    {{ Form::text('kana') }}
+                                    <div class="text-danger">{{ $errors->first('kana') }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">住所　<span class="required">[必須]</span></th>
+                                <td>
+                                    <dl>
+                                        <dt>郵便番号</dt>
+                                        <dd>〒{{ Form::text('zip_code', '', ['class' => 'zip2']) }}<div class="text-danger">{{ $errors->first('zip_code') }}</div></dd>
+                                        <dt>都道府県</dt>
+                                        <dd>
+                                            {{ Form::select('prefecture_id', ['' => '都道府県を選択してください'] + JapanesePrefectures::prefectures()) }}
+                                            <div class="text-danger">{{ $errors->first('prefecture_id') }}</div>
+                                        </dd>
+                                        <dt>市区町村</dt>
+                                        <dd>{{ Form::text('city') }}<div class="text-danger">{{ $errors->first('city') }}</div></dd>
+                                        <dt>以降住所</dt>
+                                        <dd>{{ Form::text('other_address_1') }}<div class="text-danger">{{ $errors->first('other_address_1') }}</div></dd>
+                                        <dt>マンション等</dt>
+                                        <dd>{{ Form::text('other_address_2') }}<div class="text-danger">{{ $errors->first('other_address_2') }}</div></dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>生年月日　<span class="required">[必須]</span></th>
+                                <td>
+                                    {{ Form::select('birth_year', Year::birth_year_numeric_data()) }}
+                                    年　
+                                    {{ Form::select('birth_month', Month::month_numeric_data()) }}
+                                    月　
+                                    {{ Form::select('birth_day', Day::day_numeric_data()) }}
+                                    日
+                                    <div class="text-danger">
+                                        @if($errors->first('birth_year'))
+                                            {{ $errors->first('birth_year') }}<br>
+                                        @endif
+                                        @if($errors->first('birth_month'))
+                                            {{ $errors->first('birth_month') }}<br>
+                                        @endif
+                                        @if($errors->first('birth_day'))
+                                            {{ $errors->first('birth_day') }}<br>
+                                        @endif
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>性別　<span class="required">[必須]</span></th>
+                                <td>
+                                    {{ Form::radio('gender', '1', true) }}男性　{{ Form::radio('gender', '2') }}女性
+                                    <div class="text-danger">{{ $errors->first('gender') }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>電話番号　<span class="required">[必須]</span></th>
+                                <td>{{ Form::text('tel') }}<div class="text-danger">{{ $errors->first('tel') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th>メールアドレス　<span class="required">[必須]</span></th>
+                                <td>{{ Form::text('email') }}<div class="text-danger">{{ $errors->first('email') }}</div></td>
+                            </tr>
+                        </table>
+                        <h3>経歴情報</h3>
+                        <table class="apply-table">
+                            <tr>
+                                <th>現在の職業</th>
+                                <td>{{ Form::text('current_job') }}<div class="text-danger">{{ $errors->first('current_job') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th>最終学歴</th>
+                                <td>{{ Form::text('education') }}<div class="text-danger">{{ $errors->first('education') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">保有資格</th>
+                                <td>{{ Form::textarea('qualification', '', ['cols' => '40', 'rows' => '5']) }}<div class="text-danger">{{ $errors->first('qualification') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">職務経歴</th>
+                                <td>{{ Form::textarea('career', '', ['cols' => '40', 'rows' => '5']) }}<div class="text-danger">{{ $errors->first('career') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th class="va-top">自己PR</th>
+                                <td>{{ Form::textarea('introduction', '', ['cols' => '40', 'rows' => '5']) }}<div class="text-danger">{{ $errors->first('introduction') }}</div></td>
+                            </tr>
+                        </table>
+                        <h3>パスワードの設定</h3>
+                        <table class="apply-table">
+                            <tr>
+                                <th>パスワード <span class="required">[必須]</span></th>
+                                <td>{{ Form::password('password') }} ご希望の半角英数字{{ Config::get('app.password.min') }}文字以上<div class="text-danger">{{ $errors->first('password') }}</div></td>
+                            </tr>
+                            <tr>
+                                <th>パスワード（確認用） <span class="required">[必須]</span></th>
+                                <td>{{ Form::password('confirm_password') }} 上記と同じものを確認のために入力して下さい。<div class="text-danger">{{ $errors->first('confirm_password') }}</div></td>
+                            </tr>
+                        </table>
+
+                    <h3>利用規約</h3>
+                    <section class="form-rules">
+                        <div class="rulesbox">
+                            <p>コールセンターの窓口会員ユーザー利用規約</p>
+                            <dl>
+                                <dt>第一条（適用範囲）</dt>
+                                <dd>「コールセンターの窓口会員ユーザー利用規約」（以下「本規約」という）は、スターメディア株式会社（以下「当社」という）が運営するインタ
+                                    ーネット求人求職サイト「コールセンターの窓口」（以下「当サイト」という）で提供する各種サービス（以下「本サービス」という）をご利用い
+                                    ただく際の、本サービス利用者（以下「ユーザー」という）と当社との間の権利義務をまとめたもので、一切の関係に適用されます。
+                                </dd>
+                                <dt>第二条（会員ユーザー）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>本サービスの会員ユーザーとは、会員登録を希望するユーザーが、当社の指定する方法により会員登録の申込みをし、当社が承諾した者を指します。</dd>
+                                        <dt>2：</dt>
+                                        <dd>ユーザーは、当サイトに会員登録した時点で本規約及び当社プライバシーポリシーの内容を承認したものとみなし、不承認の意志表示は当サイトの会員登録をしないことをもってのみ認めるものとします。</dd>
+                                        <dt>3：</dt>
+                                        <dd>すべてのユーザーは、当サイトの利用に関してすべて自己の責任として行います。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第三条（登録手続き）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>ユーザーが、当サイトへ会員登録をしようとする場合は、当社所定の登録フォームに個人情報及びその他の情報を入力し、申し込みを行うことが必要です。
+                                        <dt>2：</dt>
+                                        <dd>当社は、会員申し込みを受理し、当該ユーザーに対してID及びパスワードを発行します。ただし、以前に本規約の違反等の理由により除名又はIDの抹消などしている者に対しては、承認をしない、又は承認後でもIDを抹消し除名する場合があります。
+                                        <dt>3：</dt>
+                                        <dd>ユーザーは発行されたID・パスワードを使用して当サイトへログインした時点で会員ユーザーとなり、当サイトにおいて会員ユーザー向けのサービスを利用することができます。</dd>
+                                        <dt>4：</dt>
+                                        <dd>会員ユーザーは、いつでも登録内容の変更・追加・削除ができます。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第四条（ID・パスワードの管理、使用に関して）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>当社から会員ユーザーへ発行するID・パスワードは、当該会員ユーザーの責任のもと、厳正なる管理をする義務を負います。会員ユーザーは、いかなる理由でも第三者にID・パスワードを譲渡や貸与等を行ってはいけません。</dd>
+                                        <dt>2：</dt>
+                                        <dd>ID・パスワードを万一紛失し、又は第三者による不正使用等が発覚した場合は、速やかに当社へ報告し指示を仰ぐこととします。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第五条（ユーザーのサービス料金）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>ユーザーは、当サイトで提供するすべてのサービスを無料で利用することができます。</dd>
+                                        <dt>2：</dt>
+                                        <dd>ユーザーの会員登録期間中及び退会後に、当社がユーザーに対し、当サイトの利用料金を請求することは一切ございません。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第六条（祝い金）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>会員ユーザーが本サービス上で応募した会員事業者に応募・面接を行ったときは、当社が定めた「祝い金」（以下「祝い金」という）を、当社から、会員ユーザー本人名義の指定金融機関預金口座（日本国内に限る）へ振り込み、または、指定住所への郵便発送いたします。</dd>
+                                        <dt>2：</dt>
+                                        <dd>祝い金申請期間は応募日より30日以内といたします。それ以降の申請はお受けできません。</dd>
+                                        <dt>3：</dt>
+                                        <dd>祝い金の振込期日または発送は、会員ユーザーが祝い金の申請をした翌々月末日までに実行いたします。</dd>
+                                        <dt>4：</dt>
+                                        <dd>以下に該当する場合には、祝い金の支払をしないことがあります。
+                                            <ol>
+                                                <li>所定のページにて祝い金の申請を行われなかった場合。</li>
+                                                <li>応募日より30日以内に、本サービス上で祝い金の申請をしなかった場合。</li>
+                                                <li>応募のみで面接を行われなかった場合。</li>
+                                                <li>虚偽の申請を行った場合。</li>
+                                                <li>当サイト上での複数応募している場合。（１ユーザー１応募に限る）</li>
+                                                <li>祝い金の申請を完了する前に当サイトを退会する場合。</li>
+                                            </ol>
+                                        </dd>
+                                    </dl>
+                                </dd>
+                                <dt>第七条（当社からの連絡）</dt>
+                                <dd>会員ユーザーは、求人情報や当社サービス情報を受ける事を承諾します。
+                                </dd>
+                                <dt>第八条（禁止事項）</dt>
+                                <dd>以下の各号に該当するものは当サイトの禁止事項です。
+                                    <ul>
+                                        <li>虚偽の登録行為</li>
+                                        <li>各種法令に違反する行為、又はそのおそれのある行為</li>
+                                        <li>公序良俗に反する行為、又はそのおそれのある行為</li>
+                                        <li>当社、会員事業者、又は第三者の権利を侵害する行為</li>
+                                        <li>当社、会員事業者、又は第三者を誹謗中傷する行為</li>
+                                        <li>その他、当社、会員事業者、又は第三者に対して不適当な表現、脅迫的な態度、迷惑行為等を行うこと、又はそのおそれがあると判断されるような行為</li>
+                                        <li>無断転載・複製</li>
+                                        <li>サイト内プログラム等の不正使用（ハッキングや意図的にコンピューターウイルスに感染させる目的を持つ行為を含む）</li>
+                                        <li>当サイトを利用することにより知り得た会員事業者・第三者の個人情報を別の目的で使用、第三者へ開示、譲渡・提供する行為（有償無償は不問）</li>
+                                        <li>当サイトを利用することにより知り得た当サイトのサービス・ノウハウ・プログラム等模倣し使用、第三者へ開示、譲渡・提供する行為（有償無償は不問）</li>
+                                        <li>その他、当社が本サービスの運営に支障をきたすおそれがあると判断する行為</li>
+                                    </ul>
+                                </dd>
+                                <dt>第九条（退会）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>会員ユーザーは当社所定の手続きで、いつでも当サイトの会員を退会することができます。</dd>
+                                        <dt>2：</dt>
+                                        <dd>会員ユーザーに退会の意思表示が無い場合でも、当サイトへ1年間以上アクセスが無い場合は、当該会員ユーザーを退会処理とする場合があります。</dd>
+                                        <dt>3：</dt>
+                                        <dd>退会処理を行うと一定の期間後に当社のデータベースより削除され、復元不可能な状態になります。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第十条（除名）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>当社は、登録を申し込んだ個人が会員ユーザーとして不適当と判断した場合、その登録を拒否又は除名することができます。</dd>
+                                        <dt>2：</dt>
+                                        <dd>当社は、会員ユーザーが本規約に違反したと判断した場合、当該会員ユーザーに対し事前に通知することなく、当該会員ユーザーを除名することができます。</dd>
+                                        <dt>3：</dt>
+                                        <dd>当社は、登録拒否又は除名した理由の説明義務を負わず、当該会員ユーザーはそれにつき異議を申し立てないものとします。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第十一条（免責）</dt>
+                                <dd>
+                                    <dl>
+                                        <dt>1：</dt>
+                                        <dd>ユーザーの本サービスへの登録、利用により生じる一切の損害に関してはすべて自己責任とし、閲覧、利用にあたり不利益（採用の可否、不快感、天災地変やウイルス等の感染によるデータの損失やサービスの全部又は一部の中断又は停止等含む）を被ることがありましても当社は保証せず、関知致しません。</dd>
+                                        <dt>2：</dt>
+                                        <dd>本サービスにおいて提供される情報（会社情報等の第三者の情報、その他第三者により提供される情報）は、その第三者の責任で提供されるものであり、提供情報の正確性、合法性、安全性、適切性、有用性、最新性等について当社は何ら保証しないことを、会員ユーザーは予め承諾したうえで、自己の責任において利用することとします。</dd>
+                                    </dl>
+                                </dd>
+                                <dt>第十二条（本サービスの変更）</dt>
+                                <dd>当社は、会員ユーザーの承認を得ることなく、本サービスを随時変更することができます。会員ユーザーはこれを承認します。</dd>
+                                <dt>第十三条（本規約の変更）</dt>
+                                <dd>当社は会員ユーザーの承認を得ることなく、本規約を随時変更することができます。変更の内容は、当サイト上に掲載し、その時点をもって直ちにすべての会員ユーザーが本規約の変更を了承したものとみなします。</dd>
+                                <dt>第十四条（サービスの中断・停止）</dt>
+                                <dd>当社は会員ユーザーの承認を得ることなく、サービスの全部又は一部を中断または停止することができます。当社はユーザーに生じた損害に対して一切の責任を負いません。</dd>
+                                <dt>第十五条（第三者に対する責任）</dt>
+                                <dd>会員ユーザーが本サービスの登録、利用により、第三者に対して損害を生じさせた場合には、会員ユーザーの責任において解決し、当社は何らの責任も負いません。</dd>
+                                <dt>第十六条（損害賠償）</dt>
+                                <dd>会員ユーザーが本規約に違反し、当社に損害を与えた場合、会員ユーザーは当社に対し、直接・間接を問わず一切の損害の賠償義務を負います。</dd>
+                                <dt>第十七条（準拠法及び管轄裁判所）</dt>
+                                <dd>本規約は日本法を準拠法とし、本規約に関する一切の紛争については、大阪地方裁判所を第一審の専属的合意管轄裁判所とします。</dd>
+                            </dl>
+                            <p>制定日：　2015年4月1日<br>
+                                スターメディア株式会社　メディアコンテンツ事業部</p>
+                        </div><!-- /.rulesbox -->
+                    </section><!-- /.form-rules -->
+                    <p class="btn"><input type="image" src="{{ url('home/assets/img/form/btn_confirm_l.png') }}" alt="利用規約の取り扱いに同意し、内容を確認する"></p>
+                    </form>
+                </div>
+            </div>
+        </section><!-- /.l-main -->
+
+@stop

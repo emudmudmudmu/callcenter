@@ -1,0 +1,133 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="clearfix">
+		<div class="col-md-6 col-lg-6 no-padding">
+		<?php echo $search_strap->filters([
+			'account_id' => 'アカウントID',
+			'last_name' => '企業名',
+			'email' => 'メールアドレス',
+			'tel' => 'TEL'
+		]); ?>
+
+		</div>
+		<div class="text-right" style="margin-top:9px;">
+			<?php echo Kuku::linkRoute('admin.employer.create', 
+				'企業を追加 '. Camon::GL('plus', [], false), 
+				[], 
+				['class' => 'btn btn-success btn-sm']); ?>
+
+		</div>
+	</div>
+		
+	<?php if($employers->count() > 0): ?>
+	<table class="table table-hover table-bordered table-striped bg-white footable font-size-sm" style="margin-top:15px;">
+		<thead>
+			<tr class="bg-gray text-white font-size-sm">
+				<th>
+					<nobr>企業名&nbsp;<?php echo $__env->make('partials.html.sort_link', ['name' => 'users.last_name'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></nobr>
+				</th>
+                <th data-hide="phone,tablet">
+                    <nobr>メールアドレス&nbsp;<?php echo $__env->make('partials.html.sort_link', ['name' => 'users.email'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></nobr>
+                </th>
+				<th data-hide="phone,tablet">
+					<nobr>TEL&nbsp;<?php echo $__env->make('partials.html.sort_link', ['name' => 'employer_metas.tel'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></nobr>
+				</th>
+				<th data-hide="phone,tablet">
+					<nobr>求人</nobr>
+				</th>
+				<th>操作</th>
+				<th class="text-center">
+					<?php echo $__env->make('partials.form.all_checked', ['selector' => '.delete_ids'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($employers as $index => $employer): ?>
+			<tr>
+				<td>
+					<span><?php echo $employer->last_name; ?></span>
+                    <br>（<?php echo $employer->account_id; ?>）
+				</td>
+                <td data-hide="phone,tablet"><?php echo $employer->email; ?></td>
+				<td data-hide="phone,tablet"><?php echo $employer->employer_meta->tel; ?></td>
+				<td data-hide="phone,tablet" class="text-center"><?php echo $employer->employer_jobs->count(); ?>件</td>
+				<td class="text-right">
+					<nobr>
+					<?php echo Kuku::linkRoute('admin.employer.signin', Camon::FA('sign-in'), [$employer->id], [
+						'class' => 'btn btn-default btn-flat btn-sm bubbletip',
+						'title' => 'ログイン'
+					]); ?>
+
+					<?php echo Kuku::linkRoute('admin.employer.edit', Camon::FA('pencil'), [$employer->id], [
+						'class' => 'btn btn-default btn-flat btn-sm bubbletip',
+						'title' => '編集'
+					]); ?>
+
+					<?php echo Menco::get([
+						'method' => 'DELETE',
+						'_method' => 'DELETE',
+						'label' => Camon::GL('remove'),
+						'url' => route('admin.employer.destroy', [$employer->id]),
+						'class' => 'btn btn-default btn-flat btn-sm bubbletip',
+						'title' => '削除',
+						'message' => trans('versatile.destroy_confirm')
+					]); ?>
+
+					</nobr>
+				</td>
+				<td class="text-center vertical-middle">
+					<?php echo Form::checkbox('delete_ids[]', $employer->id, false, ['class' => 'delete_ids']); ?>
+
+				</td>
+			</tr>
+		<?php endforeach; ?>
+		</tbody>
+	</table>
+	<div class="text-right">
+		<?php echo Form::open(['route' => 'admin.employer.multi_delete', 'class' => 'multi_delete', 'data-selector' => '.delete_ids']); ?>
+
+			<?php echo FormStrap::submit('一括削除', ['class' => 'btn btn-danger btn-xs']); ?>
+
+			<?php echo FormStrap::hidden(['joined_delete_ids' => '']); ?>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+	<div class="text-right">
+		<?php echo $employers->appends([
+			'orderby' => Input::get('orderby'), 
+			'direction' => Input::get('direction')
+		])->links(); ?>
+
+	</div>
+	<?php endif; ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('script'); ?>
+
+<script type="text/javascript">
+<!--
+
+	$(document).ready(function(e){
+
+		<?php echo $__env->make('js/footable', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/icheck', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/all_checked', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('js/multi_delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo SearchStrap::js(); ?>
+
+		
+	});
+
+//-->
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', [
+	'page_title' => '企業の一覧',
+	'bakery_params' => [
+		'admin.dashboard' => 'ホーム', 
+		'*' => '企業の一覧'
+	]
+], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
